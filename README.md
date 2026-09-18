@@ -11,8 +11,6 @@
 
 代码世界模型论文与资源精选：可执行动力学、程序化仿真，以及通过编程构建和理解世界的智能体。
 
-Inspired by [Awesome-World-Models](https://github.com/knightnemo/Awesome-World-Models), with a dedicated focus on **code as the world representation**.
-
 </div>
 
 ## News
@@ -232,6 +230,8 @@ python3 scripts/check_readme.py
 The check validates entry structure, dates, duplicates, ordering, and local links; it does not certify scientific claims or external-link availability.
 
 ## Acknowledgements
+
+Inspired by [Awesome-World-Models](https://github.com/knightnemo/Awesome-World-Models), with a dedicated focus on **code as the world representation**.
 
 - [knightnemo/Awesome-World-Models](https://github.com/knightnemo/Awesome-World-Models) inspired the repository layout and supplied initial discovery leads.
 - The researchers and maintainers who publish papers, code, environments, and benchmarks.

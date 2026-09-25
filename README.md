@@ -15,10 +15,11 @@
 
 ## News
 
+- **2026-09-25** — Added **CoDeR** and **GameDirector** (both first submitted September 22): **29 papers** in the collection. The entries distinguish synthesized executable worlds from predefined gameplay rules coupled to video rendering.
 - **2026-09-18** — Initial collection: **27 papers**, spanning 2024–2026, with primary-source links, short summaries, and explicit scope labels.
-- **September 2026 reading highlights** — *Programmable World Model*, *Recursive Code World Models*, and the related graph-based planning work *GAVEL*. See the categories below for their different roles.
+- **September 2026 reading highlights** — *CoDeR*, *GameDirector*, *Programmable World Model*, *Recursive Code World Models*, and the related graph-based planning work *GAVEL*. See the categories below for their different roles.
 
-**Last literature search: September 18, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: September 25, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -66,7 +67,7 @@ This working definition organizes the list; it is not a claim that every include
 Suggested reading paths, rather than a ranking:
 
 1. **Origins → program synthesis:** WorldCoder → GIF-MCTS / CWMB → TheoryCoder → PoE-World.
-2. **Coding agent → persistent visual world:** Code World Model → Programmable World Model.
+2. **Coding agent → persistent visual world:** Code World Model → Programmable World Model → CoDeR; compare GameDirector's predefined gameplay rules and perception-driven state updates.
 3. **Physical reasoning → executable representation:** Code as Worlds → Code2Worlds; compare their reasoning and generation objectives.
 4. **Online discovery → planning:** PatchWorld → Tycho → Twin; compare offline trajectory fitting with test-time interaction and repair.
 5. **Evaluation:** Text2World → WorldCoder-Bench → Ego2World; distinguish domain correctness, executable behavior, and belief-state planning.
@@ -74,6 +75,14 @@ Suggested reading paths, rather than a ranking:
 Find the papers and official resources in the categories below.
 
 ## Code-driven world evolution and physical reasoning
+
+- **[2026-09-22] Code Plans, Diffusion Renders: Open-Ended Generative World Modeling** — `Core` · **CoDeR**  
+  Coordinates five roles to turn high-level concepts into executable world rules and dynamics, with video models rendering observations of persistent, autonomously evolving multi-agent worlds.  
+  [Paper](https://arxiv.org/abs/2609.26458) · [Project](https://becauseimbatman0.github.io/CoDeR)
+
+- **[2026-09-22] GameDirector: Decoupling Gameplay Logic from Rendering for Player-Configurable Game World Models** — `Core`  
+  Maintains explicit combat state through predefined deterministic rules driven by detected gameplay events, selects NPC actions, and prompts a video renderer; it does not synthesize unknown game dynamics.  
+  [Paper](https://arxiv.org/abs/2609.25652) · [Project](https://jimntu.github.io/gamedirector/)
 
 - **[2026-09-09] Programmable World Model** — `Core`  
   Separates persistent state and executable transition rules from video rendering, using state-augmented 3D bounding boxes as the bridge; introduces CombatStateBench.  

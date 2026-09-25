@@ -2,8 +2,8 @@
 
 ## Snapshot
 
-- Search and verification date: **2026-09-18**.
-- Initial collection: **27 distinct papers**.
+- Search and verification date: **2026-09-25**.
+- Current collection: **29 distinct papers** (27 in the initial September 18 snapshot; 2 added September 25).
 - Maintainer account: **yifliu3**.
 - Discovery seed: [Awesome-World-Models](https://github.com/knightnemo/Awesome-World-Models).
 - Metadata source: each entry's linked arXiv abstract page.
@@ -25,6 +25,36 @@ world AND symbolic
 The broad code query and executable query were inspected newest-first, including September 2026 results. Targeted searches and the seed list supplied earlier work. Some API requests were rate-limited; successful arXiv website searches and individual paper pages were used instead.
 
 The collection is selective. The search queries and inspected result windows do not establish exhaustive coverage, and unrelated results were excluded after examining their titles and abstracts.
+
+## September 25, 2026 update
+
+This incremental search focused on papers announced since the September 18 snapshot, with results available through September 24. The seed list was checked again, alongside newest-first arXiv website searches:
+
+```text
+"world model" code
+"world models" executable
+"code world"
+"world model" programmatic
+"world model" "program synthesis"
+"world model" symbolic
+"executable world"
+"world" "code" "dynamics"
+"GUI" "world model"
+"world" "simulator synthesis"
+```
+
+The inspected windows covered the newest 50 results for the broad code query, 25 for the executable query, up to 20 for the targeted representation queries, and up to 15 for the dynamics, GUI, and simulator-synthesis queries. Older results supplied context; this update is not a systematic backfill of earlier literature. Search-result dates were not used in place of the abstract pages' v1 submission histories.
+
+Two papers were added:
+
+| Paper | Verified first submission | Scope and resource provenance |
+| :--- | :--- | :--- |
+| [CoDeR](https://arxiv.org/abs/2609.26458) | September 22, 2026 | The abstract describes executable world code and links the [author project page](https://becauseimbatman0.github.io/CoDeR). Its code button is marked “Coming soon”; no repository link is included. |
+| [GameDirector](https://arxiv.org/abs/2609.25652) | September 22, 2026 | The abstract page links the [author project page](https://jimntu.github.io/gamedirector/). The [paper HTML](https://arxiv.org/html/2609.25652), including its rule-following implementation, confirms predefined deterministic combat rules driven by visual detections. It is included for explicit code-driven state evolution, not learned or synthesized dynamics; no official repository was verified. |
+
+Both titles and dates were checked against the arXiv abstract pages. The two new paper links and two project links returned HTTP 200. GameDirector's reported perfect state alignment measures consistency with its own detected hit signals, not perfect recovery of hidden game states; the README therefore makes no accuracy claim.
+
+Recent candidates outside the collection's focus were also screened. [PileBelief](https://arxiv.org/abs/2609.22858) uses learned physical belief and memory rather than executable world programs. [HappyWorld-Bench](https://arxiv.org/abs/2609.24308) was checked at abstract and selected full-text sections; its broad video, spatial, and embodied evaluation focus did not warrant a dedicated entry in this code-focused update.
 
 ## What was checked
 

@@ -2,8 +2,8 @@
 
 ## Snapshot
 
-- Search and verification date: **2026-09-25**.
-- Current collection: **29 distinct papers** (27 in the initial September 18 snapshot; 2 added September 25).
+- Search and verification date: **2026-09-28**.
+- Current collection: **30 distinct papers** (27 in the initial September 18 snapshot; 2 added September 25; 1 added September 28).
 - Maintainer account: **yifliu3**.
 - Discovery seed: [Awesome-World-Models](https://github.com/knightnemo/Awesome-World-Models).
 - Metadata source: each entry's linked arXiv abstract page.
@@ -55,6 +55,14 @@ Two papers were added:
 Both titles and dates were checked against the arXiv abstract pages. The two new paper links and two project links returned HTTP 200. GameDirector's reported perfect state alignment measures consistency with its own detected hit signals, not perfect recovery of hidden game states; the README therefore makes no accuracy claim.
 
 Recent candidates outside the collection's focus were also screened. [PileBelief](https://arxiv.org/abs/2609.22858) uses learned physical belief and memory rather than executable world programs. [HappyWorld-Bench](https://arxiv.org/abs/2609.24308) was checked at abstract and selected full-text sections; its broad video, spatial, and embodied evaluation focus did not warrant a dedicated entry in this code-focused update.
+
+## September 28, 2026 update
+
+This incremental search checked for new work since September 25, including the September 28 arXiv announcements. The seed list and newest-first arXiv searches for code, executable, programmatic, symbolic, program-synthesis, and GUI world models were revisited. Additional searches for `"world model"`, `"world" "program"`, and `"world" "executable"` broadened discovery beyond papers using the code-world-model name. Up to 20 results per query were inspected, together with relevant titles in the September 28 cs.AI and cs.CV announcements. This remains a selective update rather than an exhaustive search or systematic backfill.
+
+Added [RIVET: Representation-Guided Generation and Integration of Executable Programs for Robot Manipulation](https://arxiv.org/abs/2609.31337), first submitted **September 25, 2026**. The title and date were verified on the abstract page. The [paper HTML](https://arxiv.org/html/2609.31337) describes generated `perceive`, `render`, `relate`, and `plan` functions; the planning section explicitly defines action preconditions and a state-transition function over object poses and relations. This supports inclusion under **Related** for executable task-level transition modeling, without implying discovery of a general physical simulator. No official project or repository link was verified on the paper pages. Both the abstract and HTML URLs returned HTTP 200.
+
+New adjacent work was screened but not added: [MA-WAM](https://arxiv.org/abs/2609.31281) plans with learned joint-action predictions, [AtomWorld-Mem](https://arxiv.org/abs/2609.31133) restores latent state while an existing simulator governs physical execution, and [OneWorld](https://arxiv.org/abs/2609.30946) constrains video predictions through shared latent physical mechanisms. [ExplorationBench](https://arxiv.org/abs/2609.30199), first submitted September 24, was also checked in full-text sections: its worlds are a modified programming language and deduction system, which fall under the list's exclusion of program-execution semantics without external-environment modeling. Revisions, including AD-WM's September 25 v2, were not counted as new papers.
 
 ## What was checked
 

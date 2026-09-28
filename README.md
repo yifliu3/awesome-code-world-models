@@ -15,11 +15,12 @@
 
 ## News
 
+- **2026-09-28** — Added **RIVET** (first submitted September 25) under related symbolic and neurosymbolic planning: **30 papers** in the collection. Its generated programs share object poses and relations and explicitly define action preconditions and state transitions.
 - **2026-09-25** — Added **CoDeR** and **GameDirector** (both first submitted September 22): **29 papers** in the collection. The entries distinguish synthesized executable worlds from predefined gameplay rules coupled to video rendering.
 - **2026-09-18** — Initial collection: **27 papers**, spanning 2024–2026, with primary-source links, short summaries, and explicit scope labels.
 - **September 2026 reading highlights** — *CoDeR*, *GameDirector*, *Programmable World Model*, *Recursive Code World Models*, and the related graph-based planning work *GAVEL*. See the categories below for their different roles.
 
-**Last literature search: September 25, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: September 28, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -174,6 +175,10 @@ These papers construct executable environments; their goals differ from identify
 ## Related symbolic and neurosymbolic planning
 
 These works are included for their explicit transition representations and verification or planning interfaces, not because all of them synthesize general-purpose simulators.
+
+- **[2026-09-25] Representation-Guided Generation and Integration of Executable Programs for Robot Manipulation** — `Related` · **RIVET**  
+  Generates reusable perception, rendering, relation-inference, and planning programs around shared object poses and a relation graph; the planner encodes task-level action preconditions and state transitions for manipulation.  
+  [Paper](https://arxiv.org/abs/2609.31337)
 
 - **[2026-09-16] GAVEL: Graph World Models for Verified and Efficient Long-Horizon LLM Task Planning** — `Related`  
   Uses a graph model of relations, action conditions/effects, and uncertain object locations to verify, repair, and reorder long-horizon plans.  

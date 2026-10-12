@@ -15,6 +15,7 @@
 
 ## News
 
+- **2026-10-12** — Added **StreamRender-H3** (NVIDIA) and **EdenLive** (VAST) to the new [project releases and rendering infrastructure](#project-releases-and-rendering-infrastructure) section. The collection now contains **49 papers** plus **2 project releases**; projects can be listed with verified official links without a paper. StreamRender-H3 provides source code in Sana's `sol-engine` branch; EdenLive's code release is announced for release by October 18, not yet available in the inspected repository.
 - **2026-10-12** — Added **5 entries**, bringing the collection to **49 papers**: **RoleWorld** and **VETR** (first submitted October 9), plus backfills **WorldSolver**, **Real2Gym**, and **OPINE-World**. Updated **PROWBench** and **World Agent** release notes after checking their published resources; see [SOURCES.md](SOURCES.md) for unavailable author links and release boundaries.
 - **2026-10-09** — Added **14 entries**, bringing the collection to **44 papers**: 11 first submitted after September 28, **EMPIRIC** from September 28, and two earlier September backfills (**World Agent**, **BVB**). Highlights include **AgentGarten**, **Memento 3**, **LLM-IDEA**, **Kepler**, **Video2World**, **World Editing**, and **PROWBench**; see [SOURCES.md](SOURCES.md) for scope decisions and resource-release caveats.
 - **2026-09-28** — Added **RIVET** (first submitted September 25) under related symbolic and neurosymbolic planning: **30 papers** in the collection. Its generated programs share object poses and relations and explicitly define action preconditions and state transitions.
@@ -28,6 +29,7 @@
 
 - [Scope and taxonomy](#scope-and-taxonomy)
 - [Start here](#start-here)
+- [Project releases and rendering infrastructure](#project-releases-and-rendering-infrastructure)
 - [Code-driven world evolution and physical reasoning](#code-driven-world-evolution-and-physical-reasoning)
 - [Learning executable dynamics and planning](#learning-executable-dynamics-and-planning)
 - [GUI world models](#gui-world-models)
@@ -44,7 +46,7 @@
 
 Here, a **code world model** uses an executable program to represent environment state, transition rules, physical mechanisms, or action-conditioned observations. A coding agent can synthesize, test, and revise this program; a planner or renderer can then execute it.
 
-This working definition organizes the list; it is not a claim that every included paper adopts the same terminology.
+This working definition organizes the list; it is not a claim that every included paper or project adopts the same terminology.
 
 | Label | Included work | Important distinction |
 | :--- | :--- | :--- |
@@ -54,15 +56,17 @@ This working definition organizes the list; it is not a claim that every include
 | **Related** | PDDL, graph, and neurosymbolic models used for simulation or planning | Symbolic models need not be general-purpose code world models. |
 | **Benchmark** | Evaluation of executable worlds, generated domains, or state-grounded planning | A benchmark may supply rather than learn a world model. |
 | **Perspective** | Engine-verified data generation and browser-backed coding | Relevant infrastructure or arguments, not equivalent model architectures. |
+| **Release** | Official projects and rendering infrastructure explicitly connected to code-defined worlds | A paper is optional; a renderer is not itself an executable dynamics model. |
 
 **Not included by default:** generic coding agents, ordinary code-generation benchmarks, purely pixel/latent world models, and static graphics generation without an explicit executable-world connection. Likewise, models of *program execution* are a separate topic unless they model an external environment.
 
 **Entry conventions**
 
-- Dates are the first-submission dates reported on the arXiv abstract pages, not dates inferred from identifiers or later revisions. Entries are newest-first within each category.
+- Paper dates are the first-submission dates reported on the arXiv abstract pages, not dates inferred from identifiers or later revisions. Paper entries are newest-first within each category.
 - Summaries describe the authors' proposed method; inclusion is not an independent validation of results.
 - Paper links are primary sources. Repository links are author-linked resources; their presence does **not** guarantee a complete, runnable code release.
 - When no official resource was verified, only the paper is linked. Publication venues are omitted unless separately checked; do not infer peer-review status from inclusion.
+- Project releases need only a verified name and official release, repository, or project URL; a paper is optional. Their verification dates are not publication dates. Announcements, placeholder repositories, and runnable code releases are distinguished, and projects are counted separately from papers.
 - See [SOURCES.md](SOURCES.md) for search coverage, provenance, and limitations.
 
 ## Start here
@@ -76,6 +80,19 @@ Suggested reading paths, rather than a ranking:
 5. **Evaluation:** Text2World → WorldCoder-Bench → Video2World; compare WorldSolver for generated physical solvers, World Editing for interventions, PROWBench for program-to-render fidelity, and Ego2World for belief-state planning.
 
 Find the papers and official resources in the categories below.
+
+## Project releases and rendering infrastructure
+
+Official projects connected to code-defined worlds, including projects without a verified paper. Dates below record resource checks, not necessarily first release; entries are newest-checked first. These resources are counted separately from the paper list.
+
+| Project | Organization | Verified on | Official resources | Release status |
+| :--- | :--- | :--- | :--- | :--- |
+| **StreamRender-H3** | NVIDIA | 2026-10-12 | [Project](https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/) · [Source code](https://github.com/NVlabs/Sana/tree/sol-engine/models/streamrender_h3) | Project page and runtime source available; deployment requires external model weights and a compatible multi-GPU environment. No standalone paper destination verified. |
+| **EdenLive** | VAST | 2026-10-12 | [Project](https://vast-eden.ai/?p=edenlive) · [Repository](https://github.com/VAST-AI-Research/EdenLive) | Project page and announcement repository available; code announced for release by **2026-10-18**. No paper destination verified. |
+
+**StreamRender-H3** connects a code game engine that maintains maps, physics, rules, and player feedback to a streaming MiniMax-H3 renderer through semantic frame maps. The published demo is racing-specific; it does not establish learned executable dynamics or generalization to other games.
+
+**EdenLive** renders proxy or reference video streams from coding agents, existing engines, or recorded footage. World state and interaction rules remain in upstream code or engines; it is included as rendering infrastructure, not as a model that synthesizes executable dynamics.
 
 ## Code-driven world evolution and physical reasoning
 
@@ -316,7 +333,7 @@ Questions to keep in mind while comparing these approaches:
 
 ## Contributing
 
-Paper suggestions, corrections, and verified official resources are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md), then open an issue or pull request.
+Paper and project suggestions, corrections, and verified official resources are welcome. A paper is not required for a project release. Read [CONTRIBUTING.md](CONTRIBUTING.md), then open an issue or pull request.
 
 Run the local structural checks before submitting:
 

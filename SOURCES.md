@@ -4,10 +4,11 @@
 
 - Search and verification date: **2026-10-12**.
 - Current collection: **49 distinct papers** (27 in the initial September 18 snapshot; 2 added September 25; 1 added September 28; 14 added October 9; 5 added October 12).
+- Separately tracked: **2 project releases**, added October 12. A verified paper is not required for these official resources.
 - Maintainer account: **yifliu3**.
 - Discovery seed: [Awesome-World-Models](https://github.com/knightnemo/Awesome-World-Models).
 - Metadata source: each entry's linked arXiv abstract page.
-- Official resource provenance: links on paper abstract/full-text pages or the authors' project pages.
+- Official resource provenance: links on paper abstract/full-text pages, the authors' project pages, or organization-controlled release pages and repositories.
 
 ## Discovery
 
@@ -166,6 +167,23 @@ The October 9 provenance record above preserves what was observed then; it is no
 ### Validation
 
 All **11** added or release-updated README destinations returned HTTP 200: five paper pages, the Real2Gym project and two repositories, the PROWBench dataset and repository, and the World Agent repository. The five added titles and first-submission dates also matched the abstract pages' citation metadata. `python3 scripts/check_readme.py` passed for **49** unique papers; the diff check passed with the README's existing two-space Markdown hard breaks allowed. These checks establish metadata consistency and link availability, not reproducibility or scientific validity.
+
+## October 12, 2026 project-release update
+
+This targeted follow-up checked the requested NVIDIA and VAST release leads, independently of the literature search above. Official project releases can now be listed without a paper and are not counted as additional papers.
+
+### Added projects and provenance
+
+| Project | Verified on | Primary-source evidence and release boundary |
+| :--- | :--- | :--- |
+| **[StreamRender-H3](https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/)** (NVIDIA) | October 12, 2026 | The user supplied the NVlabs-hosted project page, which verifies the name and links the [runtime source](https://github.com/NVlabs/Sana/tree/sol-engine/models/streamrender_h3). Its architecture sections describe a code game engine maintaining maps, physics, rules, and player feedback, with semantic frame maps conditioning a streaming MiniMax-H3 renderer. The [runtime README](https://raw.githubusercontent.com/NVlabs/Sana/sol-engine/models/streamrender_h3/README.md) documents engine, renderer, session runtime, launch scripts, and tests, with external model weights and an eight-GPU deployment profile. The project page's citation section labels this resource as a project page and separately cites the underlying Sol-Engine paper; that paper is not treated as a standalone StreamRender-H3 paper or added to the paper count. The page explicitly limits its reported results to the racing scenario. |
+| **[EdenLive](https://vast-eden.ai/?p=edenlive)** (VAST) | October 12, 2026 | The organization-controlled [repository](https://github.com/VAST-AI-Research/EdenLive) and its [README](https://raw.githubusercontent.com/VAST-AI-Research/EdenLive/main/README.md) link the project page. The [project-page data](https://vast-eden.ai/data/projects.js) links the same repository and explicitly leaves state, rules, collisions, and interactions in upstream coding-agent or engine programs. The renderer consumes proxy/reference frames. Both the page and repository announce open-sourcing **by October 18, 2026**; the inspected repository is an announcement, not a runnable code release. The project's paper button points to `#`, so no paper link is included. |
+
+The requested spelling `endlive` resolves to the official name **EdenLive**. GitHub's repository-search API returned `VAST-AI-Research/EdenLive` with a creation timestamp of `2026-10-12T01:57:33Z`; this establishes repository creation, not an independently verified first-announcement date. The README table therefore uses the verification date rather than asserting a publication date.
+
+The NVIDIA lead initially spelled `streamh3render` was resolved to **StreamRender-H3** after the user supplied its official project page. Earlier exact-name and spelling-variant searches had not established a match; the user-supplied destination and its source-code link supplied the missing primary-source evidence. No first-publication date is inferred from the date of verification.
+
+The StreamRender-H3 project page, runtime source directory, and raw README, together with the EdenLive project page, GitHub repository, raw README, and project-page data, were retrieved successfully. No code, weights, or experiments were executed. The existing paper structural check remains unchanged: the separate table does not require an arXiv link or affect paper counts, and project names, counts, dates, and external destinations are checked manually.
 
 ## What was checked
 

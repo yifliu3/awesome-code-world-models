@@ -2,8 +2,8 @@
 
 ## Snapshot
 
-- Search and verification date: **2026-10-09**.
-- Current collection: **44 distinct papers** (27 in the initial September 18 snapshot; 2 added September 25; 1 added September 28; 14 added October 9).
+- Search and verification date: **2026-10-12**.
+- Current collection: **49 distinct papers** (27 in the initial September 18 snapshot; 2 added September 25; 1 added September 28; 14 added October 9; 5 added October 12).
 - Maintainer account: **yifliu3**.
 - Discovery seed: [Awesome-World-Models](https://github.com/knightnemo/Awesome-World-Models).
 - Metadata source: each entry's linked arXiv abstract page.
@@ -117,6 +117,55 @@ All **32** newly added README paper, project, and repository destinations return
 - [Trace2Env](https://arxiv.org/abs/2610.06100) and [Long-Horizon Textual World Modeling](https://arxiv.org/abs/2610.06637) use language models to predict observations or state deltas. The latter has a deterministic state-update operator, but this is not a learned reusable transition-rule program. [E-LEDGER](https://arxiv.org/abs/2610.11552) similarly does not establish an executable learned transition simulator in the inspected sections.
 - [Code to Control](https://arxiv.org/abs/2609.38733) generates controllers, not environment models. [CURIO](https://arxiv.org/abs/2610.04851), [DreamTest](https://arxiv.org/abs/2610.04494), and [Flow Policies as Actions of Skill-Level World Models](https://arxiv.org/abs/2610.04767) primarily use learned latent dynamics; the last also contains hand-written symbolic scaffolding, which was insufficient for a dedicated entry in this update.
 - [OPINE-World](https://arxiv.org/abs/2607.01531) was noted as a historical backfill lead; its July 1 v1 and September revision do not make it a new paper in this search window.
+
+## October 12, 2026 update
+
+This search checked work publicly available on October 12, including October 9 submissions. It added **5 papers**: **RoleWorld** and **VETR** first submitted October 9, plus **WorldSolver** (October 6), **Real2Gym** (September 29), and **OPINE-World** (July 1) as backfills. These additions are not all newly submitted papers. Revisions and resource releases were not counted as additional papers.
+
+### Search coverage
+
+The discovery seed was revisited. The arXiv API was queried newest-first by submission date with these searches:
+
+```text
+"world model"
+"world model" AND code
+world AND (executable OR programmatic OR "program synthesis")
+(simulator OR dynamics OR physics) AND ("program synthesis" OR "executable code")
+("symbolic world model" OR PDDL OR "simulator synthesis")
+(GUI AND "world model") OR "programmatic world" OR "executable world"
+```
+
+The inspected windows were 60 results for the broad world-model query, 30 for the world/executable/programmatic query, and 25 for each remaining query. The broad query's October 9 entries and relevant targeted results were screened; older targeted results supplied backfill leads. The prior OPINE-World lead was checked in selected full-text sections. General web search returned no usable results, so discovery and verification relied on direct arXiv API, abstract, HTML, and author-resource retrieval. This remains a selective search, not exhaustive coverage or a systematic historical backfill.
+
+### Added papers and provenance
+
+| Paper | Verified first submission | Scope and primary-source evidence |
+| :--- | :--- | :--- |
+| [RoleWorld](https://arxiv.org/abs/2610.13172) | October 9, 2026 | **Related.** [Sections 3.1–3.2 and Appendix A.1](https://arxiv.org/html/2610.13172v1) specify induced role prototypes and executable condition/effect rules in a predefined DSL. The interpreter and event semantics are supplied; target-world adaptation changes role assignments and parameters, not the shared rules. The paper-linked [project destination](https://future-item.github.io/RoleWorld) returned HTTP 404, with and without a trailing slash, so the README links only the paper. |
+| [VETR](https://arxiv.org/abs/2610.13098) | October 9, 2026 | **Construction.** [Section 2 and Appendix R](https://arxiv.org/html/2610.13098v1) use executable Blender programs, bounded write traces, and runtime state/binding checks for scene repair. Programs execute relative to a supplied base scene, rather than necessarily constructing a standalone world. Included for execution-grounded modification of explicit scene programs, not learned physical dynamics. No official project or repository was verified on the inspected paper pages. |
+| [WorldSolver](https://arxiv.org/abs/2610.08720) | October 6, 2026 | **Benchmark; backfill.** [Section 2 and Appendix A](https://arxiv.org/html/2610.08720v1) isolate generated physics solvers within fixed scene scaffolds and evaluate execution, visual fidelity, and trajectory-level physical plausibility. The paper-linked [repository destination](https://github.com/sirujiang/WorldSolver) returned HTTP 404; the README does not advertise it as available code. |
+| [Real2Gym](https://arxiv.org/abs/2609.37089) | September 29, 2026 | **Construction; backfill.** [Section 3.1](https://arxiv.org/html/2609.37089v1) constructs aligned Blender/MuJoCo scenes, validates contact and task execution under native physics, and augments executable environments. This uses existing-engine dynamics rather than synthesizing new physical laws. The abstract links the [project](https://real2gym.github.io/), which links the [Real2Sim repository](https://github.com/real2gym/Real2Gym) and [agent repository](https://github.com/real2gym/R2G_Agent). The agent README explicitly limits its release to continuous stage-code execution without the persistent experience library; assets and external services are not bundled. |
+| [OPINE-World](https://arxiv.org/abs/2607.01531) | July 1, 2026 | **Core; historical backfill.** [Sections 3.1–3.2 and Appendix B](https://arxiv.org/html/2607.01531v3) combine qualitative hypotheses, Bayesian effect uncertainty, and synthesized Python extraction/transition/reward components with counterexample-guided repair and replay checks. September 26 is v3, not v1. No official project or repository was verified on the inspected paper pages. |
+
+All five titles and v1 submission dates were checked on their arXiv abstract pages. Summaries are original descriptions of the inspected representation and execution interfaces, not independent validations of results.
+
+### Resource-status corrections
+
+- **PROWBench:** the [official repository](https://github.com/AlayaLab/PROWBench) announces an October 11 dataset and representation-swap release, and now lists engine recordings, example representations, and evaluation code as available. Its [evaluation guide](https://github.com/AlayaLab/PROWBench/blob/main/eval/USAGE.md) was inspected, and the author-linked [Hugging Face dataset](https://huggingface.co/datasets/AlayaLab/PROWBench) was verified as public and ungated with published recording, event, scene, and preview files. The world-generation pipeline remains unchecked on the roadmap. The README's October 9 pending-release note was replaced and a dataset link added.
+- **World Agent:** the [official repository](https://github.com/HCPLab-SYSU/WorldAgent-Benchmark) now provides benchmark cases and evaluation scripts. Its README and [maintenance runtime source](https://github.com/HCPLab-SYSU/WorldAgent-Benchmark/blob/main/benchmark/maintenance_track/runtime/engine.py) were inspected. Playback, rendering, and the playable demo remain pending. The old placeholder note was replaced; no precise release date is asserted.
+- **AgentGarten** and **World Editing:** their official repository READMEs were rechecked. AgentGarten still lists code worlds and the agent practice loop as forthcoming; World Editing remains marked Coming Soon. Their existing caveats were retained.
+
+The October 9 provenance record above preserves what was observed then; it is not the current release status of these repositories. No model weights, research code, robot control, or evaluations were executed during this update.
+
+### Screened but not added
+
+- [RSI-Anything](https://arxiv.org/abs/2610.13912) uses JEPA-based latent prediction and outcome readouts, including for code repair; [Section 2.2](https://arxiv.org/html/2610.13912v1) does not make generated executable code the environment model. [JANUS](https://arxiv.org/abs/2610.13194) scores research actions through expected-return forecasts ([Section 3.1](https://arxiv.org/html/2610.13194v1)), rather than synthesizing a reusable executable environment-transition program.
+- [GLIMPSE](https://arxiv.org/abs/2610.13706), [Dream to Remember](https://arxiv.org/abs/2610.13816), and [HF-WM](https://arxiv.org/abs/2610.13522) focus on learned video/latent predictions or their use for policy learning, not executable world-rule synthesis.
+- [Code4Scene](https://arxiv.org/abs/2609.36777) explicitly evaluates static engine-native construction and editing. It remains outside the default static-graphics scope in this update; VETR is included specifically for its runtime-trace-driven program repair and preservation checks. [Fly-by-Code](https://arxiv.org/abs/2610.12549) synthesizes policies and diagnostic probes in an existing simulator, rather than the simulator's world model.
+
+### Validation
+
+All **11** added or release-updated README destinations returned HTTP 200: five paper pages, the Real2Gym project and two repositories, the PROWBench dataset and repository, and the World Agent repository. The five added titles and first-submission dates also matched the abstract pages' citation metadata. `python3 scripts/check_readme.py` passed for **49** unique papers; the diff check passed with the README's existing two-space Markdown hard breaks allowed. These checks establish metadata consistency and link availability, not reproducibility or scientific validity.
 
 ## What was checked
 

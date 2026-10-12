@@ -15,13 +15,14 @@
 
 ## News
 
+- **2026-10-12** — Added **5 entries**, bringing the collection to **49 papers**: **RoleWorld** and **VETR** (first submitted October 9), plus backfills **WorldSolver**, **Real2Gym**, and **OPINE-World**. Updated **PROWBench** and **World Agent** release notes after checking their published resources; see [SOURCES.md](SOURCES.md) for unavailable author links and release boundaries.
 - **2026-10-09** — Added **14 entries**, bringing the collection to **44 papers**: 11 first submitted after September 28, **EMPIRIC** from September 28, and two earlier September backfills (**World Agent**, **BVB**). Highlights include **AgentGarten**, **Memento 3**, **LLM-IDEA**, **Kepler**, **Video2World**, **World Editing**, and **PROWBench**; see [SOURCES.md](SOURCES.md) for scope decisions and resource-release caveats.
 - **2026-09-28** — Added **RIVET** (first submitted September 25) under related symbolic and neurosymbolic planning: **30 papers** in the collection. Its generated programs share object poses and relations and explicitly define action preconditions and state transitions.
 - **2026-09-25** — Added **CoDeR** and **GameDirector** (both first submitted September 22): **29 papers** in the collection. The entries distinguish synthesized executable worlds from predefined gameplay rules coupled to video rendering.
 - **2026-09-18** — Initial collection: **27 papers**, spanning 2024–2026, with primary-source links, short summaries, and explicit scope labels.
 - **October 2026 reading highlights** — *AgentGarten* for code-defined practice worlds; *Memento 3* for executable rulebooks; *Video2World*, *World Editing*, and *PROWBench* for complementary evaluation of world construction, modification, and rendering. See the categories below for their different roles.
 
-**Last literature search: October 9, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: October 12, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -68,11 +69,11 @@ This working definition organizes the list; it is not a claim that every include
 
 Suggested reading paths, rather than a ranking:
 
-1. **Origins → program synthesis:** WorldCoder → GIF-MCTS / CWMB → TheoryCoder → PoE-World.
+1. **Origins → program synthesis:** WorldCoder → GIF-MCTS / CWMB → TheoryCoder → PoE-World; compare OPINE-World for uncertain abstractions and RoleWorld for transferable role-level rules.
 2. **Coding agent → persistent visual world:** Code World Model → Programmable World Model → CoDeR → AgentGarten; compare GameDirector's predefined gameplay rules and perception-driven state updates.
 3. **Physical reasoning → executable representation:** Code as Worlds → Code2Worlds; compare their reasoning and generation objectives.
 4. **Online discovery → planning:** PatchWorld → Tycho → Twin → Kepler → Memento 3; compare EMPIRIC's learned residual mechanisms on top of a physics engine.
-5. **Evaluation:** Text2World → WorldCoder-Bench → Video2World; compare World Editing for interventions, PROWBench for program-to-render fidelity, and Ego2World for belief-state planning.
+5. **Evaluation:** Text2World → WorldCoder-Bench → Video2World; compare WorldSolver for generated physical solvers, World Editing for interventions, PROWBench for program-to-render fidelity, and Ego2World for belief-state planning.
 
 Find the papers and official resources in the categories below.
 
@@ -134,6 +135,10 @@ Find the papers and official resources in the categories below.
   Builds and tests executable game hypotheses while deciding when model construction, repair, planning, or bypassing the model is worth the interaction cost.  
   [Paper](https://arxiv.org/abs/2607.28287) · [Repository](https://github.com/NIMI-research/Tycho)
 
+- **[2026-07-01] OPINE-World: Programmatic World Modeling with Ontology-error-Prioritized Interactive Exploration for ARC-AGI-3** — `Core`  
+  Couples qualitative object hypotheses and Bayesian effect diagnostics with synthesized Python transition and reward models, using targeted exploration and replay-based repair to revise both abstractions and executable mechanics.  
+  [Paper](https://arxiv.org/abs/2607.01531)
+
 - **[2026-06-14] Mind-Studio: Executable World Models with Lookahead Evaluation for Partially Observable Games** — `Core`  
   Synthesizes standalone pygame-style world programs from interaction traces and screenshot-derived information, evaluating their multi-step lookahead fidelity.  
   [Paper](https://arxiv.org/abs/2606.16070)
@@ -184,6 +189,10 @@ Find the papers and official resources in the categories below.
 
 These papers construct executable environments; their goals differ from identifying unknown transition dynamics through interaction.
 
+- **[2026-10-09] VETR: Execution-Grounded Self-Improving Agent for Symbolic Graphics Reasoning** — `Construction`  
+  Refines Blender scene-editing programs using captured writes, state, and resource bindings, checking realized changes and preservation of captured properties before visual verification; it does not learn physical transition dynamics.  
+  [Paper](https://arxiv.org/abs/2610.13098)
+
 - **[2026-10-08] USDCraft: Geometrically Grounded Programmatic Modeling of Articulated 3D Assets for Simulation** — `Construction`  
   Writes and revises executable asset programs from partial geometric evidence, producing articulated USD assets with explicit physical properties for simulation.  
   [Paper](https://arxiv.org/abs/2610.11322) · [Project](https://xingyoujun.github.io/usdcraft/)
@@ -191,6 +200,11 @@ These papers construct executable environments; their goals differ from identify
 - **[2026-10-03] EnvDreamer: Large-Scale Multimodal-to-Environment Generation for Embodied AI** — `Construction`  
   Compiles language- and image-conditioned scene plans and task specifications into executable Unreal Engine environments, iteratively checking playability, physical consistency, and task completion.  
   [Paper](https://arxiv.org/abs/2610.04301)
+
+- **[2026-09-29] Real2Gym: Building Gyms from Videos, Bringing Skills to Robots** — `Construction`  
+  Reconstructs Blender and MuJoCo environments from human or robot demonstrations, validates interactions and scene variations through native physics, and uses the resulting gyms for feedback-driven manipulation skill development.  
+  [Paper](https://arxiv.org/abs/2609.37089) · [Project](https://real2gym.github.io/) · [Real2Sim repository](https://github.com/real2gym/Real2Gym) · [Agent repository](https://github.com/real2gym/R2G_Agent)  
+  *Release note: the agent repository provides continuous stage-code execution, not the paper's persistent experience library; scene assets and external perception/model services are required.*
 
 - **[2026-09-10] Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs** — `Construction` · **RCWM**  
   Reconstructs a complex 3D scene from a reference image through recursive scene programs and nested render–compare–edit loops.  
@@ -205,6 +219,10 @@ These papers construct executable environments; their goals differ from identify
 ## Related symbolic and neurosymbolic planning
 
 These works are included for their explicit transition representations and verification or planning interfaces, not because all of them synthesize general-purpose simulators.
+
+- **[2026-10-09] RoleWorld: Knowledge Transfer in World Modeling with Functional Role Abstractions** — `Related`  
+  Induces reusable role prototypes and executable DSL transition rules from source-world interactions, then adapts object-role assignments and parameters through target-world feedback while keeping the shared rules fixed.  
+  [Paper](https://arxiv.org/abs/2610.13172)
 
 - **[2026-10-02] CVE2AP: Automated Generation of PDDL-Encoded Attack Paths via Large Language Models** — `Related`  
   Generates domain-specific PDDL attack models from vulnerability descriptions, refining action preconditions and effects through planner feedback; this is symbolic cybersecurity planning rather than physical simulator learning.  
@@ -232,6 +250,10 @@ These works are included for their explicit transition representations and verif
 
 ## Benchmarks and evaluation
 
+- **[2026-10-06] WorldSolver: Can LLM Agents Simulate the Physical Dynamics via Solver Generation?** — `Benchmark`  
+  Evaluates generated numerical solvers on 168 tasks across seven physical domains within fixed scene scaffolds, separately checking execution, rendered behavior, and physical plausibility of state trajectories.  
+  [Paper](https://arxiv.org/abs/2610.08720)
+
 - **[2026-10-03] Video2World: Benchmarking Coding Agents for Interactive World Modeling from Embodied Videos** — `Benchmark`  
   Evaluates coding agents that reconstruct executable environments and robot behavior from embodied videos, separating geometric fidelity, dynamic fidelity, and functional correctness across 222 instances from 189 videos.  
   [Paper](https://arxiv.org/abs/2610.04432) · [Project](https://aetherlabsai.github.io/Video2World) · [Repository](https://github.com/AetherLabsAI/Video2World)
@@ -243,13 +265,13 @@ These works are included for their explicit transition representations and verif
 
 - **[2026-10-01] PROWBench: Do Video Models Render What the Program Specifies?** — `Benchmark`  
   Tests whether generated videos realize program-specified states and interactions, comparing rendered observations with replayable world records and timestamped events.  
-  [Paper](https://arxiv.org/abs/2610.02205) · [Project](https://alaya-lab.github.io/PROWBench/) · [Repository](https://github.com/AlayaLab/PROWBench)  
-  *Release note: data and evaluation code remain on the repository's release roadmap.*
+  [Paper](https://arxiv.org/abs/2610.02205) · [Project](https://alaya-lab.github.io/PROWBench/) · [Repository](https://github.com/AlayaLab/PROWBench) · [Dataset](https://huggingface.co/datasets/AlayaLab/PROWBench)  
+  *Release note: engine recordings, example representations, and evaluation code are available; the world-generation pipeline remains on the release roadmap. Resource availability was checked October 12, 2026; evaluations were not run.*
 
 - **[2026-09-26] World Agent: Can Language Models Keep a World Running?** — `Benchmark`  
   Evaluates sustained maintenance of explicit world states and action-conditioned deduction through executable world interfaces, event contracts, and deterministic reference dynamics; it does not evaluate generated simulator code.  
   [Paper](https://arxiv.org/abs/2609.32692) · [Repository](https://github.com/HCPLab-SYSU/WorldAgent-Benchmark)  
-  *Release note: the repository is currently a placeholder; benchmark code and data were not verified as released.*
+  *Release note: benchmark cases and evaluation scripts are available; playback, rendering, and the playable demo remain on the release roadmap. Resource availability was checked October 12, 2026; evaluations were not run.*
 
 - **[2026-09-14] BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender** — `Benchmark`  
   Evaluates agents that reconstruct videos as executable animated Blender scenes, measuring retained spatiotemporal facts and perceptual similarity under a shared execution budget.  

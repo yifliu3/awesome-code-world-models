@@ -13,15 +13,7 @@
 
 </div>
 
-## News
-
-- **2026-10-12** — Added **StreamRender-H3** (NVIDIA) and **EdenLive** (VAST) to the new [project releases and rendering infrastructure](#project-releases-and-rendering-infrastructure) section. The collection now contains **49 papers** plus **2 project releases**; projects can be listed with verified official links without a paper. StreamRender-H3 provides source code in Sana's `sol-engine` branch; EdenLive's code release is announced for release by October 18, not yet available in the inspected repository.
-- **2026-10-12** — Added **5 entries**, bringing the collection to **49 papers**: **RoleWorld** and **VETR** (first submitted October 9), plus backfills **WorldSolver**, **Real2Gym**, and **OPINE-World**. Updated **PROWBench** and **World Agent** release notes after checking their published resources; see [SOURCES.md](SOURCES.md) for unavailable author links and release boundaries.
-- **2026-10-09** — Added **14 entries**, bringing the collection to **44 papers**: 11 first submitted after September 28, **EMPIRIC** from September 28, and two earlier September backfills (**World Agent**, **BVB**). Highlights include **AgentGarten**, **Memento 3**, **LLM-IDEA**, **Kepler**, **Video2World**, **World Editing**, and **PROWBench**; see [SOURCES.md](SOURCES.md) for scope decisions and resource-release caveats.
-- **2026-09-28** — Added **RIVET** (first submitted September 25) under related symbolic and neurosymbolic planning: **30 papers** in the collection. Its generated programs share object poses and relations and explicitly define action preconditions and state transitions.
-- **2026-09-25** — Added **CoDeR** and **GameDirector** (both first submitted September 22): **29 papers** in the collection. The entries distinguish synthesized executable worlds from predefined gameplay rules coupled to video rendering.
-- **2026-09-18** — Initial collection: **27 papers**, spanning 2024–2026, with primary-source links, short summaries, and explicit scope labels.
-- **October 2026 reading highlights** — *AgentGarten* for code-defined practice worlds; *Memento 3* for executable rulebooks; *Video2World*, *World Editing*, and *PROWBench* for complementary evaluation of world construction, modification, and rendering. See the categories below for their different roles.
+**49 papers** and **2 project releases**.
 
 **Last literature search: October 12, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 

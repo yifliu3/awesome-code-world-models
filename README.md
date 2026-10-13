@@ -15,7 +15,7 @@
 
 **49 papers** and **2 project releases**.
 
-**Last literature search: October 12, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: October 13, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 

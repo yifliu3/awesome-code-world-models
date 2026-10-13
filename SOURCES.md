@@ -2,7 +2,7 @@
 
 ## Snapshot
 
-- Search and verification date: **2026-10-12**.
+- Search and verification date: **2026-10-13**.
 - Current collection: **49 distinct papers** (27 in the initial September 18 snapshot; 2 added September 25; 1 added September 28; 14 added October 9; 5 added October 12).
 - Separately tracked: **2 project releases**, added October 12. A verified paper is not required for these official resources.
 - Maintainer account: **yifliu3**.
@@ -184,6 +184,35 @@ The requested spelling `endlive` resolves to the official name **EdenLive**. Git
 The NVIDIA lead initially spelled `streamh3render` was resolved to **StreamRender-H3** after the user supplied its official project page. Earlier exact-name and spelling-variant searches had not established a match; the user-supplied destination and its source-code link supplied the missing primary-source evidence. No first-publication date is inferred from the date of verification.
 
 The StreamRender-H3 project page, runtime source directory, and raw README, together with the EdenLive project page, GitHub repository, raw README, and project-page data, were retrieved successfully. No code, weights, or experiments were executed. The existing paper structural check remains unchanged: the separate table does not require an arXiv link or affect paper counts, and project names, counts, dates, and external destinations are checked manually.
+
+## October 13, 2026 update
+
+This incremental search found **no newly verified, in-scope paper or project release first made public today** in the inspected sources. The collection remains **49 papers and 2 project releases**. "Today" refers to October 13 in **Asia/Shanghai (UTC+08:00)**; the search was performed through approximately 18:10 local time, not after the end of the day. This is a search outcome, not proof that no qualifying work exists.
+
+### Search coverage
+
+The discovery seed was revisited. The broad arXiv API query `"world model"` was inspected newest-first with a 60-result window, alongside the code, executable/programmatic, program-synthesis, symbolic/PDDL, simulator-synthesis, and GUI searches used in the October 12 update, with up to 25 results per targeted query. The broad feed's newest returned entry was still [RSI-Anything](https://arxiv.org/abs/2610.13912), first submitted October 9 and already screened in the prior update.
+
+An additional API query returned zero indexed matches:
+
+```text
+submittedDate:[202610120000 TO 202610132359]
+AND (all:world OR all:simulator OR all:PDDL)
+```
+
+This date-filter result describes the API response at check time; it does not establish that all submissions or announcements for October 13 were already indexed. General web search again returned no usable results, so verification relied on direct arXiv, GitHub, and author-resource retrieval.
+
+GitHub repository searches for `"world model"` returned 14 repositories created on October 13 UTC, plus 6 created between October 12 16:00 and 23:59 UTC to cover the start of the Shanghai calendar day. Names and descriptions were screened, and promising or ambiguous leads were checked against repository READMEs or project pages. Additional `code-world` and `"code world"` searches covered October 12-13. Repository creation timestamps were used only for discovery, not as verified first-release dates; these searches also cannot capture every release in an older repository.
+
+### Screened leads and release checks
+
+- [HelixWM](https://github.com/iceezhu306-lgtm/HelixWM-for-world-model) describes a shared recurrent state-space model with latent real/imagination paths, not synthesized executable environment rules. [GUI world model](https://github.com/LamShiuChing/gui-world-model) predicts DINOv2 feature changes with a transformer rather than next-screen interface code. [What Matters for World Modeling in Vision-Language-Action Models?](https://github.com/DylanMQS/WM-in-VLAs) studies predictive visual representations and policy integration; its inspected project page did not establish executable-world synthesis.
+- [World Model / Cell Demo](https://github.com/zr15504328511-debug/world-model) is an authored browser scene library; the inspected README did not establish a code-world-model research method or a renderer connected to such a method. [Varis](https://github.com/rxwxwwxw/Varis) is a Lua-derived authored narrative language and runtime with relational world state. It is not added as a code-world-model research release, and its README documents development decisions preceding today's repository creation.
+- [Trajectory-lineage](https://github.com/physicalreasoning/trajectory-lineage) audits overlap in video-world-model evaluation using procedural collision trajectories. [Decision Utility Lab](https://github.com/smhajimirzaei/decision-utility-lab) audits action selection for VLA and latent world models using an existing simulator. Both are adjacent evaluation leads, not dedicated entries in this code-focused update.
+- [Streaming Code World Model](https://github.com/TingtingLiao/streaming-code-world-model) was checked as a recent lead. Its Git history records an **October 12, 2026, 12:04:09 UTC** initial-release commit, which is also October 12 in Shanghai. It is therefore not counted as a release first made public today. Its proxy-conditioned streaming renderer remains a potential rendering-infrastructure backfill, not a newly verified standalone paper.
+- [EdenLive's official README](https://raw.githubusercontent.com/VAST-AI-Research/EdenLive/main/README.md) still announces open-sourcing by **October 18, 2026**. The existing announcement-status caveat was retained; no new runnable release was verified.
+
+No paper or project entries, counts, or previously recorded resource-verification dates were changed. Only the literature-search date and this curation record were updated. All 10 external destinations linked in this update returned HTTP 200. `python3 scripts/check_readme.py` passed for 49 unique papers, and `git diff --check` passed. Research code, model weights, and experiments were not executed.
 
 ## What was checked
 

@@ -13,9 +13,9 @@
 
 </div>
 
-**113 papers** and **5 project releases**.
+**126 papers** and **6 project releases**.
 
-**Last literature search: November 10, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 11, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -79,11 +79,14 @@ Official projects connected to code-defined worlds, including projects without a
 
 | Project | Organization | Verified on | Official resources | Release status |
 | :--- | :--- | :--- | :--- | :--- |
+| **H3 Streaming VAE Decoder** | SolarX-Team | 2026-11-11 | [Project](https://solarx-team.github.io/H3-Streaming-VAE-Decoder/) · [Repository](https://github.com/SolarX-Team/H3-Streaming-VAE-Decoder) | Streaming decoder source for MiniMax H3 and StreamRender-H3 is available; weights remain external, and optional fused kernels require Blackwell GPUs. Independent decoder extension, not NVIDIA's full renderer; no standalone arXiv paper verified. |
 | **Code Video Model** | Microsoft Research | 2026-11-10 | [Project](https://code-video-model.github.io/) · [Repository](https://github.com/code-video-model/CodeVideoModel) · [Technical report](https://code-video-model.github.io/tech_report.pdf) · [Benchmark](https://huggingface.co/datasets/code-video-model/CodeVideoBench) | Scene-generation and rendering source, examples, and benchmark cases are available; requires external model services and MiniMax-H3 weights. No arXiv first-submission date verified; tracked as a project release. |
 | **World Model Planning Reliability (WCTR)** | Zhijing Wu | 2026-11-10 | [Repository](https://github.com/ZhijingWu/world-model-planning-reliability) · [Technical note](https://raw.githubusercontent.com/ZhijingWu/world-model-planning-reliability/main/note/Zhijing_Wu_World_Model_Planning_Note_Final.pdf) | Runtime source, an illustrative example, tests, and retained study records are available. Branch isolation covers restricted Python state operations, not arbitrary side effects; no standalone arXiv paper verified. |
 | **EdenLive** | VAST | 2026-10-28 | [Project](https://vast-eden.ai/?p=edenlive) · [Repository](https://github.com/VAST-AI-Research/EdenLive) · [Models](https://huggingface.co/VAST-AI/EdenLive) | Offline and streaming inference source, 5B/14B weights, and a prompt-to-game frontend are available. The project page and author-linked technical-report PDF returned HTTP 403 during this check; report contents were not verified. |
 | **Streaming Code World Model** | Tingting Liao and Guangyi Liu | 2026-10-28 | [Repository](https://github.com/TingtingLiao/streaming-code-world-model) · [Models](https://huggingface.co/Luffuly/streaming-code-world-model) | Training/evaluation source and streaming LoRA checkpoints are available; requires the upstream CWM runtime and base weights. The documented configuration is not real time. No standalone paper verified. |
 | **StreamRender-H3** | NVIDIA | 2026-10-28 | [Project](https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/) · [Source code](https://github.com/NVlabs/Sana/tree/sol-engine/models/streamrender_h3) | Project page and runtime source available; deployment requires external model weights and a compatible multi-GPU environment. No standalone paper destination verified. |
+
+**H3 Streaming VAE Decoder** emits frames as video latents arrive, with cached attention and no future-latent requirement. Its explicit StreamRender-H3 support connects it to code-defined game rendering, while state evolution and video-latent generation remain upstream.
 
 **Code Video Model** generates executable Three.js scene and motion programs, renders proxy videos, and conditions a video model on the proxy during early sampling steps. The report and release concern controlled video generation; they do not establish interactive dynamics discovery.
 
@@ -173,6 +176,10 @@ Official projects connected to code-defined worlds, including projects without a
   [Paper](https://arxiv.org/abs/2609.09163) · [Repository](https://github.com/quome-cloud/openworld)  
   *Date note: arXiv reports July 7, 2026 for v1 despite the `2609` identifier; the date above follows the submission history.*
 
+- **[2026-03-06] Symmetry-Constrained Language-Guided Program Synthesis for Discovering Governing Equations from Noisy and Partial Observations** — `Core`\
+  Synthesizes symbolic dynamical laws within a grammar constrained by units and symmetries, fits their constants, and ranks alternative structures using complexity penalties and bootstrap stability under noisy or partial observations.\
+  [Paper](https://arxiv.org/abs/2603.06869)
+
 ## Learning executable dynamics and planning
 
 - **[2026-10-29] Algebraic World Model: From Exploration to Proofs** — `Core`\
@@ -202,6 +209,10 @@ Official projects connected to code-defined worlds, including projects without a
 - **[2026-07-28] VisualPatchWorld: Code World Models as Latent Structured Representations for Planning** — `Core`\
   Uses active probes to choose a dynamical form from a small domain-specific family, fits its Python template to multi-step transition traces, and plans through the resulting model with optional engine verification.\
   [Paper](https://arxiv.org/abs/2607.25236) · [Repository](https://github.com/HKBU-KnowComp/VisualPatchWorld/)
+
+- **[2026-07-20] Program Synthesis for Simulation-Based Inference: Joint Model Selection and Parameter Estimation** — `Core`\
+  Proposes and mutates executable simulator programs, comparing candidate families with neural evidence estimates and inferring their parameters; uncertainty is conditional on the compared pool, and the lensing experiment configures a fixed simulator.\
+  [Paper](https://arxiv.org/abs/2607.17540)
 
 - **[2026-07-01] OPINE-World: Programmatic World Modeling with Ontology-error-Prioritized Interactive Exploration for ARC-AGI-3** — `Core`  
   Couples qualitative object hypotheses and Bayesian effect diagnostics with synthesized Python transition and reward models, using targeted exploration and replay-based repair to revise both abstractions and executable mechanics.  
@@ -299,8 +310,8 @@ These papers construct executable environments; their goals differ from identify
 
 - **[2026-10-29] DyCraft: An Agentic System for Long-Horizon 4D Scene Generation** — `Construction`\
   Builds editable Blender worlds through verified 3D storyboards, then authors local motions between key states using kinematics and simulation, checking physical constraints across long animations.\
-  [Paper](https://arxiv.org/abs/2610.40754) · [Project](https://dy-craft.github.io/) · [Announcement repository](https://github.com/jefftan969/dycraft)\
-  *Release note: The repository still contains an overview and a planned November 3 code-release date; implementation source was not verified on November 10, 2026.*
+  [Paper](https://arxiv.org/abs/2610.40754) · [Project](https://dy-craft.github.io/) · [Repository](https://github.com/jefftan969/dycraft) · [Films and assets](https://huggingface.co/datasets/jefftan969/dycraft-films)\
+  *Release note: Source, installation documentation, and benchmark films are available as of November 11, 2026; generation requires Blender, external assets, and an authenticated coding-agent backend. The pipeline was not run during curation.*
 
 - **[2026-10-29] RFW-A: Agentic Procedural Generation of 400K Articulated Assets over 500 Categories** — `Construction`\
   Builds reusable category-level programs from articulated assets, validates sampled configurations and motion states, and executes the generators to produce simulation-ready variants with explicit joints and physical attributes.\
@@ -386,11 +397,21 @@ These papers construct executable environments; their goals differ from identify
   Generates simulation code with separate object and environment construction, then refines dynamics through physics-aware visual feedback; includes Code4D evaluation.  
   [Paper](https://arxiv.org/abs/2602.11757) · [Project](https://aigeeksgroup.github.io/Code2Worlds/) · [Repository](https://github.com/AIGeeksGroup/Code2Worlds)
 
+- **[2023-11-02] RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation** — `Construction`\
+  Proposes robot tasks, generates simulator scene configurations with assets and articulated states, and writes training supervision for skill learning in existing physics engines; the generated environment differs from a learned transition law.\
+  [Paper](https://arxiv.org/abs/2311.01455) · [Project](https://robogen-ai.github.io/) · [Repository](https://github.com/Genesis-Embodied-AI/RoboGen)\
+  *Release note: The official repository documents a PyBullet implementation for rigid manipulation and locomotion; the full soft-body pipeline described in the paper is not included in that release.*
+
 **Naming caution:** *Code2World* is the GUI paper; *Code2Worlds* is the 4D generation paper. *WorldCoder-Bench* below is a separate paper from the 2024 *WorldCoder* agent.
 
 ## Related symbolic and neurosymbolic planning
 
 These works are included for their explicit transition representations and verification or planning interfaces, not because all of them synthesize general-purpose simulators.
+
+- **[2026-11-08] Spatial Harness: Grounding Spatial Reasoning in Executable World States with Physics Engines** — `Related`\
+  Estimates a shared object-and-camera layout from images and language, instantiates proxies in MuJoCo, and answers spatial questions through executable viewpoint changes, measurements, and rendered feedback; the scene itself remains static.\
+  [Paper](https://arxiv.org/abs/2611.11344) · [Placeholder repository](https://github.com/tmlr-group/Spatial-Harness)\
+  *Release note: The author-linked repository contains an overview and promises a later release; implementation source was not available on November 11, 2026, despite the abstract's code-availability statement.*
 
 - **[2026-11-02] Creating Hybrid Interactive Narrative Systems with LLM: From Formal Description to Evaluation** — `Related`\
   Runs interchangeable narrative managers over shared symbolic facts, action preconditions, effects, and goals, enforcing operation applicability and comparing the resulting state-transition traces.\
@@ -440,9 +461,25 @@ These works are included for their explicit transition representations and verif
   Uses a graph model of relations, action conditions/effects, and uncertain object locations to verify, repair, and reorder long-horizon plans.  
   [Paper](https://arxiv.org/abs/2609.19315)
 
+- **[2026-08-18] LLM-Only PDDL Domain Repair with Open-Weight Models** — `Related`\
+  Evaluates LLM edits to corrupted PDDL action preconditions and effects, comparing domain-only prompts with positive and negative execution traces while measuring both structural recovery and satisfaction of behavioral constraints.\
+  [Paper](https://arxiv.org/abs/2608.17341)
+
+- **[2026-08-17] PDDL-ART: Autonomous Symbolic Abstraction From Demonstration For Long-Horizon Robotic Manipulation Using Vision-Language Models** — `Related`\
+  Infers PDDL domains and problems from a demonstration, task description, and action names, then repairs them through syntax, planning, and robot-execution checks supported by visual and geometric predicate grounding.\
+  [Paper](https://arxiv.org/abs/2608.17146)
+
+- **[2026-08-17] PDDLCoder: Agentic PDDL Generation for LLM-Assisted Symbolic Planning** — `Related`\
+  Generates and revises PDDL domains and problems through parser, planner, and semantic feedback, then evaluates mapped plans in held-out executable environments; introduces NL-pddlgym without claiming equivalence to the reference domains.\
+  [Paper](https://arxiv.org/abs/2608.16637) · [Repository](https://github.com/vDawgg/PDDLCoder)
+
 - **[2026-07-03] Object-Centric Environment Modeling for Agentic Tasks** — `Related` · **OCM**\
   Accumulates Python object classes encoding environment constraints and mechanisms, requires reusable procedures to execute against that model, and reveals relevant source progressively during later agent decisions.\
   [Paper](https://arxiv.org/abs/2607.02846)
+
+- **[2026-06-14] PO-PDDL: Learning Symbolic POMDPs from Visual Demonstrations for Robot Planning Under Uncertainty** — `Related`\
+  Reconstructs symbolic trajectories from robot demonstrations, learns stochastic action effects and observation rules, and compiles reusable PO-PDDL domains for online belief-space planning under execution and perception uncertainty.\
+  [Paper](https://arxiv.org/abs/2606.15654) · [Project](https://roboticsjtu.github.io/PO-PDDL/) · [Repository](https://github.com/RoboticSJTU/PO_PDDL)
 
 - **[2025-04-22] WALL-E 2.0: World Alignment by NeuroSymbolic Learning improves World Model-based LLM Agents** — `Related`  
   Extracts symbolic environment knowledge from exploration and encodes it as executable rules to align an LLM world model for model-predictive control.  
@@ -528,6 +565,14 @@ These works are included for their explicit transition representations and verif
   Evaluates agents that reconstruct videos as executable animated Blender scenes, measuring retained spatiotemporal facts and perceptual similarity under a shared execution budget.  
   [Paper](https://arxiv.org/abs/2609.15478) · [Project](https://yoloytang.me/BVB/) · [Repository](https://github.com/yunlong10/BVB)
 
+- **[2026-08-28] An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models** — `Benchmark`\
+  Studies when unreachable regions make errors in synthesized dynamics untestable yet harmless, using controlled ring environments to separate sampling coverage, planner reachability, model repair, and the consequences of incorrect geometry.\
+  [Paper](https://arxiv.org/abs/2608.28541) · [Repository](https://github.com/JaviMaligno/code-world-models)
+
+- **[2026-08-18] An Omitted Mode Is a Rare Rule: The Sampling-Verification Danger Law in Continuous Code World Models** — `Benchmark`\
+  Tests how sampled transition checks miss rare mode changes in continuous executable models, separating acceptance probability from planning regret and examining when additional evidence can repair missing rules.\
+  [Paper](https://arxiv.org/abs/2608.17956) · [Repository](https://github.com/JaviMaligno/code-world-models)
+
 - **[2026-08-11] ChemWorld: Programmable Chemical Worlds for Controlled and Replayable Agent Experimentation** — `Benchmark`\
   Compiles reusable chemical process and observation components into executable experimental worlds, separating public agent interfaces from private laws and supporting transactional replay and controlled rule interventions.\
   [Paper](https://arxiv.org/abs/2608.10792) · [Repository](https://github.com/sunyrain/ChemWorld-Public)
@@ -544,6 +589,10 @@ These works are included for their explicit transition representations and verif
   Uses replayable Scratch worlds to evaluate action-conditioned state changes, hidden state, causal traces, and counterfactuals, scoring correctly computed changes separately from unchanged-state copying.\
   [Paper](https://arxiv.org/abs/2606.31689)
 
+- **[2026-06-12] SIMMER: Benchmarking Latent Failures in LLM Executable Planning with a World Model** — `Benchmark`\
+  Executes household plans against curated action and object rules, tracking both immediate precondition violations and delayed, potentially irreversible failures; evaluates counterfactual state reasoning against the supplied kitchen model.\
+  [Paper](https://arxiv.org/abs/2606.14574) · [Repository](https://github.com/psunlpgroup/SIMMER)
+
 - **[2026-06-01] WorldCoder-Bench: Benchmarking Physically Grounded 3D World Synthesis** — `Benchmark`  
   Evaluates generated interactive 3D programs using StateProbe runtime-state and transition contracts, beyond screenshots or DOM inspection alone.  
   [Paper](https://arxiv.org/abs/2606.01869) · [Author-linked anonymous resource](https://anonymous.4open.science/r/WorldCoder-Bench/)
@@ -553,6 +602,10 @@ These works are included for their explicit transition representations and verif
   [Paper](https://arxiv.org/abs/2606.01538) · [Project](https://zzigak.github.io/mpmworlds/)\
   *Release note: The project page marks the dataset as coming soon; a public dataset release was not verified on November 10, 2026.*
 
+- **[2026-02-09] VisPhyWorld: Probing Physical Reasoning via Code-Driven Video Reconstruction** — `Benchmark`\
+  Requires models to reconstruct observed physical scenes as executable simulation programs, then evaluates rendered appearance and motion across physics and graphics backends; VisPhyBench exposes inferred mechanisms rather than relying only on verbal answers.\
+  [Paper](https://arxiv.org/abs/2602.13294) · [Project](https://tiger-ai-lab.github.io/VisPhyWorld/) · [Repository](https://github.com/TIGER-AI-Lab/VisPhyWorld)
+
 - **[2025-02-18] Text2World: Benchmarking Large Language Models for Symbolic World Model Generation** — `Benchmark`  
   Evaluates text-to-PDDL world-model generation across diverse domains with multiple execution-based criteria.  
   [Paper](https://arxiv.org/abs/2502.13092) · [Project](https://text-to-world.github.io/) · [Repository](https://github.com/Aaron617/text2world)
@@ -560,6 +613,10 @@ These works are included for their explicit transition representations and verif
 Also see **CWMB** in the GIF-MCTS paper, **CombatStateBench** in Programmable World Model, and **Code4D** in Code2Worlds. These are not counted as additional papers.
 
 ## Adjacent renderers, perspectives, and data engines
+
+- **[2026-11-02] Isekai3D SDG: A Platform for Diverse Synthetic Gameplay Visual Data** — `Perspective`\
+  Records configurable Unreal gameplay state, actions, and camera paths, then replays the same simulation under varied rendering and capture settings to produce aligned training data; coding assistants can configure and inspect generation runs.\
+  [Paper](https://arxiv.org/abs/2611.03626) · [Organization page](https://research.nvidia.com/publication/2026-10_isekai3d-sdg-platform-diverse-synthetic-gameplay-visual-data)
 
 - **[2026-10-29] Video Generation Meets Agent Harness: Agentic Video Generation, Agentic World Modeling and Recursive Self-Improvement** — `Perspective`\
   Surveys agent runtimes around video generation, including hybrid designs where engines or written programs maintain world state, and distinguishes output revision from changes to models and improvement procedures.\

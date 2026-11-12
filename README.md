@@ -13,9 +13,9 @@
 
 </div>
 
-**126 papers** and **6 project releases**.
+**135 papers** and **7 project releases**.
 
-**Last literature search: November 11, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 12, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -79,12 +79,15 @@ Official projects connected to code-defined worlds, including projects without a
 
 | Project | Organization | Verified on | Official resources | Release status |
 | :--- | :--- | :--- | :--- | :--- |
+| **HolonEngine** | Jonathan Dunlap | 2026-11-12 | [Repository](https://github.com/jadbox/HolonEngine) · [Architecture](https://github.com/jadbox/HolonEngine/blob/main/docs/holon_whitepaper.md) | Experimental pre-alpha Rust compiler and 2D runtime source are available, with build instructions and video examples; requires FFmpeg. The inspected rollout uses built-in dynamics and automatic controls. Interactive control, general game-rule recovery, and the broader 3D roadmap were not verified; no standalone arXiv paper verified. |
 | **H3 Streaming VAE Decoder** | SolarX-Team | 2026-11-11 | [Project](https://solarx-team.github.io/H3-Streaming-VAE-Decoder/) · [Repository](https://github.com/SolarX-Team/H3-Streaming-VAE-Decoder) | Streaming decoder source for MiniMax H3 and StreamRender-H3 is available; weights remain external, and optional fused kernels require Blackwell GPUs. Independent decoder extension, not NVIDIA's full renderer; no standalone arXiv paper verified. |
 | **Code Video Model** | Microsoft Research | 2026-11-10 | [Project](https://code-video-model.github.io/) · [Repository](https://github.com/code-video-model/CodeVideoModel) · [Technical report](https://code-video-model.github.io/tech_report.pdf) · [Benchmark](https://huggingface.co/datasets/code-video-model/CodeVideoBench) | Scene-generation and rendering source, examples, and benchmark cases are available; requires external model services and MiniMax-H3 weights. No arXiv first-submission date verified; tracked as a project release. |
 | **World Model Planning Reliability (WCTR)** | Zhijing Wu | 2026-11-10 | [Repository](https://github.com/ZhijingWu/world-model-planning-reliability) · [Technical note](https://raw.githubusercontent.com/ZhijingWu/world-model-planning-reliability/main/note/Zhijing_Wu_World_Model_Planning_Note_Final.pdf) | Runtime source, an illustrative example, tests, and retained study records are available. Branch isolation covers restricted Python state operations, not arbitrary side effects; no standalone arXiv paper verified. |
 | **EdenLive** | VAST | 2026-10-28 | [Project](https://vast-eden.ai/?p=edenlive) · [Repository](https://github.com/VAST-AI-Research/EdenLive) · [Models](https://huggingface.co/VAST-AI/EdenLive) | Offline and streaming inference source, 5B/14B weights, and a prompt-to-game frontend are available. The project page and author-linked technical-report PDF returned HTTP 403 during this check; report contents were not verified. |
 | **Streaming Code World Model** | Tingting Liao and Guangyi Liu | 2026-10-28 | [Repository](https://github.com/TingtingLiao/streaming-code-world-model) · [Models](https://huggingface.co/Luffuly/streaming-code-world-model) | Training/evaluation source and streaming LoRA checkpoints are available; requires the upstream CWM runtime and base weights. The documented configuration is not real time. No standalone paper verified. |
 | **StreamRender-H3** | NVIDIA | 2026-10-28 | [Project](https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/) · [Source code](https://github.com/NVlabs/Sana/tree/sol-engine/models/streamrender_h3) | Project page and runtime source available; deployment requires external model weights and a compatible multi-GPU environment. No standalone paper destination verified. |
+
+**HolonEngine** extracts camera motion, world geometry, actor tracks, and motion parameters from gameplay video into a serialized world. Its supplied runtime advances explicit object and interaction state and renders rollouts; the available source does not establish unrestricted synthesis of unseen game mechanics.
 
 **H3 Streaming VAE Decoder** emits frames as video latents arrive, with cached attention and no future-latent requirement. Its explicit StreamRender-H3 support connects it to code-defined game rendering, while state evolution and video-latent generation remain upstream.
 
@@ -304,9 +307,17 @@ Official projects connected to code-defined worlds, including projects without a
   Predicts action-conditioned interfaces as HTML, using AndroidCode data and render-aware reinforcement learning to align visual and action consistency.  
   [Paper](https://arxiv.org/abs/2602.09856) · [Project](https://amap-ml.github.io/Code2World/) · [Repository](https://github.com/AMAP-ML/Code2World)
 
+- **[2026-02-02] Generative Visual Code Mobile World Models** — `GUI` · **gWorld**\
+  Predicts an action-conditioned mobile screen as renderable web code, training on screenshot-to-code targets and lookahead reasoning traces derived from offline trajectories; introduces MWMBench, while persistent app-state reconstruction remains outside the single-screen formulation.\
+  [Paper](https://arxiv.org/abs/2602.01576) · [Project](https://trillionlabs-gworld.github.io/) · [Repository](https://github.com/trillion-labs/gWorld) · [8B model](https://huggingface.co/trillionlabs/gWorld-8B) · [32B model](https://huggingface.co/trillionlabs/gWorld-32B) · [Benchmark](https://huggingface.co/datasets/trillionlabs/MWMBench)
+
 ## Executable scene and 4D world construction
 
 These papers construct executable environments; their goals differ from identifying unknown transition dynamics through interaction.
+
+- **[2026-11-07] Agentic discrete-event simulation for manufacturing system design: an open 3D simulator, a benchmark and an industrial case** — `Construction` · **SimuLean**\
+  Lets agents assemble manufacturing processes through domain commands over a shared discrete-event engine, executing the resulting models in Unity or headlessly and checking their outputs against independent references; the engine supplies the simulation semantics.\
+  [Paper](https://arxiv.org/abs/2611.10602) · [Repository](https://github.com/simulean/SimuLean)
 
 - **[2026-10-29] DyCraft: An Agentic System for Long-Horizon 4D Scene Generation** — `Construction`\
   Builds editable Blender worlds through verified 3D storyboards, then authors local motions between key states using kinematics and simulation, checking physical constraints across long animations.\
@@ -368,6 +379,11 @@ These papers construct executable environments; their goals differ from identify
 - **[2026-09-29] Text2Sim: Agentic Physics-Based Simulation Generation with Distilled Expertise** — `Construction`\
   Converts text into editable Genesis simulation programs through specialized writers and a critic, using distilled simulation guidance and execution evidence to repair assets, dynamics, and controls.\
   [Paper](https://arxiv.org/abs/2609.36593)
+
+- **[2026-09-28] VideoPhysEdit: Physical Counterfactual Video Editing via Rigid-Body Physical Scene Reconstruction** — `Construction`\
+  Fits an executable PyBullet scene to observed rigid-body motion, applies object or physical-parameter interventions, and uses the simulated consequences to guide video editing; introduces PCVE-RigidBench and retains the engine's supplied dynamics.\
+  [Paper](https://arxiv.org/abs/2609.35134) · [Project](https://videophysedit.github.io/) · [Announcement repository](https://github.com/Hammour-steak/VideoPhysEdit) · [Benchmark code](https://github.com/Hammour-steak/PCVE-RigidBench) · [Benchmark data](https://huggingface.co/datasets/ccmoony/PCVE-RigidBench)\
+  *Release note: The method implementation remains marked coming soon as of November 12, 2026; benchmark construction/evaluation source and data are available separately.*
 
 - **[2026-09-27] WorldAgent: Verification-Guided Agentic Physical World Construction** — `Construction`\
   Expands text into entity contracts, scene relations, and causal event requirements, then constructs and simulates the world while geometry and state checks guide specification repair and re-execution.\
@@ -481,6 +497,10 @@ These works are included for their explicit transition representations and verif
   Reconstructs symbolic trajectories from robot demonstrations, learns stochastic action effects and observation rules, and compiles reusable PO-PDDL domains for online belief-space planning under execution and perception uncertainty.\
   [Paper](https://arxiv.org/abs/2606.15654) · [Project](https://roboticsjtu.github.io/PO-PDDL/) · [Repository](https://github.com/RoboticSJTU/PO_PDDL)
 
+- **[2025-09-30] ExoPredicator: Learning Abstract Models of Dynamic Worlds for Robot Planning** — `Related`\
+  Learns Python state predicates and symbolic causal processes with stochastic delays, combining Bayesian inference and language-model proposals to plan around both robot actions and autonomous mechanisms such as heating or falling dominoes.\
+  [Paper](https://arxiv.org/abs/2509.26255) · [Repository](https://github.com/BasisResearch/predicators)
+
 - **[2025-04-22] WALL-E 2.0: World Alignment by NeuroSymbolic Learning improves World Model-based LLM Agents** — `Related`  
   Extracts symbolic environment knowledge from exploration and encodes it as executable rules to align an LLM world model for model-predictive control.  
   [Paper](https://arxiv.org/abs/2504.15785) · [Repository](https://github.com/elated-sawyer/WALL-E)
@@ -489,11 +509,23 @@ These works are included for their explicit transition representations and verif
   Combines candidate sampling with iterative refinement to generate PDDL domains usable by classical planners.  
   [Paper](https://arxiv.org/abs/2502.04728) · [Project](https://vmlpddl.github.io/) · [Repository](https://github.com/VMLPDDL/VML_PDDL)
 
+- **[2024-10-30] VisualPredicator: Learning Abstract World Models with Neuro-Symbolic Predicates for Robot Planning** — `Related`\
+  Invents Python predicates that combine visual queries with logical computation, learns action preconditions and effects from successful and failed interactions, and uses the resulting abstract transition model for robot planning with supplied motor skills.\
+  [Paper](https://arxiv.org/abs/2410.23156) · [Repository](https://github.com/BasisResearch/predicators)
+
+- **[2023-01-16] Neuro-Symbolic World Models for Adapting to Open World Novelty** — `Related` · **WorldCloner**\
+  Learns condition–effect rules over observed state features, revises their applicability regions when environment mechanics change, and simulates transitions through the updated rules to adapt a neural policy with fewer real interactions.\
+  [Paper](https://arxiv.org/abs/2301.06294)
+
 - **[2019-12-30] World Programs for Model-Based Learning and Planning in Compositional State and Action Spaces** — `Related`\
   Formulates world-program induction from graph-state transitions, learning graph-rewrite actions and transition feasibility for model-based search, with chemical synthesis planning as the worked application.\
   [Paper](https://arxiv.org/abs/1912.13007)
 
 ## Benchmarks and evaluation
+
+- **[2026-11-10] Evaluating LLM-Generated World Models for Neuro-Symbolic Reasoning** — `Benchmark`\
+  Evaluates generated multi-agent stochastic worlds encoded as explicit JSON transitions or executable Python, separating mechanical validity, reference-relative structure, and automated semantic diagnostics across 44 scenarios; successful execution alone does not establish fidelity to the intended situation.\
+  [Paper](https://arxiv.org/abs/2611.14419) · [Repository](https://github.com/GaganaMD/world-model-suite/)
 
 - **[2026-11-06] Frontier3DBench: Benchmarking Coding Agents for 3D Creation across Objects, Scenes, and Interactive Open Worlds** — `Benchmark`\
   Evaluates code-authored objects, scenes, and interactive worlds, with the world tasks checking traversal, local mechanisms, and persistent multi-step workflows alongside appearance and structural fidelity.\
@@ -602,6 +634,10 @@ These works are included for their explicit transition representations and verif
   [Paper](https://arxiv.org/abs/2606.01538) · [Project](https://zzigak.github.io/mpmworlds/)\
   *Release note: The project page marks the dataset as coming soon; a public dataset release was not verified on November 10, 2026.*
 
+- **[2026-04-26] PhysCodeBench: Benchmarking Physics-Aware Symbolic Simulation of 3D Scenes via Self-Corrective Multi-Agent Refinement** — `Benchmark`\
+  Tests text-to-simulation programs across rigid, soft-body, fluid, and mechanical scenarios, measuring execution and rendered fidelity alongside engine-state assertions and conservation diagnostics; a cross-engine subset separates physical reasoning from API familiarity.\
+  [Paper](https://arxiv.org/abs/2604.23580)
+
 - **[2026-02-09] VisPhyWorld: Probing Physical Reasoning via Code-Driven Video Reconstruction** — `Benchmark`\
   Requires models to reconstruct observed physical scenes as executable simulation programs, then evaluates rendered appearance and motion across physics and graphics backends; VisPhyBench exposes inferred mechanisms rather than relying only on verbal answers.\
   [Paper](https://arxiv.org/abs/2602.13294) · [Project](https://tiger-ai-lab.github.io/VisPhyWorld/) · [Repository](https://github.com/TIGER-AI-Lab/VisPhyWorld)
@@ -641,6 +677,10 @@ Also see **CWMB** in the GIF-MCTS paper, **CombatStateBench** in Programmable Wo
 - **[2026-08-26] Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models** — `Perspective`  
   Proposes human–engine verification as a source of grounded feedback and trajectory data for world-model training, rather than introducing another learned transition model.  
   [Paper](https://arxiv.org/abs/2608.25518)
+
+- **[2026-07-30] Video Models as Native 4D Renderers: World-Grounded Conditioning from Animated Mesh** — `Perspective` · **DAR**\
+  Conditions a video renderer on persistent surface identities, world positions, normals, and camera rays from animated meshes, using programmatically assembled Blender and Unreal scenes; the upstream scene specifies motion rather than the renderer learning executable transition rules.\
+  [Paper](https://arxiv.org/abs/2608.00094)
 
 ## Research questions
 

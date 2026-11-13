@@ -13,9 +13,9 @@
 
 </div>
 
-**135 papers** and **7 project releases**.
+**144 papers** and **8 project releases**.
 
-**Last literature search: November 12, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 13, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -79,6 +79,7 @@ Official projects connected to code-defined worlds, including projects without a
 
 | Project | Organization | Verified on | Official resources | Release status |
 | :--- | :--- | :--- | :--- | :--- |
+| **CoCode-World** | IApple233 | 2026-11-13 | [Project](https://iapple233.github.io/CCW/) · [Repository](https://github.com/IApple233/CoCode-World) · [Model](https://huggingface.co/iapple1/CoCode-World-Model) · [Dataset](https://huggingface.co/datasets/iapple1/CoCode-World-Data) | Training/inference source, LoRA weights, a selected paired-video dataset, and proxy-rendering resources are available. Requires external MiniMax-H3 weights; documented generation uses eight GPUs. Recorded world state supports rerendering, not arbitrary new-action simulation; no standalone arXiv paper verified. |
 | **HolonEngine** | Jonathan Dunlap | 2026-11-12 | [Repository](https://github.com/jadbox/HolonEngine) · [Architecture](https://github.com/jadbox/HolonEngine/blob/main/docs/holon_whitepaper.md) | Experimental pre-alpha Rust compiler and 2D runtime source are available, with build instructions and video examples; requires FFmpeg. The inspected rollout uses built-in dynamics and automatic controls. Interactive control, general game-rule recovery, and the broader 3D roadmap were not verified; no standalone arXiv paper verified. |
 | **H3 Streaming VAE Decoder** | SolarX-Team | 2026-11-11 | [Project](https://solarx-team.github.io/H3-Streaming-VAE-Decoder/) · [Repository](https://github.com/SolarX-Team/H3-Streaming-VAE-Decoder) | Streaming decoder source for MiniMax H3 and StreamRender-H3 is available; weights remain external, and optional fused kernels require Blackwell GPUs. Independent decoder extension, not NVIDIA's full renderer; no standalone arXiv paper verified. |
 | **Code Video Model** | Microsoft Research | 2026-11-10 | [Project](https://code-video-model.github.io/) · [Repository](https://github.com/code-video-model/CodeVideoModel) · [Technical report](https://code-video-model.github.io/tech_report.pdf) · [Benchmark](https://huggingface.co/datasets/code-video-model/CodeVideoBench) | Scene-generation and rendering source, examples, and benchmark cases are available; requires external model services and MiniMax-H3 weights. No arXiv first-submission date verified; tracked as a project release. |
@@ -86,6 +87,8 @@ Official projects connected to code-defined worlds, including projects without a
 | **EdenLive** | VAST | 2026-10-28 | [Project](https://vast-eden.ai/?p=edenlive) · [Repository](https://github.com/VAST-AI-Research/EdenLive) · [Models](https://huggingface.co/VAST-AI/EdenLive) | Offline and streaming inference source, 5B/14B weights, and a prompt-to-game frontend are available. The project page and author-linked technical-report PDF returned HTTP 403 during this check; report contents were not verified. |
 | **Streaming Code World Model** | Tingting Liao and Guangyi Liu | 2026-10-28 | [Repository](https://github.com/TingtingLiao/streaming-code-world-model) · [Models](https://huggingface.co/Luffuly/streaming-code-world-model) | Training/evaluation source and streaming LoRA checkpoints are available; requires the upstream CWM runtime and base weights. The documented configuration is not real time. No standalone paper verified. |
 | **StreamRender-H3** | NVIDIA | 2026-10-28 | [Project](https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/) · [Source code](https://github.com/NVlabs/Sana/tree/sol-engine/models/streamrender_h3) | Project page and runtime source available; deployment requires external model weights and a compatible multi-GPU environment. No standalone paper destination verified. |
+
+**CoCode-World** renders synchronized player views from shared geometric proxies, reference appearance, and text. Its released metadata and proxy compiler reconstruct observed game states and camera paths; generating consequences of new actions requires a separate dynamics model or compatible simulator.
 
 **HolonEngine** extracts camera motion, world geometry, actor tracks, and motion parameters from gameplay video into a serialized world. Its supplied runtime advances explicit object and interaction state and renders rollouts; the available source does not establish unrestricted synthesis of unseen game mechanics.
 
@@ -245,6 +248,10 @@ Official projects connected to code-defined worlds, including projects without a
   Learns reusable abstractions from experience and integrates them with hierarchical planning, reducing dependence on manually supplied abstractions.  
   [Paper](https://arxiv.org/abs/2602.00929) · [Author-linked repository](https://github.com/ZerghamAhmed/TheoryCoder)
 
+- **[2026-01-30] Agentic Framework for Epidemiological Modeling** — `Core` · **EpiAgent**\
+  Synthesizes compartmental flow graphs from scenario descriptions, compiles verified graphs into differentiable simulator code, and revises structure and parameters through execution checks and trajectory calibration.\
+  [Paper](https://arxiv.org/abs/2602.00299)
+
 - **[2025-12-26] Agent2World: Learning to Generate Symbolic World Models via Adaptive Multi-Agent Feedback** — `Core`\
   Generates PDDL domains and executable simulators through specification research, model development, and adaptive execution tests, then uses the repair trajectories to train world-model generators.\
   [Paper](https://arxiv.org/abs/2512.22336) · [Project](https://agent2world.github.io/) · [Repository](https://github.com/DeepExperience/agent2world)
@@ -315,6 +322,11 @@ Official projects connected to code-defined worlds, including projects without a
 
 These papers construct executable environments; their goals differ from identifying unknown transition dynamics through interaction.
 
+- **[2026-11-09] HolidayFactory 1.0: Simulating, Generating, and Evaluating Industrial Robot Tasks** — `Construction`\
+  Generates simulation assets, scene variants, and typed workplace process logic, then compiles human-confirmed evaluation specifications into executable checks; introduces persistent-job evaluation in 24/7-Bench.\
+  [Paper](https://arxiv.org/abs/2611.11789)\
+  *Scope and release note: The paper does not yet establish end-to-end generation of all seven benchmark worlds or policy comparisons over persistent runs; no official implementation destination was verified.*
+
 - **[2026-11-07] Agentic discrete-event simulation for manufacturing system design: an open 3D simulator, a benchmark and an industrial case** — `Construction` · **SimuLean**\
   Lets agents assemble manufacturing processes through domain commands over a shared discrete-event engine, executing the resulting models in Unity or headlessly and checking their outputs against independent references; the engine supplies the simulation semantics.\
   [Paper](https://arxiv.org/abs/2611.10602) · [Repository](https://github.com/simulean/SimuLean)
@@ -371,6 +383,10 @@ These papers construct executable environments; their goals differ from identify
   Compiles language- and image-conditioned scene plans and task specifications into executable Unreal Engine environments, iteratively checking playability, physical consistency, and task completion.  
   [Paper](https://arxiv.org/abs/2610.04301)
 
+- **[2026-10-02] RoboChemGym: A Protocol-Driven Generative Simulation Framework for Long-Horizon Chemical Manipulation** — `Construction`\
+  Instantiates laboratory scenes and executable manipulation sequences from protocols, refining asset placement and controller parameters through simulation feedback to generate demonstrations; physical laws and action primitives come from existing components.\
+  [Paper](https://arxiv.org/abs/2610.02708)
+
 - **[2026-09-29] Real2Gym: Building Gyms from Videos, Bringing Skills to Robots** — `Construction`  
   Reconstructs Blender and MuJoCo environments from human or robot demonstrations, validates interactions and scene variations through native physics, and uses the resulting gyms for feedback-driven manipulation skill development.  
   [Paper](https://arxiv.org/abs/2609.37089) · [Project](https://real2gym.github.io/) · [Real2Sim repository](https://github.com/real2gym/Real2Gym) · [Agent repository](https://github.com/real2gym/R2G_Agent)  
@@ -393,6 +409,10 @@ These papers construct executable environments; their goals differ from identify
   Reconstructs a complex 3D scene from a reference image through recursive scene programs and nested render–compare–edit loops.  
   [Paper](https://arxiv.org/abs/2609.11499)
 
+- **[2026-08-18] aDSL: Agentic 3D Creation via Joint Agent-Program Design** — `Construction`\
+  Generates Python-embedded scene and asset programs with named part hierarchies, spatial constraints, and explicit joint axes and limits, repairing them through execution and exporting articulated models to URDF.\
+  [Paper](https://arxiv.org/abs/2608.17975) · [Project](https://dylanwrh.github.io/aDSL/) · [Repository](https://github.com/sig-pku/aDSL)
+
 - **[2026-07-23] GS-Agent: Creating 4D Physical Worlds With Generative Simulation** — `Construction`\
   Coordinates specialist agents that write physics-engine code for assets, materials, placement, motion, and rendering, refining interacting rigid, deformable, and fluid worlds through multimodal feedback.\
   [Paper](https://arxiv.org/abs/2607.21522) · [Project](https://umass-embodied-agi.github.io/gs-agent/)
@@ -412,6 +432,10 @@ These papers construct executable environments; their goals differ from identify
 - **[2026-02-12] Code2Worlds: Empowering Coding LLMs for 4D World Generation** — `Construction`  
   Generates simulation code with separate object and environment construction, then refines dynamics through physics-aware visual feedback; includes Code4D evaluation.  
   [Paper](https://arxiv.org/abs/2602.11757) · [Project](https://aigeeksgroup.github.io/Code2Worlds/) · [Repository](https://github.com/AIGeeksGroup/Code2Worlds)
+
+- **[2023-12-14] Holodeck: Language Guided Generation of 3D Embodied AI Environments** — `Construction`\
+  Converts language prompts into room layouts, asset selections, and spatial constraints, then builds executable AI2-THOR environments for navigation using supplied collision and interaction semantics.\
+  [Paper](https://arxiv.org/abs/2312.09067) · [Project](https://yueyang1996.github.io/holodeck/) · [Repository](https://github.com/allenai/Holodeck)
 
 - **[2023-11-02] RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation** — `Construction`\
   Proposes robot tasks, generates simulator scene configurations with assets and articulated states, and writes training supervision for skill learning in existing physics engines; the generated environment differs from a learned transition law.\
@@ -473,9 +497,17 @@ These works are included for their explicit transition representations and verif
   Generates reusable perception, rendering, relation-inference, and planning programs around shared object poses and a relation graph; the planner encodes task-level action preconditions and state transitions for manipulation.  
   [Paper](https://arxiv.org/abs/2609.31337)
 
+- **[2026-09-22] Neurosymbolic Action Model Learning under Partial Observability** — `Related` · **NeSyAM**\
+  Learns visual state grounding and probabilistic action preconditions and effects from incomplete observation sequences, enforcing Boolean STRIPS semantics when computing symbolic successor states.\
+  [Paper](https://arxiv.org/abs/2609.25766)
+
 - **[2026-09-16] GAVEL: Graph World Models for Verified and Efficient Long-Horizon LLM Task Planning** — `Related`  
   Uses a graph model of relations, action conditions/effects, and uncertain object locations to verify, repair, and reorder long-horizon plans.  
   [Paper](https://arxiv.org/abs/2609.19315)
+
+- **[2026-08-31] Learning Action Models with Conditional and Quantified Effects via Uncertainty-Guided Exploration** — `Related` · **OHCAM**\
+  Maintains competing symbolic action models with conditional and quantified effects, selects interactions that distinguish their predictions, and expands hypotheses when noisy execution evidence no longer supports simpler rules.\
+  [Paper](https://arxiv.org/abs/2608.30955)
 
 - **[2026-08-18] LLM-Only PDDL Domain Repair with Open-Weight Models** — `Related`\
   Evaluates LLM edits to corrupted PDDL action preconditions and effects, comparing domain-only prompts with positive and negative execution traces while measuring both structural recovery and satisfaction of behavioral constraints.\
@@ -496,6 +528,11 @@ These works are included for their explicit transition representations and verif
 - **[2026-06-14] PO-PDDL: Learning Symbolic POMDPs from Visual Demonstrations for Robot Planning Under Uncertainty** — `Related`\
   Reconstructs symbolic trajectories from robot demonstrations, learns stochastic action effects and observation rules, and compiles reusable PO-PDDL domains for online belief-space planning under execution and perception uncertainty.\
   [Paper](https://arxiv.org/abs/2606.15654) · [Project](https://roboticsjtu.github.io/PO-PDDL/) · [Repository](https://github.com/RoboticSJTU/PO_PDDL)
+
+- **[2026-05-15] SWoMo: Neuro-Symbolic World Model for Cataract Surgery Simulation** — `Related`\
+  Uses a rule-based Godot simulator to advance explicit tool and anatomical configurations, then conditions video synthesis on simulated frames and scene graphs; tissue appearance and deformation remain learned visual outputs.\
+  [Paper](https://arxiv.org/abs/2605.16530) · [Project](https://ssharvienkumar.github.io/SWoMo/) · [Repository](https://github.com/MECLabTUDA/SWoMo) · [Models and processed data](https://huggingface.co/SsharvienKumar/SWoMo)\
+  *Release note: Training and inference source for video synthesis are available; a complete Godot simulator release was not verified on November 13, 2026.*
 
 - **[2025-09-30] ExoPredicator: Learning Abstract Models of Dynamic Worlds for Robot Planning** — `Related`\
   Learns Python state predicates and symbolic causal processes with stochastic delays, combining Bayesian inference and language-model proposals to plan around both robot actions and autonomous mechanisms such as heating or falling dominoes.\
@@ -538,6 +575,10 @@ These works are included for their explicit transition representations and verif
 - **[2026-10-19] From Code to Playable Systems: CEGame-Bench for Long-Horizon Game Creation Agents** — `Benchmark` · **CEGame-Bench**  
   Evaluates complete-game creation across five production engines using hidden play-based contracts for gameplay, completion, and saved-world restoration, distinguishing build success from executable game behavior.  
   [Paper](https://arxiv.org/abs/2610.26098)
+
+- **[2026-10-17] Beyond Next-Screen Prediction: The Decision Value of GUI World Models** — `Benchmark`\
+  Tests the action-selection value of Code2World next-screen predictions by holding candidates fixed and comparing prompted lookahead with matched direct and prediction-augmented evaluators; the conclusions concern one-step GUI decisions.\
+  [Paper](https://arxiv.org/abs/2610.24372)
 
 - **[2026-10-15] Testing the Planning Claims of LLM-Based Agents against Formal Semantics** — `Benchmark`  
   Evaluates offline plans and online agents against hidden PDDL transition models, checking action applicability, goal achievement, sensing behavior, and recognition of unsolvable tasks.  

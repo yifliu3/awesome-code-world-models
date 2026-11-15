@@ -13,9 +13,9 @@
 
 </div>
 
-**157 papers** and **8 project releases**.
+**168 papers** and **8 project releases**.
 
-**Last literature search: November 14, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 15, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -106,6 +106,10 @@ Official projects connected to code-defined worlds, including projects without a
 
 ## Code-driven world evolution and physical reasoning
 
+- **[2026-11-11] Gradient-Aware AI Agents for Autonomous Turbulence Model Discovery via Differentiable CFD** — `Core`\
+  Synthesizes analytical, neural, or hybrid turbulence closures inside a supplied differentiable flow solver, using simulated statistics and parameter gradients to revise both model form and fitted parameters.\
+  [Paper](https://arxiv.org/abs/2611.16082)
+
 - **[2026-11-06] Video-Coder: Reinforcing Agentic Coding for Video Generation** — `Core`\
   Trains an agent to write and revise executable Blender scene and motion programs, combining execution and video feedback before using rendered drafts to condition a downstream video generator.\
   [Paper](https://arxiv.org/abs/2611.09894) · [Project](https://cywang735.github.io/Video-Coder/) · [Repository](https://github.com/CYWang735/Video-Coder) · [Model](https://huggingface.co/Video-Coder/Video-Coder-9B) · [Training data](https://huggingface.co/datasets/Video-Coder/Train-Data)
@@ -191,6 +195,11 @@ Official projects connected to code-defined worlds, including projects without a
   Uses language-model operator priors to guide symbolic regression of executable ODEs, then selects new initial conditions through disagreement between candidate rollouts and queries a supplied trajectory oracle.\
   [Paper](https://arxiv.org/abs/2606.25039) · [Repository](https://github.com/scientific-discovery/LLM-ACES)
 
+- **[2026-03-10] Epistemic Closure: Autonomous Mechanism Completion for Physically Consistent Simulation** — `Core`\
+  Assembles constitutive mechanisms from a skill library, revises their coupling using regime and boundary-condition checks, and compiles the resulting physical model into finite-element simulation code.\
+  [Paper](https://arxiv.org/abs/2603.09756) · [Repository](https://github.com/shuWuYue123/Neuro-Symbolic-Auto-Coupling)\
+  *Release and scope note: Coupling-agent source and illustrative simulation scripts are available; the inspected example is simplified finite-difference code, not reproduction of the paper’s full FEniCSx experiment.*
+
 - **[2026-03-06] Symmetry-Constrained Language-Guided Program Synthesis for Discovering Governing Equations from Noisy and Partial Observations** — `Core`\
   Synthesizes symbolic dynamical laws within a grammar constrained by units and symmetries, fits their constants, and ranks alternative structures using complexity penalties and bootstrap stability under noisy or partial observations.\
   [Paper](https://arxiv.org/abs/2603.06869)
@@ -220,6 +229,11 @@ Official projects connected to code-defined worlds, including projects without a
 - **[2026-08-14] Twin: Playing an Unknown Game with a Test-Time Digital Twin** — `Core`  
   Constructs a game simulator at test time and repairs it using counterexamples, requiring replay consistency with observed transitions before acting.  
   [Paper](https://arxiv.org/abs/2608.14490) · [Repository](https://github.com/Alexyskoutnev/TWIN-ARC-AGI-3)
+
+- **[2026-08-10] Model Discovery Agent: LLM-assisted Bayesian experiment design for data-efficient discovery of mechanistic world models** — `Core`\
+  Maintains competing executable mechanisms for reaction rates and partially observed ODE/SDE dynamics, fits their parameters and latent states, and selects experiments to distinguish hypotheses before forecasting unseen interventions.\
+  [Paper](https://arxiv.org/abs/2608.09696) · [NeuronBench repository](https://github.com/murphyk/neuronbench)\
+  *Release and scope note: The linked repository supplies the neuron benchmark and a reference baseline, not a verified complete MDA implementation; its bundled protocol menu differs from the paper’s main experiment.*
 
 - **[2026-07-30] Tycho: Active Abstraction with Programmatic World Models for ARC-AGI-3** — `Core`  
   Builds and tests executable game hypotheses while deciding when model construction, repair, planning, or bypassing the model is worth the interaction cost.  
@@ -327,6 +341,16 @@ Official projects connected to code-defined worlds, including projects without a
 - **[2026-10-19] Agent World Model in the Wild: Computer-Use Agent Environment Synthesis** — `GUI` · **WildAWM**  
   Synthesizes persistent computer environments spanning GUI, MCP, and command-line interfaces, with execution-based checks for task solvability, difficulty, and verifier reliability before agent training.  
   [Paper](https://arxiv.org/abs/2610.26828) · [Project](https://msr-orchard.github.io/WildAWM/) · [Repository](https://github.com/MSR-Orchard/WildAWM)
+
+- **[2026-09-04] EnvCraft: Synthesizing Executable Environments in Agentic RL for Claw-like Agent** — `GUI`\
+  Synthesizes sandboxed workspaces with explicit entities, business rules, persistent state, and executable tool transitions, then builds multi-step tasks and state-based verifiers for agent training.\
+  [Paper](https://arxiv.org/abs/2609.05576) · [Repository](https://github.com/zeng-yirong/EnvCraft)\
+  *Release and scope note: The author-linked repository is branded ClawForge and provides environment implementations, task data, and training integration; its task snapshot is smaller than the paper’s full corpus. This models tool/CLI workspaces, not rendered next screens.*
+
+- **[2026-08-22] Training Needs Trustworthy Worlds: Verified Synthetic Web Environments for Agent Learning** — `GUI`\
+  Constructs and repairs website scaffolds linking pages, records, and task constraints, executes ordinary UI transitions deterministically, and admits LLM-proposed backend changes only through validated state-change markers.\
+  [Paper](https://arxiv.org/abs/2608.21898)\
+  *Release and scope note: The synthetic training environment retains generative backend writes; the claim of no LLM calls at evaluation concerns the trained policy. No official implementation destination was verified.*
 
 - **[2026-08-21] AgentMercury: Your Agent Can Synthesize Verifiable Environments for Business Scenarios at scale** — `GUI`\
   Synthesizes persistent business environments with entities, services, tool interfaces, and cross-service invariants, then instantiates tasks and trajectories for agent training from each executable world.\
@@ -468,9 +492,25 @@ These papers construct executable environments; their goals differ from identify
   Generates simulation code with separate object and environment construction, then refines dynamics through physics-aware visual feedback; includes Code4D evaluation.  
   [Paper](https://arxiv.org/abs/2602.11757) · [Project](https://aigeeksgroup.github.io/Code2Worlds/) · [Repository](https://github.com/AIGeeksGroup/Code2Worlds)
 
+- **[2024-10-03] Articulate-Anything: Automatic Modeling of Articulated Objects via a Vision-Language Foundation Model** — `Construction`\
+  Generates compact Python programs for object-part placement and joint articulation, compiles them into URDF models, and revises the programs using rendered simulation feedback.\
+  [Paper](https://arxiv.org/abs/2410.13882) · [Project](https://articulate-anything.github.io/) · [Repository](https://github.com/vlongle/articulate-anything)
+
+- **[2024-06-12] Real2Code: Reconstruct Articulated Objects via Code Generation** — `Construction`\
+  Reconstructs object-part meshes from visual observations and predicts joint structure as Python code from oriented bounding boxes, producing articulated models executable in a physics simulator.\
+  [Paper](https://arxiv.org/abs/2406.08474) · [Project](https://real2code.github.io/) · [Repository](https://github.com/MandiZhao/real2code)
+
+- **[2024-05-24] OMNI-EPIC: Open-endedness via Models of human Notions of Interestingness with Environments Programmed in Code** — `Construction`\
+  Generates and repairs Python environments with task-specific objects, dynamic behaviors, rewards, and termination rules, using an expanding task archive and learner feedback within a supplied PyBullet simulator.\
+  [Paper](https://arxiv.org/abs/2405.15568) · [Repository](https://github.com/maxencefaldor/omni-epic)
+
 - **[2023-12-14] Holodeck: Language Guided Generation of 3D Embodied AI Environments** — `Construction`\
   Converts language prompts into room layouts, asset selections, and spatial constraints, then builds executable AI2-THOR environments for navigation using supplied collision and interaction semantics.\
   [Paper](https://arxiv.org/abs/2312.09067) · [Project](https://yueyang1996.github.io/holodeck/) · [Repository](https://github.com/allenai/Holodeck)
+
+- **[2023-11-21] GPT4Motion: Scripting Physical Motions in Text-to-Video Generation via Blender-Oriented GPT Planning** — `Construction`\
+  Turns text prompts into Blender physics scripts for rigid, cloth, and liquid motion, then uses simulated edge and depth sequences to condition video generation while the engine supplies physical dynamics.\
+  [Paper](https://arxiv.org/abs/2311.12631) · [Project](https://GPT4Motion.github.io) · [Repository](https://github.com/jiaxilv/GPT4Motion)
 
 - **[2023-11-02] RoboGen: Towards Unleashing Infinite Data for Automated Robot Learning via Generative Simulation** — `Construction`\
   Proposes robot tasks, generates simulator scene configurations with assets and articulated states, and writes training supervision for skill learning in existing physics engines; the generated environment differs from a learned transition law.\
@@ -568,6 +608,11 @@ These works are included for their explicit transition representations and verif
 - **[2026-06-14] PO-PDDL: Learning Symbolic POMDPs from Visual Demonstrations for Robot Planning Under Uncertainty** — `Related`\
   Reconstructs symbolic trajectories from robot demonstrations, learns stochastic action effects and observation rules, and compiles reusable PO-PDDL domains for online belief-space planning under execution and perception uncertainty.\
   [Paper](https://arxiv.org/abs/2606.15654) · [Project](https://roboticsjtu.github.io/PO-PDDL/) · [Repository](https://github.com/RoboticSJTU/PO_PDDL)
+
+- **[2026-06-05] STRIPS-WM: Learning Grounded Propositional STRIPS-style World Models from Images** — `Related`\
+  Learns binary visual predicates and grounded action preconditions and add/delete effects from image transitions, then executes the symbolic operators in graph search between start and goal images.\
+  [Paper](https://arxiv.org/abs/2606.06832) · [Placeholder project](https://elpislab.org/projects/strips-wm/)\
+  *Release and scope note: The author project is under construction as of November 15, 2026. Operators are deterministic and tied to supplied action labels, without lifted generalization to new object sets.*
 
 - **[2026-05-15] SWoMo: Neuro-Symbolic World Model for Cataract Surgery Simulation** — `Related`\
   Uses a rule-based Godot simulator to advance explicit tool and anatomical configurations, then conditions video synthesis on simulated frames and scene graphs; tissue appearance and deformation remain learned visual outputs.\
@@ -736,6 +781,10 @@ These works are included for their explicit transition representations and verif
 - **[2025-02-18] Text2World: Benchmarking Large Language Models for Symbolic World Model Generation** — `Benchmark`  
   Evaluates text-to-PDDL world-model generation across diverse domains with multiple execution-based criteria.  
   [Paper](https://arxiv.org/abs/2502.13092) · [Project](https://text-to-world.github.io/) · [Repository](https://github.com/Aaron617/text2world)
+
+- **[2023-05-24] ByteSized32: A Corpus and Challenge Task for Generating Task-Specific World Models Expressed as Text Games** — `Benchmark`\
+  Provides 32 Python text-game worlds and evaluates generated task simulations for executable validity, requested objects and actions, physical constraints, and winnability, including interpreter-guided repair.\
+  [Paper](https://arxiv.org/abs/2305.14879) · [Repository](https://github.com/cognitiveailab/BYTESIZED32)
 
 Also see **CWMB** in the GIF-MCTS paper, **CombatStateBench** in Programmable World Model, and **Code4D** in Code2Worlds. These are not counted as additional papers.
 

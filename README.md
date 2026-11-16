@@ -13,9 +13,9 @@
 
 </div>
 
-**168 papers** and **8 project releases**.
+**185 papers** and **8 project releases**.
 
-**Last literature search: November 15, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 16, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -208,6 +208,10 @@ Official projects connected to code-defined worlds, including projects without a
   Alternates visual variable extraction with symbolic equation discovery, numerically integrating candidate laws and using reconstruction, phase portraits, and extrapolation feedback to revise the representation.\
   [Paper](https://arxiv.org/abs/2602.19516)
 
+- **[2024-05-13] LLM4ED: Large Language Models for Automatic Equation Discovery** — `Core`\
+  Generates symbolic ODE and PDE expressions, fits their constants against observed derivatives, and alternates local revisions with evolutionary search to recover governing laws; the evaluation emphasizes equation recovery rather than interactive planning.\
+  [Paper](https://arxiv.org/abs/2405.07761) · [Repository](https://github.com/menggedu/EDL)
+
 ## Learning executable dynamics and planning
 
 - **[2026-10-29] Algebraic World Model: From Exploration to Proofs** — `Core`\
@@ -254,6 +258,10 @@ Official projects connected to code-defined worlds, including projects without a
 - **[2026-06-14] Mind-Studio: Executable World Models with Lookahead Evaluation for Partially Observable Games** — `Core`  
   Synthesizes standalone pygame-style world programs from interaction traces and screenshot-derived information, evaluating their multi-step lookahead fidelity.  
   [Paper](https://arxiv.org/abs/2606.16070)
+
+- **[2026-06-05] Learning Explicit Behavioral Models with Adaptive Questions and World-Model Probes** — `Core` · **ESBM**\
+  Revises typed predicates, action rules, and executable mechanism hypotheses using adaptive questions and matched environment branches, checking predicted object, reward, and terminal-state changes alongside task performance.\
+  [Paper](https://arxiv.org/abs/2606.07127)
 
 - **[2026-05-29] PatchWorld: Gradient-Free Optimization of Executable World Models for Agent Environments** — `Core`  
   Converts offline text-agent trajectories into Python belief-state programs through counterexample-guided repair and separates observation fidelity from planning utility.  
@@ -311,6 +319,10 @@ Official projects connected to code-defined worlds, including projects without a
   Grounds high-level abstractions in a Python transition model synthesized from observations, enabling bilevel planning in grid-world games.  
   [Paper](https://arxiv.org/abs/2503.20124)
 
+- **[2024-10-01] Mechanic Maker: Accessible Game Development Via Symbolic Learning Program Synthesis** — `Core`\
+  Learns executable game rules from user-edited frames and input examples, searching over conditions and state changes while exposing predicted frames and a play mode for iterative correction.\
+  [Paper](https://arxiv.org/abs/2410.01096)
+
 - **[2024-09-26] FactorSim: Generative Simulation via Factorized Representation** — `Core`\
   Generates complete simulation code from language using a factored POMDP representation to select relevant state and functions for each construction step, then trains agents in the generated environments.\
   [Paper](https://arxiv.org/abs/2409.17652) · [Project](https://cs.stanford.edu/~sunfanyun/factorsim/) · [Repository](https://github.com/sunfanyunn/FactorSim)
@@ -334,6 +346,11 @@ Official projects connected to code-defined worlds, including projects without a
   [Paper](https://arxiv.org/abs/2610.37786) · [Repository](https://github.com/china-qijizhifeng/Web-Anything)\
   *Release and scope note: The alpha release includes construction source, selected runnable demos, and a 244-site inventory; the full historical website trees are not bundled, and arbitrary-site automation is not established.*
 
+- **[2026-10-27] Scaling Laws for Tool-Use Agents via Controllable Environment Synthesis** — `GUI` · **SynthAPI**\
+  Synthesizes Python app schemas and read/write APIs over persistent databases, then generates initial states, oracle programs, and executable task verifiers to study how environment diversity affects tool-agent training.\
+  [Paper](https://arxiv.org/abs/2610.37648)\
+  *Scope note: These are tool-interface app worlds, not rendered GUI predictions; generated tasks operate within a single app.*
+
 - **[2026-10-22] Trace2World: Reconstructing App Worlds from Real Interaction Traces for Scalable GUI Agent Training** — `GUI`  
   Reconciles recorded workflows into a shared app-state model, compiles its supported behavior into a browser environment, and repairs implementation errors through independent replay while keeping unsupported transitions non-executable.  
   [Paper](https://arxiv.org/abs/2610.30792)
@@ -341,6 +358,11 @@ Official projects connected to code-defined worlds, including projects without a
 - **[2026-10-19] Agent World Model in the Wild: Computer-Use Agent Environment Synthesis** — `GUI` · **WildAWM**  
   Synthesizes persistent computer environments spanning GUI, MCP, and command-line interfaces, with execution-based checks for task solvability, difficulty, and verifier reliability before agent training.  
   [Paper](https://arxiv.org/abs/2610.26828) · [Project](https://msr-orchard.github.io/WildAWM/) · [Repository](https://github.com/MSR-Orchard/WildAWM)
+
+- **[2026-10-12] Davinci-Tool: Scaling Agentic Tool-Use Supervision with Verifiable Executable Environments** — `GUI`\
+  Synthesizes and audits stateful tool domains, composes compatible domains through shared entities and rules, and uses restored states and executable verifiers to collect demonstrations and compare alternative decisions.\
+  [Paper](https://arxiv.org/abs/2610.16867) · [Repository](https://github.com/MassLab-SII/Davinci-Tool)\
+  *Release note: EGTS and cross-domain composition source are available, but executable worlds and domain catalogs remain pending. The documented public trajectory subset is smaller than the paper’s training corpus; this is tool-environment synthesis, not next-screen prediction.*
 
 - **[2026-09-04] EnvCraft: Synthesizing Executable Environments in Agentic RL for Claw-like Agent** — `GUI`\
   Synthesizes sandboxed workspaces with explicit entities, business rules, persistent state, and executable tool transitions, then builds multi-step tasks and state-based verifiers for agent training.\
@@ -381,6 +403,19 @@ These papers construct executable environments; their goals differ from identify
   Generates simulation assets, scene variants, and typed workplace process logic, then compiles human-confirmed evaluation specifications into executable checks; introduces persistent-job evaluation in 24/7-Bench.\
   [Paper](https://arxiv.org/abs/2611.11789)\
   *Scope and release note: The paper does not yet establish end-to-end generation of all seven benchmark worlds or policy comparisons over persistent runs; no official implementation destination was verified.*
+
+- **[2026-11-09] MechFoundry: An agentic loop that poses and performs engineering analyses and optimization of real-world objects** — `Construction`\
+  Builds physical analysis cases from object descriptions using generated boundary-selection programs, part materials, and loads, then executes a supplied differentiable finite-element solver and uses its sensitivities for shape or topology optimization.\
+  [Paper](https://arxiv.org/abs/2611.14571) · [Repository](https://github.com/LuoXueling/MechFoundry)\
+  *Scope and release note: This constructs nonlinear elastostatic models, not learned temporal dynamics. Source and setup instructions are available; the workflow requires a configured GPU solver stack, external models, and model services.*
+
+- **[2026-11-09] PneuGen: Task-Driven Agentic Co-Design of Soft Pneumatic Robots** — `Construction`\
+  Generates soft-robot design programs specifying components, geometry, arrangement, and actuation, compiles them into finite-element scenes, and uses simulated diagnostics plus fitted module responses to revise the designs.\
+  [Paper](https://arxiv.org/abs/2611.13344)
+
+- **[2026-11-08] SoftPAT3D: Physics-Augmented Text-to-3D Scene Generation with Deformables** — `Construction`\
+  Constructs deformable rest shapes, materials, collision supports, and initial placements from text, then uses unified contact simulation and placement or material optimization to produce editable scenes that support robot manipulation.\
+  [Paper](https://arxiv.org/abs/2611.11087)
 
 - **[2026-11-07] Agentic discrete-event simulation for manufacturing system design: an open 3D simulator, a benchmark and an industrial case** — `Construction` · **SimuLean**\
   Lets agents assemble manufacturing processes through domain commands over a shared discrete-event engine, executing the resulting models in Unity or headlessly and checking their outputs against independent references; the engine supplies the simulation semantics.\
@@ -460,6 +495,11 @@ These papers construct executable environments; their goals differ from identify
   Expands text into entity contracts, scene relations, and causal event requirements, then constructs and simulates the world while geometry and state checks guide specification repair and re-execution.\
   [Paper](https://arxiv.org/abs/2609.33208)
 
+- **[2026-09-19] DiagGen: Agentic Generation of Deformable Assets with Sim-based Diagnostics for Robotic Simulation** — `Construction`\
+  Builds part-aware deformable assets with physical parameters, probes selected regions in a simulator, and routes observed response failures back to geometry, material, or mesh generation before exporting the revised asset.\
+  [Paper](https://arxiv.org/abs/2609.23103) · [Project](https://diaggen.github.io/)\
+  *Release note: The project page is available, but its linked repository returned HTTP 404 on November 16, 2026; an implementation release was not verified.*
+
 - **[2026-09-10] Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs** — `Construction` · **RCWM**  
   Reconstructs a complex 3D scene from a reference image through recursive scene programs and nested render–compare–edit loops.  
   [Paper](https://arxiv.org/abs/2609.11499)
@@ -475,6 +515,11 @@ These papers construct executable environments; their goals differ from identify
 - **[2026-07-02] SimWorlds: A Multi-Agent System for Dynamic 3D Scene Creation** — `Construction`\
   Generates editable dynamic Blender scenes through staged planning, coding, and review, using a deterministic scene protocol and runtime inspection to detect motion and mechanism failures; introduces 4DBuildBench.\
   [Paper](https://arxiv.org/abs/2607.01766) · [Project](https://dynsimworlds.github.io/)
+
+- **[2026-06-16] MagicSim: A Unified Infrastructure for Executable Embodied Interaction** — `Construction`\
+  Constructs executable worlds from declarative content, layout, behavior, and agent-interface specifications, coordinating reset/step state, robot controllers, planning, evaluation, and trajectory recording through a shared simulation runtime.\
+  [Paper](https://arxiv.org/abs/2606.17511)\
+  *Scope note: The proposed infrastructure supplies physics and execution semantics; it does not discover unknown transition laws. No official implementation destination was verified.*
 
 - **[2026-05-19] SceneCode: Executable World Programs for Editable Indoor Scenes with Articulated Objects** — `Construction`\
   Compiles room layouts and object requests into part-wise Blender programs, repairs them through execution, and exports articulated simulation assets linked by a persistent scene-state registry.\
@@ -522,6 +567,11 @@ These papers construct executable environments; their goals differ from identify
 ## Related symbolic and neurosymbolic planning
 
 These works are included for their explicit transition representations and verification or planning interfaces, not because all of them synthesize general-purpose simulators.
+
+- **[2026-11-12] NSDL: Neuro-Symbolic Division of Labor for Multi-Robot Task Planning** — `Related`\
+  Trains a visual model to judge goals and write robot-assigned plan sketches, then expands and schedules them under a supplied STRIPS-style action model; introduces LOCUS-Bench to separate state-judgment errors from structural planning failures.\
+  [Paper](https://arxiv.org/abs/2611.16671) · [Repository](https://github.com/Xincheng-Tan/NSDL)\
+  *Scope note: Evaluation uses symbolic replay. Solver acceptance depends on the sketch’s asserted state and does not repair incorrect scene judgments or establish physical robot execution.*
 
 - **[2026-11-11] BiPOP: Partial-Order Planning for Long-Horizon Bimanual Robotic Manipulation** — `Related`\
   Grounds instructions and scene objects in a supplied temporal PDDL model of reachability, shared workspace, and arm coordination, delegating action applicability and concurrent scheduling to a symbolic planner.\
@@ -618,6 +668,20 @@ These works are included for their explicit transition representations and verif
   Uses a rule-based Godot simulator to advance explicit tool and anatomical configurations, then conditions video synthesis on simulated frames and scene graphs; tissue appearance and deformation remain learned visual outputs.\
   [Paper](https://arxiv.org/abs/2605.16530) · [Project](https://ssharvienkumar.github.io/SWoMo/) · [Repository](https://github.com/MECLabTUDA/SWoMo) · [Models and processed data](https://huggingface.co/SsharvienKumar/SWoMo)\
   *Release note: Training and inference source for video synthesis are available; a complete Godot simulator release was not verified on November 13, 2026.*
+
+- **[2026-05-15] Deterministic Event-Graph Substrates as World Models for Counterfactual Reasoning** — `Related`\
+  Represents state as typed event logs and answers interventions through deterministic forks, replay, and causal-ancestor traversal, using domain-specific interpreters and kinematic heuristics for visual counterfactual reasoning.\
+  [Paper](https://arxiv.org/abs/2605.15967)\
+  *Scope note: Exactness relies on closed-event assumptions; newly created interactions require additional heuristics, and domain vocabularies are hand-authored. No official implementation destination was verified.*
+
+- **[2026-05-13] Differentiable Learning of Lifted Action Schemas for Classical Planning** — `Related` · **DIAS**\
+  Learns lifted action preconditions and add/delete effects while inferring missing action arguments from symbolic transitions, then exports PDDL schemas and evaluates their successor states on larger held-out problems.\
+  [Paper](https://arxiv.org/abs/2605.13282) · [Repository](https://github.com/jonaslreiter/DIAS)\
+  *Scope note: States and unary/binary predicates are supplied; the method assumes injective action bindings and excludes conditional effects and numerical fluents.*
+
+- **[2026-05-10] NEXUS: Learning Safety Constraints and Action Models for Safe and Robust Embodied Planning** — `Related`\
+  Repairs PDDL action schemas from execution failures while separately accumulating temporal-logic constraints from hazards, enforcing both during symbolic search and distinguishing model-relative infeasibility from constraint-induced refusal.\
+  [Paper](https://arxiv.org/abs/2605.09387)
 
 - **[2025-09-30] ExoPredicator: Learning Abstract Models of Dynamic Worlds for Robot Planning** — `Related`\
   Learns Python state predicates and symbolic causal processes with stochastic delays, combining Bayesian inference and language-model proposals to plan around both robot actions and autonomous mechanisms such as heating or falling dominoes.\
@@ -724,6 +788,11 @@ These works are included for their explicit transition representations and verif
   Tests generated CUDA implementations of physical simulation operators and complete simulators, checking numerical correctness and runtime under specified governing equations and fixed execution budgets.\
   [Paper](https://arxiv.org/abs/2609.35639)
 
+- **[2026-09-27] ArticulateArena: A Metric for Articulated Kinematics** — `Benchmark`\
+  Evaluates articulated simulator assets by comparing the motions encoded by joints and kinematic trees, accounting for equivalent parameterizations; introduces ArticulateArena-20K and reassesses reconstruction methods.\
+  [Paper](https://arxiv.org/abs/2609.33931) · [Project](https://heyumeng.com/ArticulateArena-web/) · [Repository](https://github.com/YumengHe/ArticulateArena)\
+  *Release note: Metric implementation, examples, and rendering utilities are available; the complete 19,977-object dataset release was not verified.*
+
 - **[2026-09-26] World Agent: Can Language Models Keep a World Running?** — `Benchmark`  
   Evaluates sustained maintenance of explicit world states and action-conditioned deduction through executable world interfaces, event contracts, and deterministic reference dynamics; it does not evaluate generated simulator code.  
   [Paper](https://arxiv.org/abs/2609.32692) · [Repository](https://github.com/HCPLab-SYSU/WorldAgent-Benchmark)  
@@ -800,6 +869,10 @@ Also see **CWMB** in the GIF-MCTS paper, **CombatStateBench** in Programmable Wo
   [Paper](https://arxiv.org/abs/2611.12411) · [Project](https://haroldchen19.github.io/PhysOPSD-site/) · [Announcement repository](https://github.com/aigc3d/PhysOPSD)\
   *Release and scope note: The repository provides paper resources; training and inference code are pending approval, and pretrained weights are not included as of November 14, 2026.*
 
+- **[2026-11-08] From Game Generation to Game Playing: Fully Automated Ability Training for Vision-Language-Action Models** — `Perspective` · **Script2Play**\
+  Uses coding agents to build skill-conditioned games, scene generators, rule mirrors, and state-based verifiers, then records successful programmatic teachers to train a visual game policy by behavior cloning.\
+  [Paper](https://arxiv.org/abs/2611.11136)
+
 - **[2026-11-02] Isekai3D SDG: A Platform for Diverse Synthetic Gameplay Visual Data** — `Perspective`\
   Records configurable Unreal gameplay state, actions, and camera paths, then replays the same simulation under varied rendering and capture settings to produce aligned training data; coding assistants can configure and inspect generation runs.\
   [Paper](https://arxiv.org/abs/2611.03626) · [Organization page](https://research.nvidia.com/publication/2026-10_isekai3d-sdg-platform-diverse-synthetic-gameplay-visual-data)
@@ -831,6 +904,11 @@ Also see **CWMB** in the GIF-MCTS paper, **CombatStateBench** in Programmable Wo
 - **[2026-07-30] Video Models as Native 4D Renderers: World-Grounded Conditioning from Animated Mesh** — `Perspective` · **DAR**\
   Conditions a video renderer on persistent surface identities, world positions, normals, and camera rays from animated meshes, using programmatically assembled Blender and Unreal scenes; the upstream scene specifies motion rather than the renderer learning executable transition rules.\
   [Paper](https://arxiv.org/abs/2608.00094)
+
+- **[2026-07-23] Closing the Loop: Training-Free Revisit Consistency for Autoregressive Generative Rendering** — `Perspective`\
+  Retrieves earlier video latents by camera pose and uses depth reprojection to guide attention when revisiting engine-defined scenes, improving rendering consistency while leaving world geometry and dynamics upstream.\
+  [Paper](https://arxiv.org/abs/2607.21848) · [Project](https://wenchao-m.github.io/ClosetheLoop.github.io/)\
+  *Release note: The project provides demonstrations, but its Code button has no implementation destination as of November 16, 2026.*
 
 ## Research questions
 

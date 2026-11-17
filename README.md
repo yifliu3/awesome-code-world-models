@@ -13,9 +13,9 @@
 
 </div>
 
-**185 papers** and **8 project releases**.
+**195 papers** and **8 project releases**.
 
-**Last literature search: November 16, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 17, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -194,6 +194,10 @@ Official projects connected to code-defined worlds, including projects without a
 - **[2026-06-23] LLM-ACES: Closed-Loop Discovery of Dynamical Systems with LLM-Guided Adaptive Search** — `Core`\
   Uses language-model operator priors to guide symbolic regression of executable ODEs, then selects new initial conditions through disagreement between candidate rollouts and queries a supplied trajectory oracle.\
   [Paper](https://arxiv.org/abs/2606.25039) · [Repository](https://github.com/scientific-discovery/LLM-ACES)
+
+- **[2026-03-21] LLM-ODE: Data-driven Discovery of Dynamical Systems with Large Language Models** — `Core`\
+  Uses language-model proposals to evolve symbolic ODE expressions, fits their constants, and combines candidate derivatives into systems ranked by complexity and numerically integrated trajectory error.\
+  [Paper](https://arxiv.org/abs/2603.20910) · [Repository](https://github.com/gryaklab/llm-ode)
 
 - **[2026-03-10] Epistemic Closure: Autonomous Mechanism Completion for Physically Consistent Simulation** — `Core`\
   Assembles constitutive mechanisms from a skill library, revises their coupling using regime and boundary-condition checks, and compiles the resulting physical model into finite-element simulation code.\
@@ -394,6 +398,11 @@ Official projects connected to code-defined worlds, including projects without a
 
 These papers construct executable environments; their goals differ from identifying unknown transition dynamics through interaction.
 
+- **[2026-11-13] TelePhysica: Agentic Reconstruction of Physically Interactive Scenes** — `Construction`\
+  Reconstructs procedural meshes and declarative physical models from one photograph, repairs them through silhouette and gravitational-equilibrium checks, and executes force interventions in a supplied solver to condition video generation.\
+  [Paper](https://arxiv.org/abs/2611.18078) · [Project](https://interactive4d.vercel.app/)\
+  *Scope and release note: The project page provides demonstrations, but its linked repository returned HTTP 404 on November 17, 2026; a runnable implementation was not verified.*
+
 - **[2026-11-12] BWM-Forge: Agentic World Programming for Embodied Intelligence** — `Construction`\
   Builds editable Blender scene, robot-motion, and camera programs from multimodal task inputs, revising them through review and reusable experience before sending proxy videos to an appearance generator.\
   [Paper](https://arxiv.org/abs/2611.16221) · [Project](https://bwm-forge.github.io/) · [Repository](https://github.com/Lcixs/BWM-Forge)\
@@ -468,6 +477,11 @@ These papers construct executable environments; their goals differ from identify
 - **[2026-10-08] USDCraft: Geometrically Grounded Programmatic Modeling of Articulated 3D Assets for Simulation** — `Construction`  
   Writes and revises executable asset programs from partial geometric evidence, producing articulated USD assets with explicit physical properties for simulation.  
   [Paper](https://arxiv.org/abs/2610.11322) · [Project](https://xingyoujun.github.io/usdcraft/)
+
+- **[2026-10-07] LLM-Assisted Generation of Transparent, Open-Source Multiphysics Models of Electrochemical Devices** — `Construction`\
+  Turns researcher-specified transport, reaction, and charge-balance equations into staged Julia solvers for an electrochemical reactor, using physical checks and reference-model comparisons to audit generated implementations.\
+  [Paper](https://arxiv.org/abs/2610.10320) · [Repository](https://github.com/Sebobbit/CO2R-Bulk-Scale-Model)\
+  *Scope and release note: The demonstrated model is one-dimensional, steady-state, and isothermal; it constructs coupled physical mechanisms rather than learning temporal dynamics. Some released plotting scripts require an omitted helper.*
 
 - **[2026-10-03] EnvDreamer: Large-Scale Multimodal-to-Environment Generation for Embodied AI** — `Construction`  
   Compiles language- and image-conditioned scene plans and task specifications into executable Unreal Engine environments, iteratively checking playability, physical consistency, and task completion.  
@@ -651,6 +665,11 @@ These works are included for their explicit transition representations and verif
   Generates and revises PDDL domains and problems through parser, planner, and semantic feedback, then evaluates mapped plans in held-out executable environments; introduces NL-pddlgym without claiming equivalence to the reference domains.\
   [Paper](https://arxiv.org/abs/2608.16637) · [Repository](https://github.com/vDawgg/PDDLCoder)
 
+- **[2026-07-07] Hypothesis-driven Model Expansion under Uncertainty for Open-World Robot Planning** — `Related` · **HUME**\
+  Expands a symbolic world model with hypotheses about missing objects, attributes, and action effects, plans verification alongside task actions through PDDL, and rejects or revises hypotheses using execution feedback.\
+  [Paper](https://arxiv.org/abs/2607.06501) · [Project](https://open-world-planning.github.io/) · [Repository](https://github.com/threefruits/HUME)\
+  *Scope and release note: The released implementation covers block processing and simulated mobile manipulation; real-robot and appliance-operation components are excluded.*
+
 - **[2026-07-03] Object-Centric Environment Modeling for Agentic Tasks** — `Related` · **OCM**\
   Accumulates Python object classes encoding environment constraints and mechanisms, requires reusable procedures to execute against that model, and reveals relevant source progressively during later agent decisions.\
   [Paper](https://arxiv.org/abs/2607.02846)
@@ -683,6 +702,16 @@ These works are included for their explicit transition representations and verif
   Repairs PDDL action schemas from execution failures while separately accumulating temporal-logic constraints from hazards, enforcing both during symbolic search and distinguishing model-relative infeasibility from constraint-induced refusal.\
   [Paper](https://arxiv.org/abs/2605.09387)
 
+- **[2026-04-09] RAMP: Hybrid DRL for Online Learning of Numeric Action Models** — `Related`\
+  Alternates reinforcement-learning exploration with planning over learned numeric action schemas, refitting preconditions and effects from accumulated trajectories; Numeric PDDLGym executes supplied domains through a Gym interface.\
+  [Paper](https://arxiv.org/abs/2604.08685) · [Environment code](https://github.com/SPL-BGU/NumericPDDLGym)\
+  *Scope and release note: The evaluated learner assumes full, noise-free symbolic states and linear numeric constraints. The linked environment is not a verified release of the complete RAMP training pipeline.*
+
+- **[2026-01-12] Executable Ontologies in Game Development: From Algorithmic Control to Semantic World Modeling** — `Related`\
+  Expresses survival-game state, action eligibility, and resource updates as declarative event-graph rules, with an interpreter propagating changes and triggering reactions when their conditions become true.\
+  [Paper](https://arxiv.org/abs/2601.07964)\
+  *Scope and release note: The paper demonstrates handwritten rules and small prototypes; LLM-driven model generation and production-engine integration are future directions. No official implementation destination was verified.*
+
 - **[2025-09-30] ExoPredicator: Learning Abstract Models of Dynamic Worlds for Robot Planning** — `Related`\
   Learns Python state predicates and symbolic causal processes with stochastic delays, combining Bayesian inference and language-model proposals to plan around both robot actions and autonomous mechanisms such as heating or falling dominoes.\
   [Paper](https://arxiv.org/abs/2509.26255) · [Repository](https://github.com/BasisResearch/predicators)
@@ -703,11 +732,20 @@ These works are included for their explicit transition representations and verif
   Learns condition–effect rules over observed state features, revises their applicability regions when environment mechanics change, and simulates transitions through the updated rules to adapt a neural policy with fewer real interactions.\
   [Paper](https://arxiv.org/abs/2301.06294)
 
+- **[2022-08-12] RLang: A Declarative Language for Describing Partial World Knowledge to Reinforcement Learning Agents** — `Related`\
+  Compiles declarative state, effect, and reward specifications into queryable partial world models, allowing reinforcement-learning agents to combine supplied transition knowledge with learned behavior.\
+  [Paper](https://arxiv.org/abs/2208.06448) · [Documentation](http://rlang.ai/master/) · [Repository](https://github.com/brownirl/rlang)
+
 - **[2019-12-30] World Programs for Model-Based Learning and Planning in Compositional State and Action Spaces** — `Related`\
   Formulates world-program induction from graph-state transitions, learning graph-rewrite actions and transition feasibility for model-based search, with chemical synthesis planning as the worked application.\
   [Paper](https://arxiv.org/abs/1912.13007)
 
 ## Benchmarks and evaluation
+
+- **[2026-11-13] OCTAVE: A Capability-Resolved Benchmark for End-to-End HTML5 Game Generation** — `Benchmark`\
+  Evaluates complete HTML5 game generation against public mechanics and hidden system requirements across eight capability dimensions, using static source-code judgments with a limited human play-testing cross-check.\
+  [Paper](https://arxiv.org/abs/2611.17681) · [Project](https://rezona-ai.github.io/benchmark-site/) · [Repository](https://github.com/rezona-ai/octave-bench) · [Dataset](https://huggingface.co/datasets/rezonalab/game-benchmark)\
+  *Scope and release note: Its runnability gate and main requirement scores come from source inspection, not automated runtime verification. Tasks, evaluation source, and recorded judgments are available.*
 
 - **[2026-11-12] WorldDraft: If Code Builds the World, Can Video Models Just Render It?** — `Benchmark`\
   Tests generative renderers on 432 paired drafts from 48 executable 4D worlds, varying geometric detail and appearance cues while holding dynamics fixed to measure world preservation and target-appearance realization.\
@@ -793,6 +831,11 @@ These works are included for their explicit transition representations and verif
   [Paper](https://arxiv.org/abs/2609.33931) · [Project](https://heyumeng.com/ArticulateArena-web/) · [Repository](https://github.com/YumengHe/ArticulateArena)\
   *Release note: Metric implementation, examples, and rendering utilities are available; the complete 19,977-object dataset release was not verified.*
 
+- **[2026-09-26] The GUI Is Not the State: Diagnosing State Aliasing in GUI World Models** — `Benchmark` · **StateAliasBench**\
+  Pairs identical GUI observations and actions with different hidden states to test next-screen models, including Code2World and gWorld; a history-based estimator supplies state to a fixed interface that resolves action consequences before rendering.\
+  [Paper](https://arxiv.org/abs/2609.32679)\
+  *Scope and release note: The state interface includes family-specific transition logic and rendering constraints; gains do not isolate hidden-state estimation alone. No official implementation destination was verified.*
+
 - **[2026-09-26] World Agent: Can Language Models Keep a World Running?** — `Benchmark`  
   Evaluates sustained maintenance of explicit world states and action-conditioned deduction through executable world interfaces, event contracts, and deterministic reference dynamics; it does not evaluate generated simulator code.  
   [Paper](https://arxiv.org/abs/2609.32692) · [Repository](https://github.com/HCPLab-SYSU/WorldAgent-Benchmark)  
@@ -801,6 +844,10 @@ These works are included for their explicit transition representations and verif
 - **[2026-09-14] BVB: Benchmarking Agentic Video Understanding via Programmatic Reconstruction in Blender** — `Benchmark`  
   Evaluates agents that reconstruct videos as executable animated Blender scenes, measuring retained spatiotemporal facts and perceptual similarity under a shared execution budget.  
   [Paper](https://arxiv.org/abs/2609.15478) · [Project](https://yoloytang.me/BVB/) · [Repository](https://github.com/yunlong10/BVB)
+
+- **[2026-08-30] GUI-CC: Benchmarking Contextual Consistency of GUI World Models as Agent Environments** — `Benchmark`\
+  Tests whether GUI world models, including HTML-generating Code2World and gWorld, preserve context and action effects when their predictions are reused across reference-action and agent-driven rollouts.\
+  [Paper](https://arxiv.org/abs/2609.00048) · [Repository](https://github.com/Fu-Fu-Fu-Fu/GUI-CC) · [Dataset](https://huggingface.co/datasets/minuzero/GUI-CC)
 
 - **[2026-08-28] An Enclosed Mode Is a Gauge Choice: Topology Relative to Reach in Certified Code World Models** — `Benchmark`\
   Studies when unreachable regions make errors in synthesized dynamics untestable yet harmless, using controlled ring environments to separate sampling coverage, planner reachability, model repair, and the consequences of incorrect geometry.\

@@ -13,9 +13,9 @@
 
 </div>
 
-**195 papers** and **8 project releases**.
+**202 papers** and **9 project releases**.
 
-**Last literature search: November 17, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 18, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -79,6 +79,7 @@ Official projects connected to code-defined worlds, including projects without a
 
 | Project | Organization | Verified on | Official resources | Release status |
 | :--- | :--- | :--- | :--- | :--- |
+| **Code World Model 2.0 / Invoker-Render** | Inclusion AI, Westlake University, and Zhejiang University | 2026-11-18 | [Project](https://www.inclusion-ai.org/CodeWorldModel/) · [Repository](https://github.com/inclusionAI/CodeWorldModel) · [Deployment guide](https://github.com/inclusionAI/CodeWorldModel/blob/master/docs/INFERENCE.md) | Streaming inference source, session service, and file/browser clients are available; the default deployment uses eight GPUs and separately supplied model assets. The author-linked weights page returned HTTP 401, so weight availability and a complete runnable deployment were not verified. The arXiv report and training release remain pending. |
 | **CoCode-World** | IApple233 | 2026-11-14 | [Project](https://iapple233.github.io/CCW/) · [Repository](https://github.com/IApple233/CoCode-World) · [Model](https://huggingface.co/iapple1/CoCode-World-Model) · [Dataset](https://huggingface.co/datasets/iapple1/CoCode-World-Data) | Training/inference source, LoRA weights, a selected paired-video dataset, and proxy-rendering resources are available. Requires external MiniMax-H3 weights; documented generation uses eight GPUs. Recorded world state supports rerendering, not arbitrary new-action simulation; the associated paper is now listed under adjacent renderers. |
 | **HolonEngine** | Jonathan Dunlap | 2026-11-12 | [Repository](https://github.com/jadbox/HolonEngine) · [Architecture](https://github.com/jadbox/HolonEngine/blob/main/docs/holon_whitepaper.md) | Experimental pre-alpha Rust compiler and 2D runtime source are available, with build instructions and video examples; requires FFmpeg. The inspected rollout uses built-in dynamics and automatic controls. Interactive control, general game-rule recovery, and the broader 3D roadmap were not verified; no standalone arXiv paper verified. |
 | **H3 Streaming VAE Decoder** | SolarX-Team | 2026-11-11 | [Project](https://solarx-team.github.io/H3-Streaming-VAE-Decoder/) · [Repository](https://github.com/SolarX-Team/H3-Streaming-VAE-Decoder) | Streaming decoder source for MiniMax H3 and StreamRender-H3 is available; weights remain external, and optional fused kernels require Blackwell GPUs. Independent decoder extension, not NVIDIA's full renderer; no standalone arXiv paper verified. |
@@ -87,6 +88,8 @@ Official projects connected to code-defined worlds, including projects without a
 | **EdenLive** | VAST | 2026-10-28 | [Project](https://vast-eden.ai/?p=edenlive) · [Repository](https://github.com/VAST-AI-Research/EdenLive) · [Models](https://huggingface.co/VAST-AI/EdenLive) | Offline and streaming inference source, 5B/14B weights, and a prompt-to-game frontend are available. The project page and author-linked technical-report PDF returned HTTP 403 during this check; report contents were not verified. |
 | **Streaming Code World Model** | Tingting Liao and Guangyi Liu | 2026-10-28 | [Repository](https://github.com/TingtingLiao/streaming-code-world-model) · [Models](https://huggingface.co/Luffuly/streaming-code-world-model) | Training/evaluation source and streaming LoRA checkpoints are available; requires the upstream CWM runtime and base weights. The documented configuration is not real time. No standalone paper verified. |
 | **StreamRender-H3** | NVIDIA | 2026-10-28 | [Project](https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/) · [Source code](https://github.com/NVlabs/Sana/tree/sol-engine/models/streamrender_h3) | Project page and runtime source available; deployment requires external model weights and a compatible multi-GPU environment. No standalone paper destination verified. |
+
+**Code World Model 2.0 / Invoker-Render** converts engine-generated structural proxies, an appearance reference, and text into streaming video, supporting different proxy detail levels. The upstream engine owns world state and interaction rules; the released renderer maintains bounded visual history rather than discovering executable dynamics.
 
 **CoCode-World** renders synchronized player views from shared geometric proxies, reference appearance, and text. Its released metadata and proxy compiler reconstruct observed game states and camera paths; generating consequences of new actions requires a separate dynamics model or compatible simulator.
 
@@ -105,6 +108,11 @@ Official projects connected to code-defined worlds, including projects without a
 **Streaming Code World Model** extends CWM with causal proxy-conditioned chunk generation and few-step distillation. It is tracked as a separate author-maintained extension, not as the original CWM paper's official repository.
 
 ## Code-driven world evolution and physical reasoning
+
+- **[2026-11-14] GameWM: Toward Next-Generation Video Games with Interaction-Centric World Models** — `Core`\
+  Keeps gameplay rules, entity state, and event outcomes in an engine while a proxy-conditioned video model generates interaction detail and appearance from reusable character and skill descriptions.\
+  [Paper](https://arxiv.org/abs/2611.19247)\
+  *Scope and release note: The reported evaluation uses proxies from held-out recordings, rather than establishing complete interactive-system performance. The paper-linked project and repository returned HTTP 404 on November 18, 2026.*
 
 - **[2026-11-11] Gradient-Aware AI Agents for Autonomous Turbulence Model Discovery via Differentiable CFD** — `Core`\
   Synthesizes analytical, neural, or hybrid turbulence closures inside a supplied differentiable flow solver, using simulated statistics and parameter gradients to revise both model form and fitted parameters.\
@@ -211,6 +219,10 @@ Official projects connected to code-defined worlds, including projects without a
 - **[2026-02-23] Pixel2Phys: Distilling Governing Laws from Visual Dynamics** — `Core`\
   Alternates visual variable extraction with symbolic equation discovery, numerically integrating candidate laws and using reconstruction, phase portraits, and extrapolation feedback to revise the representation.\
   [Paper](https://arxiv.org/abs/2602.19516)
+
+- **[2025-05-17] MLLM-based Discovery of Intrinsic Coordinates and Governing Equations from High-Dimensional Data** — `Core` · **VER**\
+  Uses a multimodal model to identify physical coordinates or latent dimension and propose symbolic function libraries, fits sparse dynamical equations, and integrates the discovered laws to extrapolate trajectories.\
+  [Paper](https://arxiv.org/abs/2505.11940)
 
 - **[2024-05-13] LLM4ED: Large Language Models for Automatic Equation Discovery** — `Core`\
   Generates symbolic ODE and PDE expressions, fits their constants against observed derivatives, and alternates local revisions with evolutionary search to recover governing laws; the evaluation emphasizes equation recovery rather than interactive planning.\
@@ -398,6 +410,11 @@ Official projects connected to code-defined worlds, including projects without a
 
 These papers construct executable environments; their goals differ from identifying unknown transition dynamics through interaction.
 
+- **[2026-11-16] GranularGPT: Natural-Language-Driven End-to-End Discrete Element Method Simulations** — `Construction`\
+  Translates granular-simulation requests into validated schemas for geometry, materials, contacts, and boundary conditions, then deterministically generates and executes LIGGGHTS cases with bounded repairs and persistent outputs.\
+  [Paper](https://arxiv.org/abs/2611.20551)\
+  *Scope note: The supplied solver and supported contact laws determine dynamics; the method constructs simulation cases rather than discovering new physical laws.*
+
 - **[2026-11-13] TelePhysica: Agentic Reconstruction of Physically Interactive Scenes** — `Construction`\
   Reconstructs procedural meshes and declarative physical models from one photograph, repairs them through silhouette and gravitational-equilibrium checks, and executes force interventions in a supplied solver to condition video generation.\
   [Paper](https://arxiv.org/abs/2611.18078) · [Project](https://interactive4d.vercel.app/)\
@@ -550,6 +567,11 @@ These papers construct executable environments; their goals differ from identify
 - **[2026-02-12] Code2Worlds: Empowering Coding LLMs for 4D World Generation** — `Construction`  
   Generates simulation code with separate object and environment construction, then refines dynamics through physics-aware visual feedback; includes Code4D evaluation.  
   [Paper](https://arxiv.org/abs/2602.11757) · [Project](https://aigeeksgroup.github.io/Code2Worlds/) · [Repository](https://github.com/AIGeeksGroup/Code2Worlds)
+
+- **[2024-11-12] LLMPhy: Parameter-Identifiable Physical Reasoning Combining Large Language Models and Physics Engines** — `Construction`\
+  Iteratively generates Python scene programs with estimated physical parameters and object layouts, uses reconstruction errors to revise them, and executes the fitted scene in a supplied physics engine to predict outcomes.\
+  [Paper](https://arxiv.org/abs/2411.08027) · [Organization project page](https://www.merl.com/research/highlights/LLMPhy) · [Repository](https://github.com/merlresearch/llmphy)\
+  *Scope and release note: The described parameter-estimation experiment uses simulator-extracted trajectories. Core source and data-generation tools are available; the repository's benchmark-download link remains a TODO.*
 
 - **[2024-10-03] Articulate-Anything: Automatic Modeling of Articulated Objects via a Vision-Language Foundation Model** — `Construction`\
   Generates compact Python programs for object-part placement and joint articulation, compiles them into URDF models, and revises the programs using rendered simulation feedback.\
@@ -728,6 +750,11 @@ These works are included for their explicit transition representations and verif
   Invents Python predicates that combine visual queries with logical computation, learns action preconditions and effects from successful and failed interactions, and uses the resulting abstract transition model for robot planning with supplied motor skills.\
   [Paper](https://arxiv.org/abs/2410.23156) · [Repository](https://github.com/BasisResearch/predicators)
 
+- **[2023-06-22] From Word Models to World Models: Translating from Natural Language to the Probabilistic Language of Thought** — `Related`\
+  Translates language into probabilistic programs for inference over possible worlds, including explicit physical simulation and goal-directed planning, and demonstrates extending or constructing small domain models from descriptions.\
+  [Paper](https://arxiv.org/abs/2306.12672) · [Example-code repository](https://github.com/gabegrand/world-models)\
+  *Release note: The repository archives manually run examples and prompts, not a complete automated world-modeling system.*
+
 - **[2023-01-16] Neuro-Symbolic World Models for Adapting to Open World Novelty** — `Related` · **WorldCloner**\
   Learns condition–effect rules over observed state features, revises their applicability regions when environment mechanics change, and simulates transitions through the updated rules to adapt a neural policy with fewer real interactions.\
   [Paper](https://arxiv.org/abs/2301.06294)
@@ -741,6 +768,11 @@ These works are included for their explicit transition representations and verif
   [Paper](https://arxiv.org/abs/1912.13007)
 
 ## Benchmarks and evaluation
+
+- **[2026-11-15] The Flip Test: Video World Models Fail to Learn the World State** — `Benchmark`\
+  Probes physical outcome boundaries with minimal image pairs, matched controls, and dense sweeps, comparing video prediction with code-based measurement and agent-built MuJoCo scene rollouts.\
+  [Paper](https://arxiv.org/abs/2611.19822) · [Author project page](https://romyluo.com/blog/fliptest/)\
+  *Scope note: Simulation adds little over measurement in the reported comparison; inclusion does not imply that engine execution explains the coding agent's advantage.*
 
 - **[2026-11-13] OCTAVE: A Capability-Resolved Benchmark for End-to-End HTML5 Game Generation** — `Benchmark`\
   Evaluates complete HTML5 game generation against public mechanics and hidden system requirements across eight capability dimensions, using static source-code judgments with a limited human play-testing cross-check.\
@@ -780,6 +812,11 @@ These works are included for their explicit transition representations and verif
 - **[2026-10-15] Testing the Planning Claims of LLM-Based Agents against Formal Semantics** — `Benchmark`  
   Evaluates offline plans and online agents against hidden PDDL transition models, checking action applicability, goal achievement, sensing behavior, and recognition of unsolvable tasks.  
   [Paper](https://arxiv.org/abs/2610.22469)
+
+- **[2026-10-14] SynthDCB: World Distillation for Scalable Device Control Benchmarking** — `Benchmark`\
+  Synthesizes device properties, Python functions, and environmental effects, composes them into stateful Home, Car, and Phone worlds, and evaluates tool-driven tasks through state checks and execution traces.\
+  [Paper](https://arxiv.org/abs/2611.18639) · [Project](https://x-lance.github.io/SynthDCB/) · [Announcement repository](https://github.com/X-LANCE/SynthDCB)\
+  *Date and release note: The abstract page reports October 14 as v1 despite the November identifier. Code and data remain marked coming soon as of November 18, 2026.*
 
 - **[2026-10-12] PhysCodeGym: Benchmarking Coding Agents for Physically Verifiable 4D Reconstruction** — `Benchmark`  
   Evaluates video-to-Blender reconstruction across 156 tasks using visual rubrics, program and scene inspection, and counterfactual physical interventions to distinguish replay fidelity from robust simulation.  

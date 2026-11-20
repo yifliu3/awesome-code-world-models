@@ -13,9 +13,9 @@
 
 </div>
 
-**212 papers** and **10 project releases**.
+**225 papers** and **10 project releases**.
 
-**Last literature search: November 19, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 20, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -111,6 +111,11 @@ Official projects connected to code-defined worlds, including projects without a
 **Streaming Code World Model** extends CWM with causal proxy-conditioned chunk generation and few-step distillation. It is tracked as a separate author-maintained extension, not as the original CWM paper's official repository.
 
 ## Code-driven world evolution and physical reasoning
+
+- **[2026-11-18] WorldRuler: Interactive World Modeling under Configurable Rules** — `Core`\
+  Executes user-defined triggers, preconditions, and object-state effects in a persistent 3D rule graph, jointly saving rules and state while binding their consequences to regions controlled by a video generator.\
+  [Paper](https://arxiv.org/abs/2611.24869) · [Project](https://alaya-lab.github.io/WorldRuler/) · [Announcement repository](https://github.com/AlayaLab/WorldRuler) · [Partial dataset](https://huggingface.co/datasets/AlayaLab/RuleVerse)\
+  *Release note: Inference code and weights remain pending; the model destination is a placeholder, and the RuleVerse manifest marks its upload incomplete as of November 20, 2026.*
 
 - **[2026-11-14] GameWM: Toward Next-Generation Video Games with Interaction-Centric World Models** — `Core`\
   Keeps gameplay rules, entity state, and event outcomes in an engine while a proxy-conditioned video model generates interaction detail and appearance from reusable character and skill descriptions.\
@@ -237,6 +242,11 @@ Official projects connected to code-defined worlds, including projects without a
   [Paper](https://arxiv.org/abs/2405.07761) · [Repository](https://github.com/menggedu/EDL)
 
 ## Learning executable dynamics and planning
+
+- **[2026-11-18] ABSClaw: From Invented Worlds to Reality-Grounded Social Simulation** — `Core`\
+  Compiles social-simulation requests into bounded Python lifecycle programs over supplied state, relation, event, and resource operations, initializing worlds from observed data and allowing model calls for individual decisions; introduces ABSBench.\
+  [Paper](https://arxiv.org/abs/2611.24517)\
+  *Scope note: The operation vocabulary and runtime are supplied; generated programs compose the mechanisms, and most benchmark tasks also use live language-model decisions. No official implementation destination was verified.*
 
 - **[2026-11-17] Think Once, Act Fast: Cost-Effective Recursive Self-Improvement for Decision Model Harness** — `Core` · **JevRSI**\
   Develops reusable Python programs that predict candidate actions' one-step effects, rewards, and termination, revising them against recorded transitions and supplying their predictions to a fast decision model.\
@@ -427,6 +437,21 @@ Official projects connected to code-defined worlds, including projects without a
 ## Executable scene and 4D world construction
 
 These papers construct executable environments; their goals differ from identifying unknown transition dynamics through interaction.
+
+- **[2026-11-18] VOL-Agent: Programming Your Film via Video Orchestration Language Agentic System** — `Construction`\
+  Builds reusable Blender scene, motion, and camera programs within a compiled film-production workflow, renders them as video-generation conditions, and carries final proxy states into subsequent shots.\
+  [Paper](https://arxiv.org/abs/2611.23950)\
+  *Scope note: Inclusion concerns the evaluated Blender workflow; general shot orchestration and textual memory alone do not establish executable world dynamics. No official implementation destination was verified.*
+
+- **[2026-11-18] GTA: Generative Tower of Agents for Scalable Holonic Scene Generation** — `Construction`\
+  Recursively constructs and assembles Blender scenes through parallel agents with shared hierarchical interfaces, then integrates scene-guided animated humans, garment simulation, and contact adjustments.\
+  [Paper](https://arxiv.org/abs/2611.23727) · [Project](https://zt-zeng-tao.github.io/GTA/)\
+  *Scope and release note: Dynamics come from a separate motion-generation and simulation stage, not discovered transition rules. The project provides demonstrations; an implementation release was not verified.*
+
+- **[2026-11-17] Reliability by Architecture: Agentic Workflows for Validated Multi-Physics Simulation from Natural Language** — `Construction`\
+  Constructs and repairs executable GEOS simulation setups by combining language-model interpretation with deterministic mesh, material, and control configuration, checking physical consistency separately from agreement with the requested experiment.\
+  [Paper](https://arxiv.org/abs/2611.23473)\
+  *Scope note: GEOS supplies the governing equations; experts supply construction rules and acceptance checks for the tested configurations. No official harness implementation destination was verified.*
 
 - **[2026-11-17] RFW-S: Everyday Deformable Objects with Independent Simulation Verification** — `Construction`\
   Builds deformable assets with structure-specific geometry and physical settings, calibrates effective solver parameters with language-model assistance, and screens frozen configurations on interactions distinct from calibration.\
@@ -626,6 +651,11 @@ These papers construct executable environments; their goals differ from identify
   [Paper](https://arxiv.org/abs/2311.01455) · [Project](https://robogen-ai.github.io/) · [Repository](https://github.com/Genesis-Embodied-AI/RoboGen)\
   *Release note: The official repository documents a PyBullet implementation for rigid manipulation and locomotion; the full soft-body pipeline described in the paper is not included in that release.*
 
+- **[2020-11-02] ProbRobScene: A Probabilistic Specification Language for 3D Robotic Manipulation Environments** — `Construction`\
+  Samples robotic manipulation scenes from probabilistic programs with relational geometric constraints, instantiates them in CoppeliaSim, and executes a supplied controller to expose perception, reachability, and grasp failures.\
+  [Paper](https://arxiv.org/abs/2011.01126) · [Repository](https://github.com/craigiedon/ProbRobScene)\
+  *Scope note: The programs specify distributions of simulator environments; they do not learn transition dynamics. Simulation requires the external CoppeliaSim and PyRep stack.*
+
 **Naming caution:** *Code2World* is the GUI paper; *Code2Worlds* is the 4D generation paper. *WorldCoder-Bench* below is a separate paper from the 2024 *WorldCoder* agent.
 
 ## Related symbolic and neurosymbolic planning
@@ -801,6 +831,36 @@ These works are included for their explicit transition representations and verif
   [Paper](https://arxiv.org/abs/1912.13007)
 
 ## Benchmarks and evaluation
+
+- **[2026-11-18] Local AI Agents in Power Electronics Simulation: Deployment, Measurements and Costs** — `Benchmark`\
+  Measures correctness and inference costs for agents that construct, repair, or extend executable converter models, checking simulated behavior at withheld operating points and separately studying tasks over fixed power-system models.\
+  [Paper](https://arxiv.org/abs/2611.24880)\
+  *Scope note: The converter-construction and model-editing tasks establish relevance; fixed-model controller tuning alone would not. Energy measurements cover the inference device, not the simulator host.*
+
+- **[2026-11-18] Openhagen Worlds: Calibrated Environments for Measuring and Training Scientific Discovery Agents** — `Benchmark`\
+  Evaluates budgeted experiment selection in generated worlds with hidden causal or physical mechanisms, deterministic answer checks, and calibrated difficulty, including multi-stage campaigns on one persistent hidden system.\
+  [Paper](https://arxiv.org/abs/2611.24711) · [Hosted evaluation](https://eval.openhagen.ai/) · [Public sample](https://eval.openhagen.ai/sample/)\
+  *Scope and release note: World mechanisms are supplied rather than synthesized by evaluated agents. The public sample covers two families; hosted core-tier access requires a token, and full generators were not verified as public. Frontier difficulty was tuned using a reported model’s evaluation outcomes.*
+
+- **[2026-11-18] Movie2Game-Bench: Holistic Evaluation of Film-to-Game Adaptation Beyond Playability** — `Benchmark`\
+  Evaluates film-to-game adaptations by connecting source-specific content to observed player actions, state changes, and implementation evidence, combining game-quality judgments with GUI-agent playtesting.\
+  [Paper](https://arxiv.org/abs/2611.24669)\
+  *Scope note: Most scores use model judgments over recorded evidence, with limited programmatic checks; this is not comprehensive formal verification of generated gameplay. No official implementation destination was verified.*
+
+- **[2026-11-18] 3D GameDev Arena: Benchmarking Coding Agents That Plan, Build, and Playtest extreme Long-Horizon Browser Games** — `Benchmark`\
+  Evaluates complete browser-game construction with specification-derived tests of production game-state logic, recorded agent playtesting, and human preference comparisons across 108 tasks.\
+  [Paper](https://arxiv.org/abs/2611.24073)\
+  *Scope and resource note: Some playtesting states are reached through evaluation adapters, and unevaluated functional criteria are omitted from scores. The paper-linked arena could not be verified as an accessible application on November 20, 2026.*
+
+- **[2026-11-18] How Complete Must an Environment Be to Train a Capable GUI Agent?** — `Benchmark` · **MobileGym-Lite**\
+  Varies reward-path coverage, application records, and executable feature availability in mobile GUI environments, then tests trained policies in the full environment to isolate the effects of construction choices.\
+  [Paper](https://arxiv.org/abs/2611.23946) · [Repository](https://github.com/Hydr0pon1c/Mobilegym-lite)\
+  *Scope and release note: Browser-simulator and training source are available, with separate data and accelerator requirements. Reported benefits of feature pruning depend on episode weighting and do not establish that less complete environments are universally better.*
+
+- **[2026-11-18] RoboBuilder: Agentic Robot Co-Design with Real-world Video Feedback in the Loop** — `Benchmark`\
+  Evaluates robot hardware and control-program co-design through simulation and physical builds, allowing agents to fit missing simulator mechanisms from measurements and revise simulator code after filmed real-world failures.\
+  [Paper](https://arxiv.org/abs/2611.23855) · [Project](https://ghadinehme.com/robobuilder.github.io/) · [Repository](https://github.com/ghadinehme/RoboBuilder) · [Dataset](https://huggingface.co/datasets/DeCoDELab/RoboBuilder)\
+  *Scope and release note: Simulator and benchmark source are available. Each later simulator correction targets one failed design and is not checked against other filmed runs; it does not establish a generally improved shared model.*
 
 - **[2026-11-16] Solver to System: LLM Reasoning Across Representations and Execution in Scientific Simulation** — `Benchmark` · **Solver2System**\
   Tests whether models reconcile PDE solver code with equations, descriptions, and trajectories, and whether executing deliberately corrupted solvers helps identify physical invalidity and its causal defects.\
@@ -979,6 +1039,11 @@ These works are included for their explicit transition representations and verif
 Also see **CWMB** in the GIF-MCTS paper, **CombatStateBench** in Programmable World Model, and **Code4D** in Code2Worlds. These are not counted as additional papers.
 
 ## Adjacent renderers, perspectives, and data engines
+
+- **[2026-11-18] Game2Player: Scaling Gameplay Experience for Visual Agents through Environment-Player Co-Development** — `Perspective`\
+  Adapts existing web games into state-observable task environments, uses player feedback to repair their implementations and verifiers, and collects progress-labeled trajectories for visual-policy training; introduces PlayerBench.\
+  [Paper](https://arxiv.org/abs/2611.24154) · [Project](https://game2player.github.io/) · [Repository](https://github.com/game2player/Game2Player)\
+  *Release and scope note: Environment-building, rollout, and training source are available; third-party game builds and assets are excluded and must be reconstructed from their sources. This is an executable-environment data engine, not a learned dynamics model.*
 
 - **[2026-11-17] Code World Model 2.0: Towards Infinite Controllable Video Generation** — `Perspective` · **Invoker-Render**\
   Renders engine-defined proxy streams at varying geometric detail through bidirectional and causal video models, progressively training few-step generation on increasingly self-generated histories while world rules remain upstream.\

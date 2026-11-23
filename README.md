@@ -13,9 +13,9 @@
 
 </div>
 
-**258 papers** and **10 project releases**.
+**264 papers** and **10 project releases**.
 
-**Last literature search: November 22, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 23, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -498,6 +498,11 @@ These papers construct executable environments; their goals differ from identify
   [Paper](https://arxiv.org/abs/2611.25340)\
   *Scope and release note: Its executable animation replays fitted motion from new cameras; it does not discover interaction laws. The harness and scene release is announced, without a verified implementation destination.*
 
+- **[2026-11-19] Coda-DaVinci: Reimagining Video Generation with Code2Video** — `Construction`\
+  Selects between direct video generation and executable Blender proxies, adapts object detail and physical simulation to the task, and preserves scene assets while visual feedback guides program and rendering revisions.\
+  [Paper](https://arxiv.org/abs/2611.26595) · [Project](https://coda-davinci.github.io/) · [Announcement repository](https://github.com/FrankYang-17/Coda)\
+  *Scope and release note: The shared Coda repository provides this paper’s overview and media; Coda-DaVinci implementation is marked coming soon. Its separate CodeCap-Bench directory is not the method release.*
+
 - **[2026-11-18] VOL-Agent: Programming Your Film via Video Orchestration Language Agentic System** — `Construction`\
   Builds reusable Blender scene, motion, and camera programs within a compiled film-production workflow, renders them as video-generation conditions, and carries final proxy states into subsequent shots.\
   [Paper](https://arxiv.org/abs/2611.23950)\
@@ -810,6 +815,11 @@ These works are included for their explicit transition representations and verif
   Constructs task-focused kinematic models from perception queries, represents uncertain joint mechanisms as hypotheses, and updates them through execution feedback while a geometric planner computes contact and robot motion.\
   [Paper](https://arxiv.org/abs/2611.00513)
 
+- **[2026-10-22] SCOPE: Scene-graph Construction Optimized by Plan Error-correction for Robot Long-term Planning Datasets** — `Related`\
+  Generates symbolic scene graphs and task instructions, compiles them into PDDL problems, and repairs missing scene attributes from planner failures to produce executable planning examples under a supplied action domain.\
+  [Paper](https://arxiv.org/abs/2610.31518) · [Project](https://scope-page.github.io/)\
+  *Scope and release note: Scene repair changes the generated initial state, not the domain’s transition rules; planner solvability does not establish physical fidelity. The project marks code as coming soon.*
+
 - **[2026-10-21] MemPlan: Memory-Conditioned PDDL Planning for Partially Observable Text Environments** — `Related`  
   Reconstructs PDDL problems from observations and interaction memory while keeping domain rules fixed, using positive memory to prioritize hypotheses and negative memory to exclude refuted assumptions.  
   [Paper](https://arxiv.org/abs/2610.30379) · [Repository](https://github.com/tewiSong/MemPlan)
@@ -875,6 +885,11 @@ These works are included for their explicit transition representations and verif
   Generates and revises PDDL domains and problems through parser, planner, and semantic feedback, then evaluates mapped plans in held-out executable environments; introduces NL-pddlgym without claiming equivalence to the reference domains.\
   [Paper](https://arxiv.org/abs/2608.16637) · [Repository](https://github.com/vDawgg/PDDLCoder)
 
+- **[2026-07-31] Symbolic Attack Chain Generation from Atomic Red Team Techniques: An Empirical Study of Predicate Representation Granularity** — `Related`\
+  Translates documented security-test behavior and execution evidence into human-checked PDDL preconditions and effects, then examines whether alternative predicate groupings preserve meaningful host-state distinctions for planning.\
+  [Paper](https://arxiv.org/abs/2608.00143)\
+  *Scope and release note: Plan validity and cost are identical by construction in the relabeling comparison, and one chain-ordering dependency is manually imposed. No official method implementation destination was verified.*
+
 - **[2026-07-07] Hypothesis-driven Model Expansion under Uncertainty for Open-World Robot Planning** — `Related` · **HUME**\
   Expands a symbolic world model with hypotheses about missing objects, attributes, and action effects, plans verification alongside task actions through PDDL, and rejects or revises hypotheses using execution feedback.\
   [Paper](https://arxiv.org/abs/2607.06501) · [Project](https://open-world-planning.github.io/) · [Repository](https://github.com/threefruits/HUME)\
@@ -892,6 +907,11 @@ These works are included for their explicit transition representations and verif
   Learns binary visual predicates and grounded action preconditions and add/delete effects from image transitions, then executes the symbolic operators in graph search between start and goal images.\
   [Paper](https://arxiv.org/abs/2606.06832) · [Placeholder project](https://elpislab.org/projects/strips-wm/)\
   *Release and scope note: The author project is under construction as of November 15, 2026. Operators are deterministic and tied to supplied action labels, without lifted generalization to new object sets.*
+
+- **[2026-06-01] From Capability Models to Automated Planning: An AAS-Native Approach for Automatic PDDL Generation** — `Related`\
+  Resolves references across industrial asset descriptions and compiles their types, capabilities, preconditions, effects, and instance states into PDDL models for comparing production layouts through symbolic planning.\
+  [Paper](https://arxiv.org/abs/2606.02167) · [Repository](https://github.com/hsu-aut/AAS2PDDL)\
+  *Scope and release note: Domain mechanics come from supplied capability models rather than learned dynamics. Transformation source and example assets are available; the pipeline was not run during curation.*
 
 - **[2026-05-15] SWoMo: Neuro-Symbolic World Model for Cataract Surgery Simulation** — `Related`\
   Uses a rule-based Godot simulator to advance explicit tool and anatomical configurations, then conditions video synthesis on simulated frames and scene graphs; tissue appearance and deformation remain learned visual outputs.\
@@ -1074,6 +1094,11 @@ These works are included for their explicit transition representations and verif
   [Paper](https://arxiv.org/abs/2610.15166) · [Project](https://helen1p.github.io/ExeWorldBench/) · [Dataset](https://huggingface.co/datasets/HelenPeng/ExeWorldBench)  
   *Release note: the project and dataset are available; the linked GitHub repository currently provides an overview rather than a verified evaluation-code release.*
 
+- **[2026-10-07] DrugTargetWorld: A Synthetic Biobank for Training and Benchmarking AI Scientists** — `Benchmark`\
+  Generates synthetic biobanks from hidden structural causal programs, executes budgeted experimental interventions, and scores agents’ causal conclusions against the same world’s concealed ground truth.\
+  [Paper](https://arxiv.org/abs/2610.09558) · [Project](https://DrugTargetWorld.vercel.app/) · [Documentation repository](https://github.com/sammargolis/DrugTargetWorld/)\
+  *Scope and release note: The repository contains documentation and reserved training/testing folders; generator, oracle, scorer, and harness source remain pending. A prebuilt benchmark route is documented but was not run; the causal mechanisms are designed, not recovered biological laws.*
+
 - **[2026-10-06] WorldSolver: Can LLM Agents Simulate the Physical Dynamics via Solver Generation?** — `Benchmark`  
   Evaluates generated numerical solvers on 168 tasks across seven physical domains within fixed scene scaffolds, separately checking execution, rendered behavior, and physical plausibility of state trajectories.  
   [Paper](https://arxiv.org/abs/2610.08720) · [Repository](https://github.com/sirujiang/WorldSolver)
@@ -1161,6 +1186,11 @@ These works are included for their explicit transition representations and verif
 - **[2026-06-30] ScratchWorld: Evaluating If World Models Compute Executable Consequences** — `Benchmark`\
   Uses replayable Scratch worlds to evaluate action-conditioned state changes, hidden state, causal traces, and counterfactuals, scoring correctly computed changes separately from unchanged-state copying.\
   [Paper](https://arxiv.org/abs/2606.31689)
+
+- **[2026-06-29] Toward Secure and Reliable PDDL Formalization of Large Language Models with Planner-in-the-Loop Feedback** — `Benchmark`\
+  Evaluates language-to-PDDL problem construction under fixed action domains, using planner diagnostics for localized repair and measuring solvability and agreement with reference plans across object-count difficulty levels.\
+  [Paper](https://arxiv.org/abs/2606.29700) · [Repository](https://github.com/ibasicplan/NL-PDDL-Bench)\
+  *Scope and release note: Evaluation and repair source plus a 1,000-instance test archive are available; the full dataset, fine-tuned weights, and complete training configurations remain pending. The task generates problem states and goals, not domain dynamics.*
 
 - **[2026-06-12] SIMMER: Benchmarking Latent Failures in LLM Executable Planning with a World Model** — `Benchmark`\
   Executes household plans against curated action and object rules, tracking both immediate precondition violations and delayed, potentially irreversible failures; evaluates counterfactual state reasoning against the supplied kitchen model.\

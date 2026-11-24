@@ -13,9 +13,9 @@
 
 </div>
 
-**264 papers** and **10 project releases**.
+**277 papers** and **10 project releases**.
 
-**Last literature search: November 23, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 24, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -111,6 +111,16 @@ Official projects connected to code-defined worlds, including projects without a
 **Streaming Code World Model** extends CWM with causal proxy-conditioned chunk generation and few-step distillation. It is tracked as a separate author-maintained extension, not as the original CWM paper's official repository.
 
 ## Code-driven world evolution and physical reasoning
+
+- **[2026-11-20] Zing-1.0: A Playable World System Built on Controllable Rendering** — `Core`\
+  Uses coding agents to author TypeScript worlds in WorldKit, executes player actions and interaction rules in the engine, and streams proxy-conditioned video with separate scene and subject appearance references.\
+  [Paper](https://arxiv.org/abs/2611.27336)\
+  *Scope and release note: In-play appearance prompts do not update engine state. The paper-linked project host failed DNS resolution on November 24, 2026; no implementation or weights destination was verified.*
+
+- **[2026-11-20] SceneRuler: Measuring Physical Quantities in Video via Minimal Sufficient Reconstruction** — `Core`\
+  Constructs question-specific scene programs from object tracks and prior facts, selects motion laws from a supplied family, and fits their parameters to measure physical quantities with explicit uncertainty.\
+  [Paper](https://arxiv.org/abs/2611.26994)\
+  *Scope note: A program read-out can be withheld when the quantity is undetermined, while a separate VLM still returns an answer. No official implementation destination was verified.*
 
 - **[2026-11-18] WorldRuler: Interactive World Modeling under Configurable Rules** — `Core`\
   Executes user-defined triggers, preconditions, and object-state effects in a persistent 3D rule graph, jointly saving rules and state while binding their consequences to regions controlled by a video generator.\
@@ -261,6 +271,11 @@ Official projects connected to code-defined worlds, including projects without a
 - **[2026-10-29] Algebraic World Model: From Exploration to Proofs** — `Core`\
   Builds and revises executable Python game hypotheses from interaction, organizes them into typed objects and shared rules, and formalizes the resulting model in Lean to prove model-relative reachability or impossibility.\
   [Paper](https://arxiv.org/abs/2610.40503) · [Project](https://ephemeral6.github.io/awm-site/)
+
+- **[2026-10-13] Write Once, Plan Many: Building Reusable Visual Planning Systems from One Scene** — `Core` · **RVPA**\
+  Authors executable state renderers and transition models from a domain specification and practice scene, using reconstruction and simulated-plan feedback to refine reusable perception and planning programs.\
+  [Paper](https://arxiv.org/abs/2610.19234)\
+  *Scope and release note: Construction feedback comes from the authored model; final plans are evaluated independently. Implementation release is promised upon acceptance, without a verified destination.*
 
 - **[2026-10-08] Memento 3: Model-Based Recursive Self-Improvement through Reflective Rulebooks** — `Core`  
   Compiles revisable rulebooks into executable transition, observation, and goal models, refining them through prediction errors and replay before using them for planning.  
@@ -473,6 +488,16 @@ Official projects connected to code-defined worlds, including projects without a
 
 These papers construct executable environments; their goals differ from identifying unknown transition dynamics through interaction.
 
+- **[2026-11-20] From Manufacturing Event Logs to Simulation: Enabling SMEs with Agentic AI for SimPy Simulation Generation** — `Construction` · **GenAI4SimPy**\
+  Extracts resource topology, routing, and timing distributions from manufacturing logs, then generates and repairs SimPy process models through specialized agents and human validation gates.\
+  [Paper](https://arxiv.org/abs/2611.27483) · [Repository](https://github.com/RaikoPipe/genai4simpy)\
+  *Scope note: The reported models retain routing and observation-window errors; accurate activity parameters do not establish system-level behavioral fidelity.*
+
+- **[2026-11-19] ChatAtom: A Multi-Agent LLM System for Molecular Dynamics Simulation and Visualization** — `Construction`\
+  Converts approved material-study plans into reviewed LAMMPS input programs and OVITO visualization scripts, executing simulations with selected OpenKIM potentials and retaining feedback for subsequent runs.\
+  [Paper](https://arxiv.org/abs/2611.26782) · [Repository](https://github.com/mirage-scidac/chatatom)\
+  *Scope note: The generated programs configure a supplied molecular-dynamics engine and potential library; they do not discover new interatomic laws.*
+
 - **[2026-11-19] PlayCraft: Designing Engaging Games from Agent Play Experience** — `Construction`\
   Revises executable game mechanics from a visual player agent’s episode reports, then tests the changed game through builds and play, using improvement across repeated attempts as a proxy for mastery.\
   [Paper](https://arxiv.org/abs/2611.26624) · [Project](https://playcraft.cheng.website) · [Repository](https://github.com/xt4d/PlayCraft)\
@@ -610,6 +635,10 @@ These papers construct executable environments; their goals differ from identify
   [Paper](https://arxiv.org/abs/2610.17651) · [Project](https://aigeeksgroup.github.io/Code2Worlds-2/) · [Repository](https://github.com/AIGeeksGroup/Code2Worlds-2) · [Dataset](https://huggingface.co/datasets/AIGeeksGroup/SimCode4D)  
   *Release note: the repository includes the DEV15 runtime packages; its 225/225 reference-package check is not a success rate for method-generated worlds.*
 
+- **[2026-10-12] Game-Creation-Agents: Autonomous Game Production** — `Construction`\
+  Compiles game designs into Phaser runtime scaffolds, interaction contracts, and tests, coordinating scene and asset creation before checking mechanics through browser interaction and revising failed artifacts.\
+  [Paper](https://arxiv.org/abs/2610.16776) · [Repository](https://github.com/Tencent/Game-Creation-Agents)
+
 - **[2026-10-09] VETR: Execution-Grounded Self-Improving Agent for Symbolic Graphics Reasoning** — `Construction`  
   Refines Blender scene-editing programs using captured writes, state, and resource bindings, checking realized changes and preservation of captured properties before visual verification; it does not learn physical transition dynamics.  
   [Paper](https://arxiv.org/abs/2610.13098)
@@ -622,6 +651,11 @@ These papers construct executable environments; their goals differ from identify
   Turns researcher-specified transport, reaction, and charge-balance equations into staged Julia solvers for an electrochemical reactor, using physical checks and reference-model comparisons to audit generated implementations.\
   [Paper](https://arxiv.org/abs/2610.10320) · [Repository](https://github.com/Sebobbit/CO2R-Bulk-Scale-Model)\
   *Scope and release note: The demonstrated model is one-dimensional, steady-state, and isothermal; it constructs coupled physical mechanisms rather than learning temporal dynamics. Some released plotting scripts require an omitted helper.*
+
+- **[2026-10-04] Code2Games: Enabling Coding Agents for Gaming World Generation** — `Construction`\
+  Grounds gameplay objectives and interactive entities in a shared Blender scene representation, then reconstructs Unreal Engine projects using compilation, execution, and playtesting feedback; introduces GameCode4D.\
+  [Paper](https://arxiv.org/abs/2610.05033) · [Project](https://aigeeksgroup.github.io/Code2Games/) · [Repository](https://github.com/AIGeeksGroup/Code2Games) · [Benchmark assets](https://huggingface.co/datasets/AIGeeksGroup/GameCode4D)\
+  *Release note: The inspected source implements Blender-world staging, motion, and video generation. A complete released Unreal reconstruction pipeline was not verified as of November 24, 2026.*
 
 - **[2026-10-03] EnvDreamer: Large-Scale Multimodal-to-Environment Generation for Embodied AI** — `Construction`  
   Compiles language- and image-conditioned scene plans and task specifications into executable Unreal Engine environments, iteratively checking playability, physical consistency, and task completion.  
@@ -722,10 +756,24 @@ These papers construct executable environments; their goals differ from identify
   Uses an evolving coding agent to create and repair Unreal environments through compilation, physics, and visual feedback, exporting Gym-style tasks and adapting the generated curriculum to learner performance.\
   [Paper](https://arxiv.org/abs/2605.09423)
 
+- **[2026-04-07] CoEnv: Code-Driven Exploration in Real-to-Sim Digital Twins for Multi-Arm Manipulation** — `Construction`\
+  Rebuilds observed workcells as queryable physics simulations with collision geometry and aligned cameras, then uses those twins to test and revise complete multi-arm control programs before deployment.\
+  [Paper](https://arxiv.org/abs/2604.05484) · [Project](https://faceong.github.io/CoEnv/) · [Repository](https://github.com/MARS-EAI/CoEnv)\
+  *Scope note: Construction uses supplied simulation dynamics and category-level physical attributes; the coding agent revises robot behavior rather than learning the engine's transition laws.*
+
 - **[2026-03-25] Sketch2Simulation: Automating Flowsheet Generation via Multi Agent Large Language Models** — `Construction`\
   Converts process diagrams into component-and-stream graphs, generates Python programs that instantiate and connect Aspen HYSYS models, and uses execution and structural checks to repair the flowsheets.\
   [Paper](https://arxiv.org/abs/2603.24629) · [Partial implementation](https://github.com/OptiMaL-PSE-Lab/Sketch2Simulation)\
   *Scope and release note: Agent and orchestration source are available, but required HYSYS instruction files are omitted; execution also needs a licensed HYSYS installation with COM access and external model services.*
+
+- **[2026-03-07] AutoUE: Automated Generation of 3D Games in Unreal Engine via Multi-Agent Systems** — `Construction`\
+  Builds procedural scene graphs and C++ gameplay modules from text, binds object interactions to those modules, and generates runtime playtests using engine documentation and design constraints.\
+  [Paper](https://arxiv.org/abs/2603.07106) · [Repository](https://github.com/Pluto156/AutoUE)
+
+- **[2026-02-16] PhyScensis: Physics-Augmented LLM Agents for Complex Physical Scene Arrangement** — `Construction`\
+  Proposes object arrangements as spatial and physical predicates, resolves them with geometry and simulation checks, and samples perturbations to control stability in scenes used for robot manipulation.\
+  [Paper](https://arxiv.org/abs/2602.14968) · [Project](https://physcensis.github.io/)\
+  *Scope and release note: Physics comes from a supplied engine; the contribution is simulation-grounded scene arrangement. The project provides demonstrations, without a verified implementation destination.*
 
 - **[2026-02-12] Code2Worlds: Empowering Coding LLMs for 4D World Generation** — `Construction`  
   Generates simulation code with separate object and environment construction, then refines dynamics through physics-aware visual feedback; includes Code4D evaluation.  
@@ -977,6 +1025,16 @@ These works are included for their explicit transition representations and verif
 
 ## Benchmarks and evaluation
 
+- **[2026-11-20] $\gamma$-Scape: An Agent-Centric World for Mobile Embodied Intelligence** — `Benchmark`\
+  Compiles authored task templates into persistent physical worlds, reference programs, and state-based evaluators, repairing resource bindings and layouts through simulation checks for mobile-manipulation evaluation.\
+  [Paper](https://arxiv.org/abs/2611.27306)\
+  *Scope and release note: BenchForge instantiates supplied task families and engine dynamics. The paper describes an evaluation package, but no official download destination was verified.*
+
+- **[2026-11-19] TuringSpace: Grounding Spatial Intelligence in Action with Interactive CAPTCHAs** — `Benchmark`\
+  Uses reviewed task programs to generate interactive browser puzzles with state checkers and oracle action sequences, including object manipulation, multi-step physical processes, and time-dependent scenes.\
+  [Paper](https://arxiv.org/abs/2611.25387)\
+  *Scope and release note: Inclusion rests on the state-changing tasks, not the static-question subsets. The paper announces a future release without a verified resource destination.*
+
 - **[2026-11-19] TwinLab-Bench: Evaluating AI Scientists in Agentic Twins of Real Labs** — `Benchmark`\
   Evaluates experimental design in laboratory twins whose record-derived calculators produce observations and whose runtime tracks budgets and material use, with final reports judged against hidden laboratory evidence.\
   [Paper](https://arxiv.org/abs/2611.26248)\
@@ -1130,6 +1188,11 @@ These works are included for their explicit transition representations and verif
   Tests whether agents can expose and document injected collision, temporal, spatial, and semantic defects by navigating and interacting with executable Unreal Engine and Three.js worlds.\
   [Paper](https://arxiv.org/abs/2609.40325) · [Project](https://ucsb-nlp-chang.github.io/WorldAuditBench/) · [Repository](https://github.com/UCSB-NLP-Chang/WorldAuditBench)\
   *Scope and release note: Auditing and evaluation source is available, with environment downloads and external model clients required. Most tasks contain one hinted anomaly, and reports are graded by a model.*
+
+- **[2026-09-28] LEGO-Anything: Coding Agents for 3D Scene Reconstruction** — `Benchmark` · **LEGO-Bench**\
+  Evaluates generated Blender scene programs against known geometry and appearance, with a separate articulation protocol grounded in human-reviewed URDFs and simulator-executed joint motions.\
+  [Paper](https://arxiv.org/abs/2609.36380)\
+  *Scope and release note: The executable-world connection is the articulated-asset protocol; its pilot evaluates one frozen scene and does not establish general dynamics recovery. No official implementation destination was verified.*
 
 - **[2026-09-28] GPUPhysBench: Benchmarking Coding Agents for Correct and Efficient GPU Physics Simulation** — `Benchmark`\
   Tests generated CUDA implementations of physical simulation operators and complete simulators, checking numerical correctness and runtime under specified governing equations and fixed execution budgets.\

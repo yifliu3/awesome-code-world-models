@@ -13,9 +13,9 @@
 
 </div>
 
-**277 papers** and **10 project releases**.
+**286 papers** and **10 project releases**.
 
-**Last literature search: November 24, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 25, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -111,6 +111,11 @@ Official projects connected to code-defined worlds, including projects without a
 **Streaming Code World Model** extends CWM with causal proxy-conditioned chunk generation and few-step distillation. It is tracked as a separate author-maintained extension, not as the original CWM paper's official repository.
 
 ## Code-driven world evolution and physical reasoning
+
+- **[2026-11-23] CineAct: Interaction-State Agents for Playable, Branching Film Generation** — `Core`\
+  Maintains object ownership, locations, and attributes in a scene graph, checks action preconditions and goal reachability with a symbolic transition engine, and renders accepted changes through verified endpoint images and video generation.\
+  [Paper](https://arxiv.org/abs/2611.30613)\
+  *Scope and release note: The planned graph advances separately from rendered observations; endpoint verification does not guarantee that intermediate video obeys the transition. No official implementation destination was verified.*
 
 - **[2026-11-20] Zing-1.0: A Playable World System Built on Controllable Rendering** — `Core`\
   Uses coding agents to author TypeScript worlds in WorldKit, executes player actions and interaction rules in the engine, and streams proxy-conditioned video with separate scene and subject appearance references.\
@@ -487,6 +492,26 @@ Official projects connected to code-defined worlds, including projects without a
 ## Executable scene and 4D world construction
 
 These papers construct executable environments; their goals differ from identifying unknown transition dynamics through interaction.
+
+- **[2026-11-23] RoboUniverse-10K: Toward the Scaling Era of Agentic Robotics via Real-to-Sim Environments** — `Construction`\
+  Converts manipulation videos into Isaac Sim scene programs, reference controllers, and state verifiers, then uses independent fidelity, replay, and failure-case audits to repair and package resettable robot environments.\
+  [Paper](https://arxiv.org/abs/2611.31002) · [Project](https://lab.einsia.ai/robo-universe/) · [Repository](https://github.com/Einsia/RoboUniverse-10K) · [Environment packages](https://huggingface.co/datasets/Einsia/RoboUniverse-10K)\
+  *Scope and release note: Evaluation source and task packages are available; execution requires Isaac Sim, an RTX-capable GPU, containers, and external assets. The physics engine is supplied, and the released evaluator does not establish release of the complete construction pipeline.*
+
+- **[2026-11-23] 3AGameFactory-Motion: Agentic Rigging and Reliable Complex Motion Generation for Diverse 3D Assets** — `Construction`\
+  Generates articulated skeleton configurations and timed motion programs, then executes skinning, kinematic constraints, and geometric corrections to animate varied asset morphologies; DivDynBench evaluates rigs and instructed motion.\
+  [Paper](https://arxiv.org/abs/2611.30013) · [Repository](https://github.com/OpenDCAI/GameFactory-3A) · [Method guide](https://github.com/OpenDCAI/GameFactory-3A/blob/main/docs/GameFactory3A-Motion/README.md) · [Benchmark assets](https://huggingface.co/datasets/zbhpku/DivDynBench)\
+  *Scope and release note: Executor source, example configurations, meshes, rigs, and task specifications are available. This constructs articulated motion rather than learning physical laws; the dataset does not bundle the complete judging and aggregation protocol.*
+
+- **[2026-11-22] GameAnything: From Any Inspirations to Playable Game Worlds** — `Construction`\
+  Adapts multimodal references into executable game modifications, using independent playtesting, recorded development state, and reusable lessons to revise mechanics and events while checking preservation of existing behavior.\
+  [Paper](https://arxiv.org/abs/2611.29238) · [Project](https://huggingface.co/spaces/GameAnything/GameAnything) · [Repository](https://github.com/AetherLabsAI/GameAnything) · [Benchmark repository](https://github.com/AetherLabsAI/GameAnything-Bench)\
+  *Release note: Toolkit and evaluation source are available; full evaluation requires game environments, external model services, and reference media. The commercial track requires separately obtained game copies.*
+
+- **[2026-11-21] ViTrust: Learning 3D Observation Trust for Deformable Physical World Models** — `Construction`\
+  Learns observation weights from visual and contact histories while fitting spring stiffness and collision parameters, then freezes the fitted simulator to predict deformable-object responses under subsequent controls.\
+  [Paper](https://arxiv.org/abs/2611.28815)\
+  *Scope and release note: The spring graph, masses, controller links, and force-law family are supplied; the method calibrates an executable physical twin rather than synthesizing new dynamics code. No official implementation destination was verified.*
 
 - **[2026-11-20] From Manufacturing Event Logs to Simulation: Enabling SMEs with Agentic AI for SimPy Simulation Generation** — `Construction` · **GenAI4SimPy**\
   Extracts resource topology, routing, and timing distributions from manufacturing logs, then generates and repairs SimPy process models through specialized agents and human validation gates.\
@@ -1025,6 +1050,21 @@ These works are included for their explicit transition representations and verif
 
 ## Benchmarks and evaluation
 
+- **[2026-11-23] GameDojo: Benchmarking Real-Time Interactive Agents in Video Games** — `Benchmark`\
+  Reconstructs boss encounters as executable games with explicit combat rules and state machines, then evaluates agents under matched action interfaces, timing modes, and difficulty settings with simulator-derived outcomes.\
+  [Paper](https://arxiv.org/abs/2611.30771) · [Project](https://gamedojo-benchmark.github.io/) · [Repository](https://github.com/THUSI-Lab/GameDojo) · [Environment bundle](https://huggingface.co/datasets/THUSI-Lab/GameDojo)\
+  *Scope and release note: Inclusion rests on reconstructed game mechanics, not controller generation alone. Harness source and separate game runtimes are available; the full 600-hour trajectory dataset remains marked pending as of November 25, 2026.*
+
+- **[2026-11-23] VeriWorld: A Verifiable Visual SWE-Bench for Spatial Reasoning in 3D Environments** — `Benchmark`\
+  Instantiates symbolic task specifications as interactive 3D worlds, compares visual and structured observations on matched instances, and verifies navigation, manipulation, and physical outcomes through deterministic runtime checks.\
+  [Paper](https://arxiv.org/abs/2611.30226) · [Task repository](https://github.com/VITA-Group/VeriWorld) · [Task metadata](https://huggingface.co/datasets/yanyanzheng96/VeriWorld)\
+  *Scope and release note: Task source is available with a separately distributed engine runtime. Solvability certificates cover selected families only; runtime compatibility checks do not reproduce every paper task, seed, or model result.*
+
+- **[2026-11-22] PhyCoVE: Benchmarking Physical Counterfactual Video Editing across Diverse Material Dynamics** — `Benchmark`\
+  Builds material-specific scene programs and branches simulations at physical interventions to create counterfactual references, then measures whether edited videos reproduce the resulting rigid, deformable, and fluid responses.\
+  [Paper](https://arxiv.org/abs/2611.29184) · [Project](https://phycove.github.io/) · [Repository](https://github.com/Hammour-steak/PhyCoVE) · [Dataset](https://huggingface.co/datasets/ccmoony/PhyCoVE)\
+  *Scope and release note: Scene-generation and evaluation source plus benchmark data are available; simulation and evaluation require external solvers, assets, and model dependencies. The executable-world connection is the constructed counterfactual reference, not a learned program in each evaluated video model.*
+
 - **[2026-11-20] $\gamma$-Scape: An Agent-Centric World for Mobile Embodied Intelligence** — `Benchmark`\
   Compiles authored task templates into persistent physical worlds, reference programs, and state-based evaluators, repairing resource bindings and layouts through simulation checks for mobile-manipulation evaluation.\
   [Paper](https://arxiv.org/abs/2611.27306)\
@@ -1292,6 +1332,11 @@ These works are included for their explicit transition representations and verif
 Also see **CWMB** in the GIF-MCTS paper, **CombatStateBench** in Programmable World Model, and **Code4D** in Code2Worlds. These are not counted as additional papers.
 
 ## Adjacent renderers, perspectives, and data engines
+
+- **[2026-11-21] Eidetic Code World Model** — `Perspective` · **Paintress**\
+  Couples executable proxy geometry with persistent Gaussian appearance memory, refining a temporary reader map to condition future rendering while newly emitted views update the retained map; Expedition-33 tests appearance on revisits.\
+  [Paper](https://arxiv.org/abs/2611.28878) · [Project](https://gabrielinger.github.io/Eidetic-Code-World-Model/)\
+  *Scope and release note: Evaluation uses static scenes and compares each system with its own first visit; this studies rendering memory rather than learned interaction dynamics. The project provides demonstrations without a verified implementation or weights destination.*
 
 - **[2026-11-19] ContextRenderer: Dynamic-Context Video Generation for Interactive Game Worlds** — `Perspective`\
   Renders engine-provided proxies with chunk-wise prompt and subject-reference updates, compressed visual history, and alignment across proxy formats; WorldPrism supplies paired observations from several world sources.\

@@ -13,9 +13,9 @@
 
 </div>
 
-**286 papers** and **10 project releases**.
+**301 papers** and **10 project releases**.
 
-**Last literature search: November 25, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 26, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -112,10 +112,30 @@ Official projects connected to code-defined worlds, including projects without a
 
 ## Code-driven world evolution and physical reasoning
 
+- **[2026-11-24] PhysMend: Verification-Guided Program Refinement for Physics-Aware Video Generation** — `Core`\
+  Builds typed object and event programs, compiles them into Genesis simulations, and repairs localized physical or visibility failures before passing accepted depth rollouts to a video generator.\
+  [Paper](https://arxiv.org/abs/2611.32821)\
+  *Scope and release note: Supplied solvers govern the dynamics; verification targets the simulation and conditioning signal, not a guarantee about the final video. No official implementation destination was verified.*
+
+- **[2026-11-24] Simulator-as-Proxy World Model for Robot Manipulation** — `Core` · **SimPWM**\
+  Reconstructs robot geometry and object point sets from an initial observation, executes explicit grasp, carry, release, and gravity rules, and compares proxy-conditioned video against the resulting simulator state.\
+  [Paper](https://arxiv.org/abs/2611.32786) · [Repository](https://github.com/TingtingLiao/SimPWM)\
+  *Scope and release note: Dynamics rules are supplied, and carried objects remain rigid; the video can contradict simulator state. Source and examples are available, but the project page returned HTTP 403 and linked weights HTTP 401 on November 26, 2026.*
+
+- **[2026-11-24] CodeWAM: A Code World Action Model for End-to-End Autonomous Driving** — `Core`\
+  Rolls candidate driving plans through a supplied vehicle transition program, measures continuity with prior execution, and combines these consequences with learned scene scores to select the next plan.\
+  [Paper](https://arxiv.org/abs/2611.32483) · [Placeholder repository](https://github.com/Zhisheng-researcher/CodeWAM)\
+  *Scope and release note: The executable model covers ego motion, while surrounding-scene outcomes remain learned; this does not synthesize driving physics. The author-linked repository contains only a title README.*
+
 - **[2026-11-23] CineAct: Interaction-State Agents for Playable, Branching Film Generation** — `Core`\
   Maintains object ownership, locations, and attributes in a scene graph, checks action preconditions and goal reachability with a symbolic transition engine, and renders accepted changes through verified endpoint images and video generation.\
   [Paper](https://arxiv.org/abs/2611.30613)\
   *Scope and release note: The planned graph advances separately from rendered observations; endpoint verification does not guarantee that intermediate video obeys the transition. No official implementation destination was verified.*
+
+- **[2026-11-23] Constructing physical mechanisms with artificial intelligence** — `Core` · **FieldBridge**\
+  Compiles physical equations and their assumptions into structured mechanism records, derives missing terms when proposed transformations fail, and checks constructed models through symbolic identities and numerical dynamics.\
+  [Paper](https://arxiv.org/abs/2611.31653) · [Project](https://synthetix-institute.github.io/fieldbridge/) · [Repository](https://github.com/synthetix-institute/fieldbridge)\
+  *Scope and release note: FieldBridge source and executable tutorials are available; the corpus-reading and model-compilation pipeline is only partly released. The finite supported transformations do not establish unrestricted autonomous discovery.*
 
 - **[2026-11-20] Zing-1.0: A Playable World System Built on Controllable Rendering** — `Core`\
   Uses coding agents to author TypeScript worlds in WorldKit, executes player actions and interaction rules in the engine, and streams proxy-conditioned video with separate scene and subject appearance references.\
@@ -243,6 +263,11 @@ Official projects connected to code-defined worlds, including projects without a
 - **[2026-03-06] Symmetry-Constrained Language-Guided Program Synthesis for Discovering Governing Equations from Noisy and Partial Observations** — `Core`\
   Synthesizes symbolic dynamical laws within a grammar constrained by units and symmetries, fits their constants, and ranks alternative structures using complexity penalties and bootstrap stability under noisy or partial observations.\
   [Paper](https://arxiv.org/abs/2603.06869)
+
+- **[2026-03-05] RealWonder: Real-Time Physical Action-Conditioned Video Generation** — `Core`\
+  Reconstructs a physical scene from one image, executes force and robot commands with material-specific solvers, and streams simulated motion and coarse RGB views to a distilled video renderer.\
+  [Paper](https://arxiv.org/abs/2603.05449) · [Project](https://liuwei283.github.io/RealWonder/) · [Repository](https://github.com/liuwei283/RealWonder) · [Model](https://huggingface.co/ziyc/realwonder)\
+  *Scope and release note: Simulation and inference source, a demo interface, and checkpoint files are available; external reconstruction models and a CUDA GPU are required. Dynamics come from supplied solvers, and rendered fidelity is not guaranteed by simulation alone.*
 
 - **[2026-02-23] Pixel2Phys: Distilling Governing Laws from Visual Dynamics** — `Core`\
   Alternates visual variable extraction with symbolic equation discovery, numerically integrating candidate laws and using reconstruction, phase portraits, and extrapolation feedback to revise the representation.\
@@ -492,6 +517,31 @@ Official projects connected to code-defined worlds, including projects without a
 ## Executable scene and 4D world construction
 
 These papers construct executable environments; their goals differ from identifying unknown transition dynamics through interaction.
+
+- **[2026-11-24] RFW-W: Scaling Physical Asset Universes for Generative Embodied Simulation** — `Construction`\
+  Constructs rigid assets with collision geometry, composed physical properties, and grasp annotations, then combines them with articulated and deformable collections for task-conditioned scene assembly and simulator checks.\
+  [Paper](https://arxiv.org/abs/2611.33013) · [Project](https://roboflywheel-com.github.io/RoboFlywheel-World/) · [Repository](https://github.com/RoboFlywheel-com/RoboFlywheel-World)\
+  *Scope and release note: Rigid-asset and scene-generation source are available; external assets, model services, and simulators are required. RFW-A and RFW-S are separately listed companion papers; this repository does not establish complete release of all three collections.*
+
+- **[2026-11-24] EmbodiedStudio: A Task-Driven Simulation Generation Platform for Embodied Learning and Evaluation** — `Construction`\
+  Jointly authors scene, task, behavior, and stateful scoring programs, revises them through simulation and independent review, and freezes environment versions for replay, policy training, and evaluation.\
+  [Paper](https://arxiv.org/abs/2611.32534) · [Project](https://embodiedstudio.github.io/?view=paper) · [Repository](https://github.com/Runder-sun/EmbodiedStudio) · [Source preview](https://github.com/Runder-sun/EmbodiedStudio/releases/tag/v0.1.0-rc1)\
+  *Release note: The public prerelease contains the workbench and runtime. Scene generation requires Codex CLI access, an Isaac Sim host with an RTX GPU, and separately supplied assets; opening the interface alone does not reproduce the experiments.*
+
+- **[2026-11-24] CodeHOI: Code with Agents for Physically Plausible 4D Hand-Object Interaction** — `Construction`\
+  Uses separate agents to program material-aware objects and hand contacts, execute appropriate physical solvers, and revise interactions from measured violations and rendered feedback; CodeHOI-Bench tests reconstruction and generation.\
+  [Paper](https://arxiv.org/abs/2611.31976) · [Project](https://shpark97.github.io/CodeHOI/)\
+  *Scope and release note: Physical laws and solver families are supplied. The project provides demonstrations and program excerpts; its implementation is marked coming soon.*
+
+- **[2026-11-24] Decompose, Verify, Evolve: Physically Grounded Shape Decomposition** — `Construction` · **PhysDec**\
+  Reconstructs objects as material-bearing geometric primitives, repairs connectivity and support failures using simulator feedback, and reuses verified corrections to build physical assets and manipulation scenes.\
+  [Paper](https://arxiv.org/abs/2611.31924) · [Project](https://wenchao-m.github.io/PhysDec/)\
+  *Scope and release note: Inclusion rests on MuJoCo stability and manipulation rollouts, beyond static shape fitting. Objects comprise rigid parts; articulated motion and deformation are outside scope. No official implementation destination was verified.*
+
+- **[2026-11-24] RESET: One Demonstration, One Verified World, Self-Improved Skills Across Embodiments** — `Construction`\
+  Rebuilds a contact-based simulation world and fixed success criterion from one robot demonstration, checks replay and visual agreement, and uses the shared world for skill-code improvement across embodiments.\
+  [Paper](https://arxiv.org/abs/2611.31894) · [Project](https://zainzh.github.io/RESET/) · [Repository](https://github.com/ZainZh/RESET)\
+  *Scope and release note: Rebuilt worlds, frozen programs, scorers, and test layouts are available; the construction and self-improvement pipeline, raw demonstrations, and real-robot stack are omitted. Replay checks do not identify all physical parameters.*
 
 - **[2026-11-23] RoboUniverse-10K: Toward the Scaling Era of Agentic Robotics via Real-to-Sim Environments** — `Construction`\
   Converts manipulation videos into Isaac Sim scene programs, reference controllers, and state verifiers, then uses independent fidelity, replay, and failure-case audits to repair and package resettable robot environments.\
@@ -1050,6 +1100,16 @@ These works are included for their explicit transition representations and verif
 
 ## Benchmarks and evaluation
 
+- **[2026-11-24] SofaSpace: A Benchmark for Executable Visual Spatial Reasoning in Continuous Motion and Environment Construction** — `Benchmark`\
+  Evaluates motion plans and generated layouts through continuous full-body collision checks, timed gates, and coordinated transport constraints, distinguishing endpoint agreement from executable paths and functional environment design.\
+  [Paper](https://arxiv.org/abs/2611.32285)\
+  *Scope and release note: This supplies explicit geometric and temporal worlds rather than learning dynamics. No official benchmark implementation or dataset destination was verified.*
+
+- **[2026-11-24] Reproducing History Is Not Enough: Intervention-Level Assurance for LLM-Generated Simulators** — `Benchmark` · **Vouch**\
+  Tests individual counterfactual answers from generated process simulators using structured interventions, historical replay, and targeted behavioral checks, retaining failure records to govern later reuse and abstention.\
+  [Paper](https://arxiv.org/abs/2611.31736)\
+  *Scope and release note: The benchmark covers generated operational-process dynamics; passing these checks is not a general correctness proof. The paper-linked artifact returned HTTP 403 on November 26, 2026, so its release contents were not verified.*
+
 - **[2026-11-23] GameDojo: Benchmarking Real-Time Interactive Agents in Video Games** — `Benchmark`\
   Reconstructs boss encounters as executable games with explicit combat rules and state machines, then evaluates agents under matched action interfaces, timing modes, and difficulty settings with simulator-derived outcomes.\
   [Paper](https://arxiv.org/abs/2611.30771) · [Project](https://gamedojo-benchmark.github.io/) · [Repository](https://github.com/THUSI-Lab/GameDojo) · [Environment bundle](https://huggingface.co/datasets/THUSI-Lab/GameDojo)\
@@ -1181,6 +1241,11 @@ These works are included for their explicit transition representations and verif
 - **[2026-10-12] PhysCodeGym: Benchmarking Coding Agents for Physically Verifiable 4D Reconstruction** — `Benchmark`  
   Evaluates video-to-Blender reconstruction across 156 tasks using visual rubrics, program and scene inspection, and counterfactual physical interventions to distinguish replay fidelity from robust simulation.  
   [Paper](https://arxiv.org/abs/2610.17288) · [Repository](https://github.com/ShaoShuai0605/PhysCodeGym)
+
+- **[2026-10-12] CineRecon: Benchmarking Frontier Models for Agentic Cinematic Reconstruction** — `Benchmark`\
+  Tests agents that write and revise animated Blender scenes from complete reference videos, comparing timestamped camera, object, and interaction evidence across three levels of reconstruction detail.\
+  [Paper](https://arxiv.org/abs/2610.16577) · [Project](https://cinerecon.github.io/) · [Repository](https://github.com/Unc1eW4ng/CineRecon)\
+  *Scope and release note: Reference media, annotations, prompts, and evaluation source are available; reconstruction requires Blender and agent tools, and scoring requires a model service. Executable animation reconstruction does not establish learned transition dynamics.*
 
 - **[2026-10-11] PhySimCode: A Benchmark and Evaluation Method for Physics Video to Code Generation** — `Benchmark`  
   Evaluates reconstruction of physics videos as runnable Python simulations, separately measuring governing-law inference, numerical parameter recovery, code execution, and simulation equivalence.  
@@ -1333,6 +1398,11 @@ Also see **CWMB** in the GIF-MCTS paper, **CombatStateBench** in Programmable Wo
 
 ## Adjacent renderers, perspectives, and data engines
 
+- **[2026-11-24] A Mesh to Remember: Persistent Appearance for Interactive Video Worlds** — `Perspective` · **M2R**\
+  Renders code-authored mesh worlds while storing generated features in object-local surface cells, retrieving shared appearance memory as objects move, viewpoints return, or multiple agents observe the same surfaces.\
+  [Paper](https://arxiv.org/abs/2611.32445) · [Project](https://research.nvidia.com/labs/sil/projects/m2r/)\
+  *Scope and release note: Geometry and world evolution remain upstream; this is appearance rendering and memory. The official project provides demonstrations without a verified implementation or weights destination.*
+
 - **[2026-11-21] Eidetic Code World Model** — `Perspective` · **Paintress**\
   Couples executable proxy geometry with persistent Gaussian appearance memory, refining a temporary reader map to condition future rendering while newly emitted views update the retained map; Expedition-33 tests appearance on revisits.\
   [Paper](https://arxiv.org/abs/2611.28878) · [Project](https://gabrielinger.github.io/Eidetic-Code-World-Model/)\
@@ -1411,6 +1481,11 @@ Also see **CWMB** in the GIF-MCTS paper, **CombatStateBench** in Programmable Wo
   Retrieves earlier video latents by camera pose and uses depth reprojection to guide attention when revisiting engine-defined scenes, improving rendering consistency while leaving world geometry and dynamics upstream.\
   [Paper](https://arxiv.org/abs/2607.21848) · [Project](https://wenchao-m.github.io/ClosetheLoop.github.io/)\
   *Release note: The project provides demonstrations, but its Code button has no implementation destination as of November 16, 2026.*
+
+- **[2026-03-24] RealMaster: Lifting Rendered Scenes into Photorealistic Video** — `Perspective`\
+  Builds paired engine-rendered and enhanced videos through keyframe editing and structural propagation, then trains an adapter to translate game-engine sequences while retaining their scene layout and motion.\
+  [Paper](https://arxiv.org/abs/2603.23462) · [Project](https://danacohen95.github.io/RealMaster/)\
+  *Scope and release note: The explicit connection is rendering existing game worlds; this does not discover executable dynamics or establish an interactive streaming runtime. No official implementation or weights destination was verified.*
 
 ## Research questions
 

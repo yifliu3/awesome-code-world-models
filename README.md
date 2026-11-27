@@ -13,9 +13,9 @@
 
 </div>
 
-**301 papers** and **10 project releases**.
+**322 papers** and **11 project releases**.
 
-**Last literature search: November 26, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 27, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -79,6 +79,7 @@ Official projects connected to code-defined worlds, including projects without a
 
 | Project | Organization | Verified on | Official resources | Release status |
 | :--- | :--- | :--- | :--- | :--- |
+| **VideoCoS: When Do Executable World States Help Video Reasoning and Generation?** | UNC Chapel Hill | 2026-11-27 | [Project](https://videocos.github.io/) · [Repository](https://github.com/Yui010206/VideoCoS-code) · [Technical report](https://videocos.github.io/assets/paper/VideoCoS.pdf) · [Demo data](https://huggingface.co/datasets/Shoubin/VideoCoS-demo) | Codification, scene-query/edit, and rendering source plus demo data are available. Evaluation scripts are omitted; full reconstruction/rendering requires external models, services, and GPU resources. No arXiv first-submission date verified; tracked as a project release. |
 | **Mundo: Customized World Model** | Yihang Luo and collaborators | 2026-11-19 | [Project](https://mundo-world-model.github.io/) · [Author article](https://huggingface.co/blog/Luo-Yihang/mundo-world-model) · [Announcement repository](https://github.com/Luo-Yihang/Mundo) | Project demonstrations and method description are available; the repository contains an overview and visual assets. Code and weights are announced for the end of November but remain pending. No arXiv paper verified. |
 | **Code World Model 2.0 / Invoker-Render** | Inclusion AI, Westlake University, and Zhejiang University | 2026-11-19 | [Project](https://www.inclusion-ai.org/CodeWorldModel/) · [Repository](https://github.com/inclusionAI/CodeWorldModel) · [Deployment guide](https://github.com/inclusionAI/CodeWorldModel/blob/master/docs/INFERENCE.md) · [Models](https://huggingface.co/inclusionAI/invoker-render-1.0) | Streaming inference source, session service, file/browser clients, causal model shards, and bidirectional-teacher LoRA are available. The default deployment uses eight GPUs and requires separate encoder/decoder assets; a complete deployment was not reproduced. The associated paper is now listed under adjacent renderers; training code and data remain pending. |
 | **CoCode-World** | IApple233 | 2026-11-14 | [Project](https://iapple233.github.io/CCW/) · [Repository](https://github.com/IApple233/CoCode-World) · [Model](https://huggingface.co/iapple1/CoCode-World-Model) · [Dataset](https://huggingface.co/datasets/iapple1/CoCode-World-Data) | Training/inference source, LoRA weights, a selected paired-video dataset, and proxy-rendering resources are available. Requires external MiniMax-H3 weights; documented generation uses eight GPUs. Recorded world state supports rerendering, not arbitrary new-action simulation; the associated paper is now listed under adjacent renderers. |
@@ -89,6 +90,8 @@ Official projects connected to code-defined worlds, including projects without a
 | **EdenLive** | VAST | 2026-10-28 | [Project](https://vast-eden.ai/?p=edenlive) · [Repository](https://github.com/VAST-AI-Research/EdenLive) · [Models](https://huggingface.co/VAST-AI/EdenLive) | Offline and streaming inference source, 5B/14B weights, and a prompt-to-game frontend are available. The project page and author-linked technical-report PDF returned HTTP 403 during this check; report contents were not verified. |
 | **Streaming Code World Model** | Tingting Liao and Guangyi Liu | 2026-10-28 | [Repository](https://github.com/TingtingLiao/streaming-code-world-model) · [Models](https://huggingface.co/Luffuly/streaming-code-world-model) | Training/evaluation source and streaming LoRA checkpoints are available; requires the upstream CWM runtime and base weights. The documented configuration is not real time. No standalone paper verified. |
 | **StreamRender-H3** | NVIDIA | 2026-10-28 | [Project](https://nvlabs.github.io/Sana/Sol-Engine/StreamRender-H3/) · [Source code](https://github.com/NVlabs/Sana/tree/sol-engine/models/streamrender_h3) | Project page and runtime source available; deployment requires external model weights and a compatible multi-GPU environment. No standalone paper destination verified. |
+
+**VideoCoS** reconstructs a reusable Blender scene program from video and perception evidence. A separate agent queries its objects and geometry or edits and simulates it for novel views, goal-directed animation, and future prediction; its report distinguishes geometric benefits from limits in history reasoning and physical realism.
 
 **Mundo** reconstructs a proxy scene from context images and refines it with a vision-language agent, representing objects and physical properties in a scene program. A physics engine computes scripted interactions, and a context-conditioned video model renders the simulated trajectories; the demonstrated interface is not yet a released implementation.
 
@@ -111,6 +114,16 @@ Official projects connected to code-defined worlds, including projects without a
 **Streaming Code World Model** extends CWM with causal proxy-conditioned chunk generation and few-step distillation. It is tracked as a separate author-maintained extension, not as the original CWM paper's official repository.
 
 ## Code-driven world evolution and physical reasoning
+
+- **[2026-11-25] WorldInteract: Controllable Streaming Video Generation for Multi-Material Interactions** — `Core`\
+  Estimates object state from generated frames, computes impending collision impulses with an explicit contact controller, and conditions a streaming video model on the resulting velocity changes and persistent object identities.\
+  [Paper](https://arxiv.org/abs/2611.34730)\
+  *Scope and release note: The controller supplies a frictionless central-collision rule; material behavior, resting contacts, and visual state evolution remain learned. No official implementation destination was verified.*
+
+- **[2026-11-25] Rehearse in 3D, Render in 2D: Physically Consistent and Editable Robot World Models** — `Core` · **RehearsalWorld**\
+  Refines neural point-flow predictions with persistent grasp attachments and explicit object constraints, steps an editable particle simulation for material changes, and renders the resulting trajectories from chosen viewpoints.\
+  [Paper](https://arxiv.org/abs/2611.34288)\
+  *Scope and release note: The base motion prior is learned; supplied constraints and position-based dynamics govern refinement and material edits. This does not synthesize physical laws. No official implementation destination was verified.*
 
 - **[2026-11-24] PhysMend: Verification-Guided Program Refinement for Physics-Aware Video Generation** — `Core`\
   Builds typed object and event programs, compiles them into Genesis simulations, and repairs localized physical or visibility failures before passing accepted depth rollouts to a video generator.\
@@ -481,10 +494,20 @@ Official projects connected to code-defined worlds, including projects without a
   [Paper](https://arxiv.org/abs/2605.18703) · [Repository](https://github.com/LARK-AI-Lab/EnvFactory)\
   *Scope and release note: Generation, validation, and trajectory source are available; these are tool-interface service environments, not rendered next-screen predictions.*
 
+- **[2026-05-07] Weblica: Scalable and Reproducible Training Environments for Visual Web Agents** — `GUI`\
+  Builds repeatable browser environments through recorded HTTP responses and separately synthesizes self-contained websites whose JavaScript maintains task state, using replay and visual checks to filter training tasks.\
+  [Paper](https://arxiv.org/abs/2605.06761)\
+  *Scope and release note: Cached sessions and synthesized sites have different fidelity limits; the generated sites use local storage without a backend. No official implementation destination was verified.*
+
 - **[2026-04-20] Agent-World: Scaling Real-World Environment Synthesis for Evolving General Agent Intelligence** — `GUI`\
   Constructs executable tool environments over persistent service databases, verifies task trajectories through state changes, and uses recurring agent failures to guide further environment and task synthesis.\
   [Paper](https://arxiv.org/abs/2604.18292) · [Project](https://agent-tars-world.github.io/-/) · [Repository](https://github.com/RUC-NLPIR/Agent-World)\
   *Scope and release note: The repository provides a selected environment subset and graph-based task synthesis; complete environment-discovery and reinforcement-learning reproduction are not established. These are tool-interface worlds.*
+
+- **[2026-03-05] WebFactory: Automated Compression of Foundational Language Intelligence into Grounded Web Agents** — `GUI`\
+  Synthesizes offline websites with versioned content and interaction logic, extracts navigation and workflow specifications, and uses state-changing tasks and replay checks to generate agent-training trajectories.\
+  [Paper](https://arxiv.org/abs/2603.05044) · [Repository](https://github.com/sicheng-fan/WebFactory)\
+  *Scope and release note: The release contains the website suite and browser-agent collection/evaluation source; a complete automated site-synthesis and reinforcement-learning reproduction was not established.*
 
 - **[2026-02-15] AutoWebWorld: Synthesizing Infinite Verifiable Web Environments via Finite State Machines** — `GUI`\
   Synthesizes finite-state specifications with action preconditions and effects, generates corresponding web applications, and replays graph-derived GUI trajectories to filter frontend execution failures.\
@@ -514,9 +537,24 @@ Official projects connected to code-defined worlds, including projects without a
   [Paper](https://arxiv.org/abs/2601.05808) · [Repository](https://github.com/RUC-NLPIR/EnvScaler)\
   *Scope and release note: Environment, scenario, interaction, and training source are available; these are executable tool-service models, not rendered GUI predictions. April 17, 2026 is a revision.*
 
+- **[2026-01-07] InfiniteWeb: Scalable Web Environment Synthesis for GUI Agent Training** — `GUI`\
+  Derives shared data models and APIs from website tasks, generates business logic and coordinated pages, repairs task-relevant behavior through execution tests, and constructs state-based reward evaluators.\
+  [Paper](https://arxiv.org/abs/2601.04126) · [Repository](https://github.com/microsoft/FIVE-UI-Evol/tree/main/InfiniteWeb)\
+  *Scope and release note: Generation and evaluation source are available and require external model services. Task-focused tests do not establish correctness of the whole website; the June 30 revision is not a new paper.*
+
+- **[2025-12-28] AutoForge: Automated Environment Synthesis for Agentic Reinforcement Learning** — `GUI`\
+  Generates database schemas and executable Python service operations from tool documentation, builds dependent tool sequences, and instantiates difficult tasks with verifiable outcomes for agent training.\
+  [Paper](https://arxiv.org/abs/2512.22857)\
+  *Scope and release note: These are tool-interface service environments with a separately simulated user, not next-screen GUI predictions. No official implementation destination was verified.*
+
 ## Executable scene and 4D world construction
 
 These papers construct executable environments; their goals differ from identifying unknown transition dynamics through interaction.
+
+- **[2026-11-25] Connecting AI Agents to Live Discrete Element Simulations via the Model Context Protocol** — `Construction`\
+  Connects coding agents to live discrete-element engines so they can write specimen and loading scripts, inspect evolving state, repair simulation failures, and calibrate contact parameters against laboratory measurements.\
+  [Paper](https://arxiv.org/abs/2611.33926) · [ITASCA repository](https://github.com/yusong652/itasca-mcp) · [YADE repository](https://github.com/yusong652/yade-mcp)\
+  *Scope and release note: Engine solvers and contact-law families are supplied. Server and bridge source are available, but require a separately installed simulation engine; this does not discover new dynamics laws.*
 
 - **[2026-11-24] RFW-W: Scaling Physical Asset Universes for Generative Embodied Simulation** — `Construction`\
   Constructs rigid assets with collision geometry, composed physical properties, and grasp annotations, then combines them with articulated and deformable collections for task-conditioned scene assembly and simulator checks.\
@@ -542,6 +580,11 @@ These papers construct executable environments; their goals differ from identify
   Rebuilds a contact-based simulation world and fixed success criterion from one robot demonstration, checks replay and visual agreement, and uses the shared world for skill-code improvement across embodiments.\
   [Paper](https://arxiv.org/abs/2611.31894) · [Project](https://zainzh.github.io/RESET/) · [Repository](https://github.com/ZainZh/RESET)\
   *Scope and release note: Rebuilt worlds, frozen programs, scorers, and test layouts are available; the construction and self-improvement pipeline, raw demonstrations, and real-robot stack are omitted. Replay checks do not identify all physical parameters.*
+
+- **[2026-11-24] Playfulness as Feedback for Agentic Game Development** — `Construction` · **Play2Evolve**\
+  Builds playable game programs, runs agent-authored playtests, and revises gameplay and generated visual assets through repeated diagnosis and evaluation while code retains input, collision, progression, and outcome state.\
+  [Paper](https://arxiv.org/abs/2611.33457) · [Project](https://showlab.github.io/Play2Evolve/) · [Source preparation snapshot](https://github.com/showlab/Play2Evolve)\
+  *Scope and release note: Godot and browser pipeline source is public, but the repository retains unfinished release checks and reports no live end-to-end validation of the extracted package. External benchmarks, model access, and a compatible H3 service are required.*
 
 - **[2026-11-23] RoboUniverse-10K: Toward the Scaling Era of Agentic Robotics via Real-to-Sim Environments** — `Construction`\
   Converts manipulation videos into Isaac Sim scene programs, reference controllers, and state verifiers, then uses independent fidelity, replay, and failure-case audits to repair and package resettable robot environments.\
@@ -1081,6 +1124,11 @@ These works are included for their explicit transition representations and verif
   Invents Python predicates that combine visual queries with logical computation, learns action preconditions and effects from successful and failed interactions, and uses the resulting abstract transition model for robot planning with supplied motor skills.\
   [Paper](https://arxiv.org/abs/2410.23156) · [Repository](https://github.com/BasisResearch/predicators)
 
+- **[2024-03-22] Safe Learning of PDDL Domains with Conditional Effects -- Extended Version** — `Related` · **Conditional-SAM**\
+  Eliminates incompatible action preconditions and conditional-effect hypotheses from observed transitions, then constructs conservative PDDL operators whose plans respect the unknown model under stated assumptions.\
+  [Paper](https://arxiv.org/abs/2403.15251)\
+  *Scope and release note: Safety is conditional on the paper’s representational and observation assumptions; it is not a general guarantee for learned environments. No official method implementation destination was verified.*
+
 - **[2023-06-22] From Word Models to World Models: Translating from Natural Language to the Probabilistic Language of Thought** — `Related`\
   Translates language into probabilistic programs for inference over possible worlds, including explicit physical simulation and goal-directed planning, and demonstrates extending or constructing small domain models from descriptions.\
   [Paper](https://arxiv.org/abs/2306.12672) · [Example-code repository](https://github.com/gabegrand/world-models)\
@@ -1094,11 +1142,61 @@ These works are included for their explicit transition representations and verif
   Compiles declarative state, effect, and reward specifications into queryable partial world models, allowing reinforcement-learning agents to combine supplied transition knowledge with learned behavior.\
   [Paper](https://arxiv.org/abs/2208.06448) · [Documentation](http://rlang.ai/master/) · [Repository](https://github.com/brownirl/rlang)
 
+- **[2021-12-08] TempAMLSI : Temporal Action Model Learning based on Grammar Induction** — `Related`\
+  Converts observed temporal action sequences into classical traces, learns preconditions and effects through grammar induction, and reconstructs durative PDDL operators that support overlapping actions.\
+  [Paper](https://arxiv.org/abs/2112.04286)\
+  *Scope and release note: Action names and constant durations are supplied; the learned model concerns temporal conditions and effects. No official implementation destination was verified.*
+
+- **[2020-11-26] AMLSI: A Novel Accurate Action Model Learning Algorithm** — `Related`\
+  Queries an environment with feasible and failing action sequences, induces a state machine, and refines lifted PDDL preconditions and effects to support planning from partial or noisy observations.\
+  [Paper](https://arxiv.org/abs/2011.13277)\
+  *Scope and release note: The model uses a supplied proposition/action vocabulary; no official implementation destination was verified.*
+
+- **[2020-01-30] STRIPS Action Discovery** — `Related`\
+  Compiles action-model induction into a planning problem, searches for STRIPS action signatures and effects from execution traces, and validates the recovered schemas on additional problem instances.\
+  [Paper](https://arxiv.org/abs/2001.11457)\
+  *Scope and release note: The input predicate vocabulary is supplied; action signatures may be unknown. February 2020 and March 2021 updates are revisions, and no official implementation destination was verified.*
+
 - **[2019-12-30] World Programs for Model-Based Learning and Planning in Compositional State and Action Spaces** — `Related`\
   Formulates world-program induction from graph-state transitions, learning graph-rewrite actions and transition feasibility for model-based search, with chemical synthesis planning as the worked application.\
   [Paper](https://arxiv.org/abs/1912.13007)
 
+- **[2019-12-11] Neural-Symbolic Descriptive Action Model from Images: The Search for STRIPS** — `Related` · **DSAMA**\
+  Learns discrete states and action clusters from image transitions, fits random-forest transition classifiers, and compiles their decisions into explicit PDDL preconditions and conditional effects.\
+  [Paper](https://arxiv.org/abs/1912.05492) · [Repository](https://github.com/guicho271828/latplan)\
+  *Scope and release note: The paper reports that large compiled formulas hinder standard planning despite accurate predictions. The shared LatPlan repository spans multiple papers; current code is not a pinned reproduction of this study.*
+
+- **[2017-04-29] Classical Planning in Deep Latent Space: Bridging the Subsymbolic-Symbolic Boundary** — `Related` · **LatPlan**\
+  Encodes images as propositional states and plans between visual goals using either an enumerated PDDL transition model or a learned neural successor function, then decodes intermediate states for inspection.\
+  [Paper](https://arxiv.org/abs/1705.00154) · [Repository](https://github.com/guicho271828/latplan)\
+  *Scope and release note: The PDDL variant enumerates observed transitions rather than learning generalized action rules; the neural variant uses an implicit successor model. The reported v1 is April 29, 2017, despite the May identifier.*
+
 ## Benchmarks and evaluation
+
+- **[2026-11-25] Real2SimLab: A Unified Platform for Real-to-Simulation Transfer** — `Benchmark`\
+  Standardizes simulation-program submissions across reconstruction benchmarks, freezes and reruns delivered programs outside the authoring session, and scores their outputs through benchmark-specific adapters while filtering training recordings for overlap.\
+  [Paper](https://arxiv.org/abs/2611.34849) · [Project](https://real2simhub.github.io/) · [Repository](https://github.com/Real2SimHub/Real2SimLab)\
+  *Scope and release note: Platform source is available; full runs require external benchmarks, runtimes, and model access. Its IRIS adapter measures trajectory reproduction rather than the original parameter-recovery objective.*
+
+- **[2026-11-25] Do We Still Need Reinforcement Learning When We Can Read the World Model?** — `Benchmark`\
+  Evaluates coding agents that read supplied environment dynamics and reward code to build policies, measuring control performance and development experience with and without access to the world implementation.\
+  [Paper](https://arxiv.org/abs/2611.34656)\
+  *Scope and release note: The world model is supplied source code; the generated artifact is a policy. Included for its direct test of readable-world-model utility, not as a dynamics-learning method. No official implementation destination was verified.*
+
+- **[2026-11-25] ProxyGenBench: Benchmarking Proxy-Guided Video Generation** — `Benchmark`\
+  Tests whether video generators preserve motion and event structure from coarse animated scenes, complete missing visual detail, and bind text, image, and audio references to the intended entities across controlled proxy variations.\
+  [Paper](https://arxiv.org/abs/2611.34457) · [Project](https://2kxx.github.io/ProxyGenBench/) · [Announcement repository](https://github.com/2kxx/ProxyGenBench)\
+  *Scope and release note: The benchmark explicitly includes agent-authored 3D animation and game proxies. Project demonstrations are available; evaluation code and the dataset are announced for after review.*
+
+- **[2026-11-25] SysBio-SR: Benchmarking Symbolic Regression for Trajectory Fidelity and Mechanism Recovery in Systems Biology** — `Benchmark`\
+  Evaluates recovered biological ODE programs by rerunning them from observed and shifted initial conditions, separately scores reaction-mechanism recovery, and introduces a search over structured kinetic models.\
+  [Paper](https://arxiv.org/abs/2611.34106) · [Repository](https://github.com/hengrao02/SysBio-SR-KineSelect) · [Dataset](https://huggingface.co/datasets/HengRao/SysBio-SR)\
+  *Scope and release note: Source and benchmark files are available. Trajectory scoring covers 198 systems, while reaction scoring is limited to 161; matching trajectories does not establish recovery of the true mechanism.*
+
+- **[2026-11-25] Asset4D-Bench: Benchmarking Coding Agents for Editable 3D and 4D Reconstruction** — `Benchmark`\
+  Asks coding agents to reconstruct editable Blender scenes from visual references, independently reopens their outputs, and measures geometry, motion, contact, support, identity, and event order against native reference states.\
+  [Paper](https://arxiv.org/abs/2611.33728)\
+  *Scope and release note: Starter-asset conditions differ in more than mesh availability, and archived execution differences limit causal comparisons. No official benchmark implementation or dataset destination was verified.*
 
 - **[2026-11-24] SofaSpace: A Benchmark for Executable Visual Spatial Reasoning in Continuous Motion and Environment Construction** — `Benchmark`\
   Evaluates motion plans and generated layouts through continuous full-body collision checks, timed gates, and coordinated transport constraints, distinguishing endpoint agreement from executable paths and functional environment design.\
@@ -1397,6 +1495,16 @@ These works are included for their explicit transition representations and verif
 Also see **CWMB** in the GIF-MCTS paper, **CombatStateBench** in Programmable World Model, and **Code4D** in Code2Worlds. These are not counted as additional papers.
 
 ## Adjacent renderers, perspectives, and data engines
+
+- **[2026-11-25] Neural Rendering Compiler: Generative Video Models as Programmable Renderers** — `Perspective` · **NeurCo**\
+  Profiles frozen video models, compiles requested controls into compatible prompts or visual conditions, and generates checked Blender motion programs when proxy video or depth provides a suitable rendering interface.\
+  [Paper](https://arxiv.org/abs/2611.34680) · [Project](https://openraiser.github.io/NeurCo/) · [Announcement repository](https://github.com/OpenRaiser/NeurCo)\
+  *Scope and release note: The executable-world connection is its Blender proxy backend; other paths only rewrite prompts or construct images. The linked repository contains project assets and documentation, with placeholder author fields and no verified compiler implementation.*
+
+- **[2026-11-25] DemoFoundry: Toward Scalable Photorealistic Robot Data with Coding Agents and Generative Rendering** — `Perspective`\
+  Reconstructs task-relevant simulation scenes and interaction programs, executes them to obtain synchronized robot actions and proxy videos, and trains a renderer that converts these rollouts into visual demonstrations for policy learning.\
+  [Paper](https://arxiv.org/abs/2611.34671) · [Project](https://robbinw.github.io/DemoFoundry-Web/) · [Repository](https://github.com/RobbinW/DemoFoundry) · [Renderer adapter](https://huggingface.co/RobbinWang123/demofoundry-h3) · [Dataset](https://huggingface.co/datasets/RobbinWang123/DemoFoundry)\
+  *Scope and release note: A stacking example, rendering source, adapter weights, and paired-video files are available; external models and simulation dependencies remain required. Simulator action labels do not guarantee that every generated frame matches the executed state.*
 
 - **[2026-11-24] A Mesh to Remember: Persistent Appearance for Interactive Video Worlds** — `Perspective` · **M2R**\
   Renders code-authored mesh worlds while storing generated features in object-local surface cells, retrieving shared appearance memory as objects move, viewpoints return, or multiple agents observe the same surfaces.\

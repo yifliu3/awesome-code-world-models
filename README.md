@@ -13,9 +13,9 @@
 
 </div>
 
-**322 papers** and **11 project releases**.
+**339 papers** and **11 project releases**.
 
-**Last literature search: November 27, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
+**Last literature search: November 28, 2026.** This is a curated snapshot, not an exhaustive survey or an automatically maintained feed.
 
 ## Contents
 
@@ -259,6 +259,11 @@ Official projects connected to code-defined worlds, including projects without a
   Uses language-model operator priors to guide symbolic regression of executable ODEs, then selects new initial conditions through disagreement between candidate rollouts and queries a supplied trajectory oracle.\
   [Paper](https://arxiv.org/abs/2606.25039) · [Repository](https://github.com/scientific-discovery/LLM-ACES)
 
+- **[2026-05-07] AI CFD Scientist: Toward Open-Ended Computational Fluid Dynamics Discovery with Physics-Aware AI Agents** — `Core`\
+  Proposes and revises executable fluid-model mechanisms through case-local C++ libraries and runtime equation corrections, then compares solver outputs and flow-field diagnostics against reference behavior.\
+  [Paper](https://arxiv.org/abs/2605.06607) · [Repository](https://github.com/csml-rpi/AI-CFD-Scientist)\
+  *Scope and release note: The framework also supports ordinary parameter sweeps; inclusion concerns its physical-model code pathway. Model-code source is available, but the documented starter cases and bundled Foam-Agent were not verified in the inspected release; external solver, build, rendering, and model access is required.*
+
 - **[2026-03-21] LLM-ODE: Data-driven Discovery of Dynamical Systems with Large Language Models** — `Core`\
   Uses language-model proposals to evolve symbolic ODE expressions, fits their constants, and combines candidate derivatives into systems ranked by complexity and numerically integrated trajectory error.\
   [Paper](https://arxiv.org/abs/2603.20910) · [Repository](https://github.com/gryaklab/llm-ode)
@@ -294,6 +299,11 @@ Official projects connected to code-defined worlds, including projects without a
 - **[2025-05-17] MLLM-based Discovery of Intrinsic Coordinates and Governing Equations from High-Dimensional Data** — `Core` · **VER**\
   Uses a multimodal model to identify physical coordinates or latent dimension and propose symbolic function libraries, fits sparse dynamical equations, and integrates the discovered laws to extrapolate trajectories.\
   [Paper](https://arxiv.org/abs/2505.11940)
+
+- **[2025-04-03] Grammar-based Ordinary Differential Equation Discovery** — `Core` · **GODE**\
+  Searches a learned embedding of grammar-defined equation structures, fits their constants to smoothed observations, and solves the resulting symbolic ODEs to evaluate recovered temporal dynamics.\
+  [Paper](https://arxiv.org/abs/2504.02630)\
+  *Scope and release note: The grammar and expected equation order constrain discovery; matching a trajectory does not uniquely identify its governing mechanism. No official implementation destination was verified.*
 
 - **[2024-05-13] LLM4ED: Large Language Models for Automatic Equation Discovery** — `Core`\
   Generates symbolic ODE and PDE expressions, fits their constants against observed derivatives, and alternates local revisions with evolutionary search to recover governing laws; the evaluation emphasizes equation recovery rather than interactive planning.\
@@ -377,6 +387,11 @@ Official projects connected to code-defined worlds, including projects without a
   Learns persistent executable transition rules from interaction in a game with misleading rule labels, using failed code revisions to organize preservation counterexamples and guide further exploration.  
   [Paper](https://arxiv.org/abs/2605.16725) · [Repository](https://github.com/ssw03270/BABAinWonderland_NeurIPS-26)
 
+- **[2026-05-10] Workspace Optimization: How to Train Your Agent** — `Core` · **DreamTeam**\
+  Maintains executable observation-rendering and game-transition programs, routes prediction failures to the responsible workspace components, and checks revisions against earlier transitions before using the model for planning.\
+  [Paper](https://arxiv.org/abs/2605.09650)\
+  *Scope and release note: Observation parsing is generated per step, while rendering and transition functions persist as callable code. No official method implementation destination was verified.*
+
 - **[2026-05-06] Executable World Models for ARC-AGI-3 in the Era of Coding Agents** — `Core`\
   Maintains a Python game model through a scripted controller, revises it against recorded observations, prompts simpler abstractions, and executes plans checked through the model.\
   [Paper](https://arxiv.org/abs/2605.05138) · [Repository](https://github.com/astroseger/arc-3-agents-baseline1)
@@ -400,6 +415,11 @@ Official projects connected to code-defined worlds, including projects without a
 - **[2025-10-06] Code World Models for General Game Playing** — `Core`\
   Translates game rules and trajectories into Python transition, legal-action, and termination functions, combining the resulting simulator with tree search, value heuristics, and hidden-state inference.\
   [Paper](https://arxiv.org/abs/2510.04542)
+
+- **[2025-08-26] Language and Experience: A Computational Model of Social Learning in Complex Tasks** — `Core`\
+  Infers a distribution over executable game-rule programs from observed transitions and linguistic advice, then simulates candidate theories to guide exploration, planning, and advice for subsequent players.\
+  [Paper](https://arxiv.org/abs/2509.00074) · [Project](https://cedriccolas.com/demos/language_and_experience) · [Repository](https://github.com/ccolas/language_and_experience)\
+  *Scope and release note: Uses a supplied VGDL rule vocabulary. Source and game definitions are available; language-based conditions require external model weights. August 26 is the reported v1 date despite the September identifier.*
 
 - **[2025-08-15] Finite Automata Extraction: Low-data World Model Learning as Programs from Gameplay Video** — `Core` · **FAE**  
   Extracts neuro-symbolic world models from gameplay video as programs in the Retro Coder domain-specific language.  
@@ -489,6 +509,11 @@ Official projects connected to code-defined worlds, including projects without a
   Predicts reachable next-screen code updates using transition-constrained retrieval, executable HTML, and generated visual assets.  
   [Paper](https://arxiv.org/abs/2608.05891)
 
+- **[2026-05-24] ScaleWoB: Guiding GUI Agents with Coding Agents via Large-Scale Environmental Synthesis** — `GUI`\
+  Builds browser-executable app environments from descriptions and visual references, then adds persistent interaction state, task validators, and reset interfaces through separate generation and repair stages.\
+  [Paper](https://arxiv.org/abs/2605.25160) · [Project](https://scalewob.github.io) · [SDK repository](https://github.com/ScaleWoB/ScaleWoB)\
+  *Scope and release note: The released SDK accesses hosted environments; a complete synthesis pipeline and downloadable app corpus were not verified. Quantitative evaluation covers mobile tasks; other platforms are demonstrations.*
+
 - **[2026-05-18] EnvFactory: Scaling Tool-Use Agents via Executable Environments Synthesis and Robust RL** — `GUI`\
   Builds persistent database schemas and executable Python tools from source-grounded service descriptions, repairs them through generated tests, and samples tool dependencies to construct agent-training tasks.\
   [Paper](https://arxiv.org/abs/2605.18703) · [Repository](https://github.com/LARK-AI-Lab/EnvFactory)\
@@ -556,6 +581,11 @@ These papers construct executable environments; their goals differ from identify
   [Paper](https://arxiv.org/abs/2611.33926) · [ITASCA repository](https://github.com/yusong652/itasca-mcp) · [YADE repository](https://github.com/yusong652/yade-mcp)\
   *Scope and release note: Engine solvers and contact-law families are supplied. Server and bridge source are available, but require a separately installed simulation engine; this does not discover new dynamics laws.*
 
+- **[2026-11-25] Lab2Sim: Agentic Generation of Interactive Laboratory Equipment from Operation Videos** — `Construction`\
+  Extracts equipment requirements from operation videos, constructs editable Blender assets, and repairs their simulation instances with physical properties, coupled joints, and executable laboratory mechanisms.\
+  [Paper](https://arxiv.org/abs/2611.33705)\
+  *Scope and release note: SAPIEN and RoboTwin supply the physics; the generated assets support mechanisms such as screw closures and valve-controlled drainage. No official implementation destination was verified.*
+
 - **[2026-11-24] RFW-W: Scaling Physical Asset Universes for Generative Embodied Simulation** — `Construction`\
   Constructs rigid assets with collision geometry, composed physical properties, and grasp annotations, then combines them with articulated and deformable collections for task-conditioned scene assembly and simulator checks.\
   [Paper](https://arxiv.org/abs/2611.33013) · [Project](https://roboflywheel-com.github.io/RoboFlywheel-World/) · [Repository](https://github.com/RoboFlywheel-com/RoboFlywheel-World)\
@@ -585,6 +615,11 @@ These papers construct executable environments; their goals differ from identify
   Builds playable game programs, runs agent-authored playtests, and revises gameplay and generated visual assets through repeated diagnosis and evaluation while code retains input, collision, progression, and outcome state.\
   [Paper](https://arxiv.org/abs/2611.33457) · [Project](https://showlab.github.io/Play2Evolve/) · [Source preparation snapshot](https://github.com/showlab/Play2Evolve)\
   *Scope and release note: Godot and browser pipeline source is public, but the repository retains unfinished release checks and reports no live end-to-end validation of the extracted package. External benchmarks, model access, and a compatible H3 service are required.*
+
+- **[2026-11-24] Support2Sim: Visually Faithful Real2Sim with Stable Object Supports** — `Construction`\
+  Reconstructs collision-bearing scenes from a single image, infers object-support relationships, and refines poses through physics rollouts to produce stable environments for simulated robot interaction.\
+  [Paper](https://arxiv.org/abs/2611.32727) · [Project](https://support2sim.github.io/)\
+  *Scope and release note: This configures scenes under supplied contact dynamics rather than synthesizing transition laws. Robot-policy experiments further adjust scene placement and physical parameters; implementation code is marked coming soon.*
 
 - **[2026-11-23] RoboUniverse-10K: Toward the Scaling Era of Agentic Robotics via Real-to-Sim Environments** — `Construction`\
   Converts manipulation videos into Isaac Sim scene programs, reference controllers, and state verifiers, then uses independent fidelity, replay, and failure-case audits to repair and package resettable robot environments.\
@@ -797,6 +832,11 @@ These papers construct executable environments; their goals differ from identify
   [Paper](https://arxiv.org/abs/2609.35134) · [Project](https://videophysedit.github.io/) · [Announcement repository](https://github.com/Hammour-steak/VideoPhysEdit) · [Benchmark code](https://github.com/Hammour-steak/PCVE-RigidBench) · [Benchmark data](https://huggingface.co/datasets/ccmoony/PCVE-RigidBench)\
   *Release note: The method implementation remains marked coming soon as of November 12, 2026; benchmark construction/evaluation source and data are available separately.*
 
+- **[2026-09-28] CoDimRecon: Agentic Reconstruction of Sim-Ready 3D Scenes with Deformable Curves, Surfaces, and Volumes** — `Construction`\
+  Constructs editable rigid, articulated, and deformable scenes, initializes geometry-specific simulation models, and uses behavioral probes to revise motion, geometry, numerical settings, or material mechanisms.\
+  [Paper](https://arxiv.org/abs/2609.36024) · [Project](https://shuzhaoxie.github.io/CoDimRecon/)\
+  *Scope and release note: Physical parameters are effective simulation configurations rather than recovered measurements. Project demonstrations are available; no official method implementation destination was verified.*
+
 - **[2026-09-27] WorldAgent: Verification-Guided Agentic Physical World Construction** — `Construction`\
   Expands text into entity contracts, scene relations, and causal event requirements, then constructs and simulates the world while geometry and state checks guide specification repair and re-execution.\
   [Paper](https://arxiv.org/abs/2609.33208)
@@ -819,6 +859,11 @@ These papers construct executable environments; their goals differ from identify
   Translates a monocular image into object and scene programs with geometry, articulation, and physical properties, refining them through object-level and assembled-scene simulation feedback.\
   [Paper](https://arxiv.org/abs/2608.24212) · [Project](https://neoworldproject.github.io/neoworld-pro-website/) · [Repository](https://github.com/NeoWorldProject/NeoWorld-Pro)\
   *Scope and release note: Source is available with external Blender, Isaac Sim, model-service, and GPU requirements. The paper covers rigid and articulated scenes under quasi-static physics; October and November revisions are not new papers.*
+
+- **[2026-08-19] Beyond Placement and Articulation: Usage-Driven Code Scenes for Embodied Interaction** — `Construction` · **RoomWright**\
+  Generates room and asset programs around intended uses, compiles cross-object dependencies into trigger–condition–effect rules, and executes the resulting state changes in an embodied simulator.\
+  [Paper](https://arxiv.org/abs/2608.18840)\
+  *Scope and release note: Interaction rules extend placement and articulation under supplied engine physics. No official implementation destination was verified.*
 
 - **[2026-08-18] aDSL: Agentic 3D Creation via Joint Agent-Program Design** — `Construction`\
   Generates Python-embedded scene and asset programs with named part hierarchies, spatial constraints, and explicit joint axes and limits, repairing them through execution and exporting articulated models to URDF.\
@@ -1056,6 +1101,11 @@ These works are included for their explicit transition representations and verif
   [Paper](https://arxiv.org/abs/2608.00143)\
   *Scope and release note: Plan validity and cost are identical by construction in the relabeling comparison, and one chain-ordering dependency is manually imposed. No official method implementation destination was verified.*
 
+- **[2026-07-09] GATS: Graph-Augmented Tree Search with Layered World Models for Efficient Agent Planning** — `Related`\
+  Searches over symbolic states using supplied action preconditions and effects, transition statistics from execution logs, and cached language-model predictions when the lower-cost layers lack coverage.\
+  [Paper](https://arxiv.org/abs/2607.08894) · [Repository](https://github.com/MMWilliams/gats)\
+  *Scope and release note: The repository separates its current MCTS implementation from the paper’s early synthetic evaluation and withdraws broad success and planning-superiority interpretations of those experiments. Its verification record also reports legacy test failures.*
+
 - **[2026-07-07] Hypothesis-driven Model Expansion under Uncertainty for Open-World Robot Planning** — `Related` · **HUME**\
   Expands a symbolic world model with hypotheses about missing objects, attributes, and action effects, plans verification alongside task actions through PDDL, and rejects or revises hypotheses using execution feedback.\
   [Paper](https://arxiv.org/abs/2607.06501) · [Project](https://open-world-planning.github.io/) · [Repository](https://github.com/threefruits/HUME)\
@@ -1112,6 +1162,11 @@ These works are included for their explicit transition representations and verif
   Learns Python state predicates and symbolic causal processes with stochastic delays, combining Bayesian inference and language-model proposals to plan around both robot actions and autonomous mechanisms such as heating or falling dominoes.\
   [Paper](https://arxiv.org/abs/2509.26255) · [Repository](https://github.com/BasisResearch/predicators)
 
+- **[2025-06-25] PSALM-V: Automating Symbolic Planning in Interactive Visual Environments with Large Language Models** — `Related`\
+  Infers PDDL problem states and action preconditions and effects from visual interaction, maintains competing rule hypotheses, and tests sampled domains through symbolic lookahead and environment execution.\
+  [Paper](https://arxiv.org/abs/2506.20097) · [Project](https://psalmv.github.io/)\
+  *Scope and release note: Action signatures and low-level execution capabilities are supplied. The project offers demonstrations and supplementary material; no working method-code destination was verified.*
+
 - **[2025-04-22] WALL-E 2.0: World Alignment by NeuroSymbolic Learning improves World Model-based LLM Agents** — `Related`  
   Extracts symbolic environment knowledge from exploration and encodes it as executable rules to align an LLM world model for model-predictive control.  
   [Paper](https://arxiv.org/abs/2504.15785) · [Repository](https://github.com/elated-sawyer/WALL-E)
@@ -1124,10 +1179,25 @@ These works are included for their explicit transition representations and verif
   Invents Python predicates that combine visual queries with logical computation, learns action preconditions and effects from successful and failed interactions, and uses the resulting abstract transition model for robot planning with supplied motor skills.\
   [Paper](https://arxiv.org/abs/2410.23156) · [Repository](https://github.com/BasisResearch/predicators)
 
+- **[2024-07-17] Leveraging Environment Interaction for Automated PDDL Translation and Planning with Large Language Models** — `Related`\
+  Generates PDDL domains and problem descriptions from language, probes discrepancies through exploratory action sequences, and repairs symbolic transition rules using environment feedback.\
+  [Paper](https://arxiv.org/abs/2407.12979) · [Repository](https://github.com/BorealisAI/llm-pddl-planning)\
+  *Scope and release note: Source and example domains are available; execution requires external planners, validators, and model access. The November 2024 update is a revision of the July submission.*
+
+- **[2024-04-15] Action Model Learning with Guarantees** — `Related` · **VSLAM**\
+  Tracks the precondition and effect hypotheses consistent with observed transitions, then extracts symbolic action models that under- or over-approximate the unknown transition system for planning.\
+  [Paper](https://arxiv.org/abs/2404.09631)\
+  *Scope and release note: The guarantees assume fully observed classical-planning dynamics. Sound models can omit feasible plans, while complete models can admit infeasible ones; no official implementation destination was verified.*
+
 - **[2024-03-22] Safe Learning of PDDL Domains with Conditional Effects -- Extended Version** — `Related` · **Conditional-SAM**\
   Eliminates incompatible action preconditions and conditional-effect hypotheses from observed transitions, then constructs conservative PDDL operators whose plans respect the unknown model under stated assumptions.\
   [Paper](https://arxiv.org/abs/2403.15251)\
   *Scope and release note: Safety is conditional on the paper’s representational and observation assumptions; it is not a general guarantee for learned environments. No official method implementation destination was verified.*
+
+- **[2023-12-17] Learning Safe Numeric Planning Action Models** — `Related` · **N-SAM / N-SAM\***\
+  Constructs numeric action preconditions from observed-state convex hulls, estimates numeric effects by regression, and translates the learned constraints and updates into executable planning domains.\
+  [Paper](https://arxiv.org/abs/2312.10705) · [Repository](https://github.com/SPL-BGU/numeric-sam)\
+  *Scope and release note: Safety depends on the stated observation, function-class, and numerical assumptions. Source is available and requires external planning tools; July 2025 is a revision, not a new paper.*
 
 - **[2023-06-22] From Word Models to World Models: Translating from Natural Language to the Probabilistic Language of Thought** — `Related`\
   Translates language into probabilistic programs for inference over possible worlds, including explicit physical simulation and goal-directed planning, and demonstrates extending or constructing small domain models from descriptions.\
@@ -1141,6 +1211,11 @@ These works are included for their explicit transition representations and verif
 - **[2022-08-12] RLang: A Declarative Language for Describing Partial World Knowledge to Reinforcement Learning Agents** — `Related`\
   Compiles declarative state, effect, and reward specifications into queryable partial world models, allowing reinforcement-learning agents to combine supplied transition knowledge with learned behavior.\
   [Paper](https://arxiv.org/abs/2208.06448) · [Documentation](http://rlang.ai/master/) · [Repository](https://github.com/brownirl/rlang)
+
+- **[2022-04-16] What If: Generating Code to Answer Simulation Questions** — `Related` · **SimQA**\
+  Translates chemical-process descriptions and changed conditions into executable DSL programs with variables, loops, and branches, training generation with syntactic similarity and agreement between intermediate program states.\
+  [Paper](https://arxiv.org/abs/2204.07835) · [Repository](https://github.com/galprz/SimQA)\
+  *Scope and release note: These are question-specific process simulations under supplied textual rules, not recovered chemical kinetics. DSL execution and training source are available; dataset and pretrained-model downloads are external and were not verified.*
 
 - **[2021-12-08] TempAMLSI : Temporal Action Model Learning based on Grammar Induction** — `Related`\
   Converts observed temporal action sequences into classical traces, learns preconditions and effects through grammar induction, and reconstructs durative PDDL operators that support overlapping actions.\
@@ -1484,6 +1559,11 @@ These works are included for their explicit transition representations and verif
   Requires models to reconstruct observed physical scenes as executable simulation programs, then evaluates rendered appearance and motion across physics and graphics backends; VisPhyBench exposes inferred mechanisms rather than relying only on verbal answers.\
   [Paper](https://arxiv.org/abs/2602.13294) · [Project](https://tiger-ai-lab.github.io/VisPhyWorld/) · [Repository](https://github.com/TIGER-AI-Lab/VisPhyWorld)
 
+- **[2025-10-16] Compositional Machine Design as Program Synthesis with LLMs** — `Benchmark` · **BesiegeField**\
+  Evaluates programs that assemble and actuate mechanical components, compiles them into simulated machines, and returns physical rollout rewards and state feedback for iterative design or reinforcement learning.\
+  [Paper](https://arxiv.org/abs/2510.14980) · [Project](https://besiegefield.github.io/) · [Repository](https://github.com/Godheritage/BesiegeField)\
+  *Scope and release note: Besiege supplies the physics and evaluation uses a fixed actuation schedule. Source is available, but deployment requires the purchased game and a separately linked plugin; the plugin binary was not verified.*
+
 - **[2025-02-18] Text2World: Benchmarking Large Language Models for Symbolic World Model Generation** — `Benchmark`  
   Evaluates text-to-PDDL world-model generation across diverse domains with multiple execution-based criteria.  
   [Paper](https://arxiv.org/abs/2502.13092) · [Project](https://text-to-world.github.io/) · [Repository](https://github.com/Aaron617/text2world)
@@ -1594,6 +1674,11 @@ Also see **CWMB** in the GIF-MCTS paper, **CombatStateBench** in Programmable Wo
   Builds paired engine-rendered and enhanced videos through keyframe editing and structural propagation, then trains an adapter to translate game-engine sequences while retaining their scene layout and motion.\
   [Paper](https://arxiv.org/abs/2603.23462) · [Project](https://danacohen95.github.io/RealMaster/)\
   *Scope and release note: The explicit connection is rendering existing game worlds; this does not discover executable dynamics or establish an interactive streaming runtime. No official implementation or weights destination was verified.*
+
+- **[2026-01-29] Coarse-to-Real: Generative Rendering for Populated Dynamic Scenes** — `Perspective` · **C2R**\
+  Conditions video generation on coarse simulation or game renders that specify scene layout, camera motion, and crowd trajectories, while learning appearance and finer visual motion from real footage.\
+  [Paper](https://arxiv.org/abs/2601.22301) · [Project](https://gonzalognogales.github.io/coarse2real/) · [Inference repository](https://github.com/GonzaloGNogales/coarse2real/)\
+  *Scope and release note: Inference source is available; the model inventory is manually gated and external Wan2.1 and DINOv3 assets are required. The method is non-autoregressive, with interactive real-time rendering left for future work.*
 
 ## Research questions
 
